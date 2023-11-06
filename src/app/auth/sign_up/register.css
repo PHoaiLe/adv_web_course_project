@@ -1,4 +1,24 @@
 
+.register-back-homepage
+{
+    background-color: transparent;
+    margin-left: 15px;
+    margin-top: 10px;
+    width: min-content;
+    height: min-content;
+    background-image: url('../../../../public/arrow-back-ios.svg');
+    alt: 'back to homepage';
+    width: 30px;
+    color: transparent;
+}
+
+.register-back-homepage:hover
+{
+    background-color: aliceblue;
+    border-radius: 25px;
+}
+
+
 .register-frame
 {
     height: 100%;
@@ -49,6 +69,11 @@
     margin-bottom: 20px;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.register-form input:hover
+{
+    background-color: aliceblue;
 }
 
 .register-form label
