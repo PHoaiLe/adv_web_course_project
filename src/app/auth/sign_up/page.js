@@ -15,8 +15,8 @@ function Page()
             <div className='register-form-frame'>
                 <div className='register-form-wrapper'>
                     <div className='register-retangle'>
-                        <p>Register</p>
-                        <Link className='register-to-login-link' href='/auth/login'>I had an account</Link>
+                        <p>Sign up</p>
+                        <Link className='register-to-login-link' href='/auth/sign_in'>I had an account</Link>
                     </div>
 
                     <div className='register-form'>
@@ -34,7 +34,7 @@ function Page()
                                 <input key={confirmPassword} type='password'/>
                             </form>
                             <br/>
-                            <button key={registerButtonKey}>Register</button>
+                            <button key={registerButtonKey}>Sign up</button>
                             <br/>
                             <div>
 
