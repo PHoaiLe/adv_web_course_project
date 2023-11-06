@@ -2,7 +2,7 @@
 .top-nav-bar-frame
 {
     overflow: hidden;
-        background-color: black;
+    /* background-color: black; */
     height: max-content;
     position: fixed;
     width: 100%;
@@ -13,7 +13,7 @@
 .top-nav-bar-frame li
 {
     display: inline;
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
 }
 
 
@@ -35,7 +35,7 @@
 .top-nav-bar-frame-functions
 {
     float: inline-end;
-    background-color: aquamarine ;
+    /* background-color: aquamarine ; */
     width: 50%;
 }
 
