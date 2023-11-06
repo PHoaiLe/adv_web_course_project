@@ -22,7 +22,7 @@ function Page()
                                 <input key={password} type='password'/>
                             </form>
                             <br/>
-                            <button key={loginButtonKey}>Login</button>
+                            <button key={loginButtonKey}>Sign in</button>
                             <br/>
                             <div>
 
@@ -31,8 +31,8 @@ function Page()
                     </div>
                     
                     <div className='login-retangle'>
-                        <p>Login</p>
-                        <Link className='login-to-register' href='/auth/register'>I don't have an account</Link>
+                        <p>Sign in</p>
+                        <Link className='login-to-register' href='/auth/sign_up'>I don't have an account</Link>
                     </div>
                 </div>
             </div>
