@@ -1,5 +1,6 @@
 import './register.css'
 import Link from 'next/link';
+import '../../../globals.css'
 
 
 function Page()

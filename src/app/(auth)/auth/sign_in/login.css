@@ -1,25 +1,24 @@
 
-.register-back-homepage
+.login-back-homepage
 {
     background-color: transparent;
     margin-left: 15px;
     margin-top: 10px;
     width: min-content;
     height: min-content;
-    background-image: url('../../../../public/arrow-back-ios.svg');
+    background-image: url('../../../../../public/arrow-back-ios.svg');
     alt: 'back to homepage';
     width: 30px;
     color: transparent;
 }
 
-.register-back-homepage:hover
+.login-back-homepage:hover
 {
-    background-color: rgb(5, 41, 72);
+    background-color: aliceblue;
     border-radius: 25px;
 }
 
-
-.register-frame
+.login-frame
 {
     height: 100%;
     width: 100%;
@@ -31,7 +30,7 @@
 }
 
 
-.register-form-frame
+.login-form-frame
 {
     display: flex;
     justify-content: center;
@@ -44,16 +43,14 @@
     box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.25);
 }
 
-.register-form
+.login-form
 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px; /* Độ cao tối đa của phần tử */
-    overflow-y: auto; 
 }
 
-.register-form-wrapper
+.login-form-wrapper
 {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -61,10 +58,10 @@
     height: 100%;
 }
 
-.register-form input
+.login-form input
 {
     width: 309px;
-    height: 35px;
+    height: 60px;
     border-radius: 15px;
     background: lightgrey;
     margin-top: 4px;
@@ -73,12 +70,12 @@
     padding-right: 5px;
 }
 
-.register-form input:hover
+.login-form input:hover
 {
     background-color: #A2C3F4;
 }
 
-.register-form label
+.login-form label
 {
     color: #000;
     font-family: Arial;
@@ -88,7 +85,7 @@
     line-height: normal;
 }
 
-.register-form button
+.login-form button
 {
     color: #000;
     text-align: center;
@@ -103,21 +100,21 @@
     height: 40px;
 }
 
-.register-form button:hover{
+.login-form button:hover{
     border: 2px solid black;
 }
 
-.register-retangle
+.login-retangle
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 25px 0px 0px 25px;
-    background: #f64848;
+    border-radius: 0px 25px 25px 0px;
+    background: #f0af0a;
 }
 
-.register-retangle p
+.login-retangle p
 {
     color: #000;
     text-align: center;
@@ -126,10 +123,10 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-top: 20px;
+    margin-top: 20px
 }
 
-.register-retangle t
+.login-retangle ti
 {
     color: #000;
     text-align: center;
@@ -141,7 +138,19 @@
     margin-top: 10px;
 }
 
-.register-retangle button {
+.forgot-password{
+    display: flex;
+    font-family: Arial;
+    font-size: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.forgot-password:hover{
+    color: blue;
+}
+
+.login-retangle button {
     color: black;
     text-align: center;
     font-family: Arial;
@@ -151,29 +160,20 @@
     line-height: normal;
     border-radius: 25px;
     border: 2px solid white;
-    background: #f64848;
+    background: #f0af0a;
     width: 309px;
     height: 40px;
     margin-top: 30px;
   }
   
-.register-retangle button:hover {
-    background-color: #f0af0a; /* Màu nền khi hover qua nút */
+.login-retangle button:hover {
+    background-color: aqua; /* Màu nền khi hover qua nút */
   }
 
-.form-content {
-    padding: 30px; /* Khoảng cách nội dung với mép phần tử */
-}
-
-input:focus::placeholder {
-    color: transparent; /* Màu chữ cho các nhãn bên trong ô input */
-    font-size: 20px; /* Kích thước chữ cho các nhãn bên trong ô input */
-}
-
-.create-account-title {
-    font-size: 35px;
+.sign-in-title {
+    font-size: 50px;
     color: #333;
-    margin-bottom: 8px;
+    margin-bottom: 30px;
     display: block;
     text-align: center;
     font-family: Arial;
