@@ -11,6 +11,8 @@ function Page()
     let password = 'register_password_key'
     let confirmPassword = 'register_confirm_password_key'
     let registerButtonKey = 'register_button_key'
+    let signInButtonKey = 'login_sign_in_button_key'
+    let phoneNumber = 'register_phone_number_key'
 
     return(
         <>
@@ -21,23 +23,21 @@ function Page()
                 <div className='register-form-frame'>
                     <div className='register-form-wrapper'>
                         <div className='register-retangle'>
-                            <p>Sign up</p>
-                            <Link className='register-to-login-link' href='/auth/sign_in'>I had an account</Link>
+                            <p>Welcome Back!</p>
+                            <t>To keep connected with us, login with your personal info</t>
+                            <Link key={signInButtonKey} href='/auth/sign_in'><button>Sign In</button></Link>
                         </div>
 
                         <div className='register-form'>
-                            <div>
+                            <div className='font-content'>
+                            <div className="create-account-title">Create account</div>
                                 <form>
-                                    <label>Full name</label> <br/>
-                                    <input key={fullnameKey} type='text'/> <br/>
-                                    <label>Username</label> <br/>
-                                    <input key={usernameKey} type='text'/> <br/>
-                                    <label>Email</label> <br/>
-                                    <input key={emailKey} type='text'/> <br/>
-                                    <label>Password</label> <br/>
-                                    <input key={password} type='password'/> <br/>
-                                    <label>Confirm Password</label> <br/>
-                                    <input key={confirmPassword} type='password'/>
+                                    <input key={fullnameKey} type='text' placeholder='Full Name'/> <br/>
+                                    <input key={usernameKey} type='text' placeholder='Username'/> <br/>
+                                    <input key={emailKey} type='text' placeholder='Email'/> <br/>
+                                    <input key={password} type='password' placeholder='Password'/> <br/>
+                                    <input key={confirmPassword} type='password' placeholder='Confirm Password'/> <br/>
+                                    <input key={phoneNumber} type='string' placeholder='Phone Number'/>
                                 </form>
                                 <br/>
                                 <button key={registerButtonKey}>Sign up</button>
