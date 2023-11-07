@@ -4,6 +4,7 @@ import './register.css'
 // import '../../../globals.css'
 
 
+
 function Page()
 {
     return(
