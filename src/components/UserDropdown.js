@@ -5,7 +5,7 @@ import { createPopper } from "@popperjs/core";
 import {UserOutlined} from '@ant-design/icons'
 import Link from "next/link";
 
-export default function UserDropdown()
+export default function UserDropdown({UserAvatar, UserName})
 {
   {
     // dropdown props
@@ -25,9 +25,8 @@ export default function UserDropdown()
     };
     return (
       <>
-        <a
-          className="text-black-500 block"
-          href="#pablo"
+        <button
+          className="text-black-500 block w-40"
           ref={btnDropdownRef}
           onClick={e =>
           {
@@ -36,16 +35,17 @@ export default function UserDropdown()
           }}
         >
           <div className="items-center flex">
-            <span className="w-12 h-12 text-sm bg-black-200 inline-flex items-center justify-center rounded-full">
-              {/* <img
-                alt="..."
+            <span className="w-12 h-12 text-sm bg-black-200 inline-flex items-center justify-center rounded-full">          
+              <img
+                alt="user avatar"
                 className="w-full rounded-full align-middle border-none shadow-lg"
-                src="
-              /> */}
-              <UserOutlined/>
+                src={UserAvatar !== undefined ? UserAvatar : '../user.png'}/>
             </span>
+            <div className="ml-3">
+              <p className="text-white font-sans text-base">Hao Toan</p>
+            </div>
           </div>
-        </a>
+        </button>
         <div
           ref={popoverDropdownRef}
           className={
@@ -63,12 +63,12 @@ export default function UserDropdown()
             Profile
           </Link>
           <Link
-            href="/account/personal_edit"
+            href="/account/account_info"
             className={
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black-700 hover:text-red-500"
             }
           >
-            Edit Profile
+            Account Info
           </Link>
           <div className="h-0 my-2 border border-solid border-black-100" />
           <Link
@@ -85,3 +85,4 @@ export default function UserDropdown()
   };
 }
 
+  

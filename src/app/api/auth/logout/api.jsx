@@ -6,7 +6,8 @@ import { ApiStatusCodes } from "../../ApiStatusCode"
 
 export async function POST_Logout()
 {
-    const url = process.env.API_URL + "/auth/logout"
+    // const url = process.env.API_URL + "/auth/logout"
+    const url = process.env.LOGOUT
 
     try
     {
@@ -31,6 +32,6 @@ export async function POST_Logout()
     catch(err)
     {
         console.log(err)
-        return {statusCode: err.errno, responseBody: err}
+        return {statusCode: err.errno, responseBody: "error connection"}
     }
 }

@@ -6,13 +6,15 @@ import { cookies } from "next/headers"
 export async function POST_refreshToken()
 {
     const base_URL = process.env.API_URL;
-    const query_api = base_URL + "/auth/refresh"
+    // const query_api = base_URL + "/auth/refresh"
+    const query_api = process.env.REFRESH_TOKEN_API;
 
     try
     {
         const response = await fetch(query_api, {
             headers: {
                 "cookie": cookies(),
+                "Authorization": "Bearer " + cookies().get("refreshToken")
             },
             method: "POST",
             credentials: "include",
@@ -40,7 +42,7 @@ export async function POST_refreshToken()
     }
     catch (err)
     {
-        return {isError: true, response: err}
+        return {isError: true, response: "error connection"}
     }
 
 }

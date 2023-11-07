@@ -1,9 +1,11 @@
 'use server'
 
-import { cookies } from "next/headers"
+import { cookies, headers } from "next/headers"
 import { ApiStatusCodes } from "../../ApiStatusCode"
-import { redirect } from "next/navigation"
+import { RedirectType, redirect } from "next/navigation"
 import { revalidatePath } from "next/cache"
+import { NextRequest, NextResponse } from "next/server"
+import { rewrites } from "../../../../../next.config"
 
 export async function POST_signIn(formData)
 {
@@ -13,15 +15,17 @@ export async function POST_signIn(formData)
         map.set(key, value)
     })
 
-    console.log(map)
+    const requestBody = JSON.stringify(Object.fromEntries(map))
+    console.log(requestBody)
 
-    const response = await sendSignInRequest(JSON.stringify(Object.fromEntries(map)))
-
+    const response = await sendSignInRequest(requestBody)
     if(response.isError == true)
     {
-        return {statusCode: response.response.errno, responseBody: response.response}
+        console.log("error")
+        return {statusCode: response.response.errno, responseBody: undefined}
     }
 
+    
     //no error
     const statusCode = response.response.status
     const responseBody = await response.response.json()
@@ -29,8 +33,8 @@ export async function POST_signIn(formData)
     if(statusCode == ApiStatusCodes.SIGN_IN_SUCCESS)
     {
         console.log("SIGN_IN_SUCCESS")
-        cookies().set("accessToken", responseBody.accessToken, {expires: new Date(responseBody.expiresAT)})
-        cookies().set("refreshToken", responseBody.refreshToken, {expires: new Date(responseBody.expiresRT)})
+        cookies().set("accessToken", responseBody.accessToken)
+        cookies().set("refreshToken", responseBody.refreshToken)
         return {statusCode, responseBody: undefined}
     }
     else
@@ -43,8 +47,9 @@ export async function POST_signIn(formData)
 
 async function sendSignInRequest(requestBody)
 {
-    const api_base_url = process.env.API_URL
-    const url = api_base_url + "/auth/login"
+    // const api_base_url = process.env.API_URL
+    // const url = api_base_url + "/auth/local/login"
+    const url = process.env.LOCAL_LOGIN_API
     try
     {
         const response = await fetch(url, {
@@ -52,8 +57,9 @@ async function sendSignInRequest(requestBody)
             body: requestBody,
             credentials: "include",
             headers: {
-                "cookie": cookies(),
-                "Content-Type": "application/json"
+                "Cookie": cookies(),
+                "Content-Type": "application/json",
+                "Accept" : "application/json"
             },
             
         })
@@ -62,7 +68,50 @@ async function sendSignInRequest(requestBody)
     }
     catch (err)
     {
+        console.log(err)
         return {isError: true, response: err}
     }
 
+}
+
+
+export async function GET_signInWithGoogle()
+{
+    // const googleAuthLink = process.env.API_URL + "/auth/google/login"
+    
+    const googleAuthLink = process.env.GOOGLE_LOGIN_API
+
+    redirect(googleAuthLink, 'push')
+    // const response = await fetch(googleAuthLink, {
+    //     method: 'GET',
+    //     credentials: 'include',
+    //     headers: {
+    //         "Accept": '*/*'
+    //     },
+    // })
+
+    // const statusCode = response.status
+    // const responseBody = await response.json();
+
+    // console.log(responseBody)
+}
+
+export async function GET_signInWithFacebook()
+{
+    // const facebookAuthLink = process.env.API_URL + "/auth/facebook/login"
+    const facebookAuthLink = process.env.FACEBOOK_LOGIN_API
+    
+    redirect(facebookAuthLink, 'push')
+    // const response = await fetch(googleAuthLink, {
+    //     method: 'GET',
+    //     credentials: 'include',
+    //     headers: {
+    //         "Accept": '*/*'
+    //     },
+    // })
+
+    // const statusCode = response.status
+    // const responseBody = await response.json();
+
+    // console.log(responseBody)
 }

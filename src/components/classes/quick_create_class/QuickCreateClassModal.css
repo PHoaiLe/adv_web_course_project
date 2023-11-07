@@ -1,0 +1,18 @@
+
+.custom-quick-create-class-modal
+{
+    background-color: rgba(41, 41, 48, 0.750);
+}
+
+.close-modal-button
+{
+    padding: 5px;
+    margin-bottom: 3px;
+    color: white;
+}
+
+.create-modal-display
+{
+    height: 40%;
+    overflow-y: auto;
+}

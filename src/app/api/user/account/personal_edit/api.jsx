@@ -1,5 +1,6 @@
 'use server'
 
+import { revalidatePath } from "next/cache"
 import { cookies } from "next/headers"
 
 
@@ -15,7 +16,7 @@ export async function PATCH_editUserProfile(formData)
 
     if(isError == true)
     {
-        return {statusCode: response.errno, responseBody: response}
+        return {statusCode: response.errno, responseBody: "error connection"}
     }
 
     //no error
@@ -23,6 +24,7 @@ export async function PATCH_editUserProfile(formData)
     const responseBody = await response.json()
     console.log(statusCode)
     console.log(responseBody)
+    revalidatePath("/account/personal_info")
     return {statusCode, responseBody}
 
 }
@@ -38,7 +40,8 @@ async function sendEditUserProfileRequest(responseBody)
             body: responseBody,
             headers: {
                 "cookie": cookies(),
-                'Content-Type': "application/json"
+                'Content-Type': "application/json",
+                "Authorization": "Bearer " + cookies().get("accessToken").value,
             },
         })
 
@@ -48,4 +51,12 @@ async function sendEditUserProfileRequest(responseBody)
     {
         return {isError: true, response: err}
     }
+}
+
+///////////////////////////////////////////////
+//avatar
+
+export async function PATCH_uploadAvatar(formData)
+{
+    
 }

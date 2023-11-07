@@ -8,6 +8,20 @@ function UserInfoTextContent({User_data})
 {
     // const data = await GET_getUserInfo();
     // console.log(data)
+    useEffect(
+        () => 
+        {
+            if(User_data != null)
+            {
+                setFinalUI(loadedUi)
+            }
+            else
+            {
+                setFinalUI(loadingUI)
+            }
+        },
+        [User_data]
+    )
     const seperateChar = 'T'
 
     let loadingUI = 
@@ -36,20 +50,6 @@ function UserInfoTextContent({User_data})
 
     const [finalUI, setFinalUI] = useState(loadingUI)
 
-    useEffect(
-        () => 
-        {
-            if(User_data != null)
-            {
-                setFinalUI(loadedUi)
-            }
-            else
-            {
-                setFinalUI(loadingUI)
-            }
-        },
-        [User_data]
-    )
 
     return(
         <>
