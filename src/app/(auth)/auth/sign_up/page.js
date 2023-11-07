@@ -2,6 +2,7 @@ import './register.css'
 import Link from 'next/link';
 import '../../../globals.css'
 
+
 function Page()
 {
     let registerBackButton = 'register_back_button'
@@ -30,7 +31,6 @@ function Page()
 
                         <div className='register-form'>
                             <div className='font-content'>
-                            <div className="create-account-title">Create account</div>
                                 <form>
                                     <input key={fullnameKey} type='text' placeholder='Full Name'/> <br/>
                                     <input key={usernameKey} type='text' placeholder='Username'/> <br/>
