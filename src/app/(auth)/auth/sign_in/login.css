@@ -1,25 +1,24 @@
 
-.register-back-homepage
+.login-back-homepage
 {
     background-color: transparent;
     margin-left: 15px;
     margin-top: 10px;
     width: min-content;
     height: min-content;
-    background-image: url('../../../../public/arrow-back-ios.svg');
+    background-image: url('../../../../../public/arrow-back-ios.svg');
     alt: 'back to homepage';
     width: 30px;
     color: transparent;
 }
 
-.register-back-homepage:hover
+.login-back-homepage:hover
 {
     background-color: aliceblue;
     border-radius: 25px;
 }
 
-
-.register-frame
+.login-frame
 {
     height: 100%;
     width: 100%;
@@ -31,7 +30,7 @@
 }
 
 
-.register-form-frame
+.login-form-frame
 {
     display: flex;
     justify-content: center;
@@ -44,14 +43,14 @@
     box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.25);
 }
 
-.register-form
+.login-form
 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.register-form-wrapper
+.login-form-wrapper
 {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -59,10 +58,10 @@
     height: 100%;
 }
 
-.register-form input
+.login-form input
 {
     width: 309px;
-    height: 30px;
+    height: 40px;
     border-radius: 25px;
     background: #f7f7f7;
     margin-top: 4px;
@@ -71,12 +70,14 @@
     padding-right: 5px;
 }
 
-.register-form input:hover
+.login-form input:hover
 {
     background-color: aliceblue;
 }
 
-.register-form label
+
+
+.login-form label
 {
     color: #000;
     font-family: Arial;
@@ -86,7 +87,7 @@
     line-height: normal;
 }
 
-.register-form button
+.login-form button
 {
     color: #000;
     text-align: center;
@@ -101,17 +102,17 @@
     height: 40px;
 }
 
-.register-retangle
+.login-retangle
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 25px 0px 0px 25px;
+    border-radius: 0px 25px 25px 0px;
     background: #F1F1F1;
 }
 
-.register-retangle p
+.login-retangle p
 {
     color: #000;
     text-align: center;
@@ -122,7 +123,7 @@
     line-height: normal;
 }
 
-.register-to-login-link
+.login-to-register
 {
     text-decoration-line: underline;
 }

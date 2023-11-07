@@ -1,5 +1,6 @@
 import './register.css'
 import Link from 'next/link';
+import '../../../globals.css'
 
 function Page()
 {
@@ -27,7 +28,7 @@ function Page()
                         <div className='register-form'>
                             <div>
                                 <form>
-                                    <label>Fullname</label> <br/>
+                                    <label>Full name</label> <br/>
                                     <input key={fullnameKey} type='text'/> <br/>
                                     <label>Username</label> <br/>
                                     <input key={usernameKey} type='text'/> <br/>
