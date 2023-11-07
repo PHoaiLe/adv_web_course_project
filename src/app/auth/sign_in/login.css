@@ -1,3 +1,21 @@
+.login-back-homepage
+{
+    background-color: transparent;
+    margin-left: 15px;
+    margin-top: 10px;
+    width: min-content;
+    height: min-content;
+    background-image: url('../../../../public/arrow-back-ios.svg');
+    alt: 'back to homepage';
+    width: 30px;
+    color: transparent;
+}
+
+.login-back-homepage:hover
+{
+    background-color: aliceblue;
+    border-radius: 25px;
+}
 
 .login-frame
 {
@@ -42,13 +60,18 @@
 .login-form input
 {
     width: 309px;
-    height: 40px;
-    border-radius: 25px;
-    background: #f7f7f7;
+    height: 60px;
+    border-radius: 15px;
+    background: lightgrey;
     margin-top: 4px;
     margin-bottom: 20px;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.login-form input:hover
+{
+    background-color: #A2C3F4;
 }
 
 .login-form label
@@ -76,6 +99,10 @@
     height: 40px;
 }
 
+.login-form button:hover{
+    border: 2px solid black;
+}
+
 .login-retangle
 {
     display: flex;
@@ -83,7 +110,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 0px 25px 25px 0px;
-    background: #F1F1F1;
+    background: #f0af0a;
 }
 
 .login-retangle p
@@ -91,13 +118,62 @@
     color: #000;
     text-align: center;
     font-family: Arial;
-    font-size: 32px;
+    font-size: 80px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-top: 20px
 }
 
-.login-to-register
+.login-retangle ti
 {
-    text-decoration-line: underline;
+    color: #000;
+    text-align: center;
+    font-family: Arial;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+    margin-top: 10px;
+}
+
+.forgot-password{
+    display: flex;
+    font-family: Arial;
+    font-size: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.forgot-password:hover{
+    color: blue;
+}
+
+.login-retangle button {
+    color: black;
+    text-align: center;
+    font-family: Arial;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 25px;
+    border: 2px solid white;
+    background: #f0af0a;
+    width: 309px;
+    height: 40px;
+    margin-top: 30px;
+  }
+  
+.login-retangle button:hover {
+    background-color: aqua; /* Màu nền khi hover qua nút */
+  }
+
+.sign-in-title {
+    font-size: 50px;
+    color: #333;
+    margin-bottom: 30px;
+    display: block;
+    text-align: center;
+    font-family: Arial;
 }
