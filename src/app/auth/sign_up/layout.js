@@ -1,5 +1,5 @@
 
-function AuthRootLayout({children})
+function RootLayout({children})
 {
     return(
         <html lang='en'>
@@ -10,4 +10,4 @@ function AuthRootLayout({children})
     )
 }
 
-export default AuthRootLayout
+export default RootLayout
