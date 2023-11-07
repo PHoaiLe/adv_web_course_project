@@ -30,17 +30,14 @@ function Page()
 
                         <div className='register-form'>
                             <div className='font-content'>
+                            <div className="create-account-title">Create account</div>
                                 <form>
-                                    <label>Fullname</label> <br/>
-                                    <input key={fullnameKey} type='text'/> <br/>
-                                    <label>Username</label> <br/>
-                                    <input key={usernameKey} type='text'/> <br/>
-                                    <label>Email</label> <br/>
-                                    <input key={emailKey} type='text'/> <br/>
-                                    <label>Password</label> <br/>
-                                    <input key={password} type='password'/> <br/>
-                                    <label>Confirm Password</label> <br/>
-                                    <input key={confirmPassword} type='password'/>
+                                    <input key={fullnameKey} type='text' placeholder='Full Name'/> <br/>
+                                    <input key={usernameKey} type='text' placeholder='Username'/> <br/>
+                                    <input key={emailKey} type='text' placeholder='Email'/> <br/>
+                                    <input key={password} type='password' placeholder='Password'/> <br/>
+                                    <input key={confirmPassword} type='password' placeholder='Confirm Password'/> <br/>
+                                    <input key={phoneNumber} type='string' placeholder='Phone Number'/>
                                 </form>
                                 <br/>
                                 <button key={registerButtonKey}>Sign up</button>

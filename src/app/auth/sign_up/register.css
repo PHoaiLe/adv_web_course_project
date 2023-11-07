@@ -64,7 +64,7 @@
 .register-form input
 {
     width: 309px;
-    height: 25px;
+    height: 35px;
     border-radius: 15px;
     background: lightgrey;
     margin-top: 4px;
@@ -163,4 +163,18 @@
 
 .form-content {
     padding: 30px; /* Khoảng cách nội dung với mép phần tử */
+}
+
+input:focus::placeholder {
+    color: transparent; /* Màu chữ cho các nhãn bên trong ô input */
+    font-size: 20px; /* Kích thước chữ cho các nhãn bên trong ô input */
+}
+
+.create-account-title {
+    font-size: 35px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    text-align: center;
+    font-family: Arial;
 }

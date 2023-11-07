@@ -19,6 +19,7 @@ function Page()
                 <div className='login-form-wrapper'>
                     <div className='login-form'>
                         <div>
+                        <div className="sign-in-title">Sign In</div>
                             <form>
                                 <label id='login-email-label'>Email</label> <br/>
                                 <input key={emailKey} type='text' label='login-email-label'/> <br/>

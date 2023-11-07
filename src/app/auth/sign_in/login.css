@@ -168,3 +168,12 @@
 .login-retangle button:hover {
     background-color: aqua; /* Màu nền khi hover qua nút */
   }
+
+.sign-in-title {
+    font-size: 50px;
+    color: #333;
+    margin-bottom: 30px;
+    display: block;
+    text-align: center;
+    font-family: Arial;
+}
