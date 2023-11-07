@@ -4,6 +4,7 @@ import './register.css'
 // import '../../../globals.css'
 
 
+
 function Page()
 {
     // let registerBackButton = 'register_back_button'
