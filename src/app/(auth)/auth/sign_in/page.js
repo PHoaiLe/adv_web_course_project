@@ -3,14 +3,14 @@ import './login.css'
 // import '../../../globals.css'
 // import Link from 'next/link';
 
-
 function Page()
 {
     let backButton = 'login_back_homepage_button'
     let emailKey = 'login_email_key';
     let password = 'login_password_key'
     let loginButtonKey = 'login_button_key'
-
+    let signUpButtonKey = 'login_sign_up_button_key';
+    
     return(
         <>
             <SignInForm />
