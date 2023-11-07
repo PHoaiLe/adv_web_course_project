@@ -124,5 +124,53 @@
 
 .login-to-register
 {
-    text-decoration-line: underline;
+    color: #000;
+    text-align: center;
+    font-family: Arial;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+    margin-top: 10px;
+}
+
+.forgot-password{
+    display: flex;
+    font-family: Arial;
+    font-size: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.forgot-password:hover{
+    color: blue;
+}
+
+.login-retangle button {
+    color: black;
+    text-align: center;
+    font-family: Arial;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 25px;
+    border: 2px solid white;
+    background: #f0af0a;
+    width: 309px;
+    height: 40px;
+    margin-top: 30px;
+  }
+  
+.login-retangle button:hover {
+    background-color: aqua; /* Màu nền khi hover qua nút */
+  }
+
+.sign-in-title {
+    font-size: 50px;
+    color: #333;
+    margin-bottom: 30px;
+    display: block;
+    text-align: center;
+    font-family: Arial;
 }

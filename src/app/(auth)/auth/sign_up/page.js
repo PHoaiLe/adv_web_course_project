@@ -31,6 +31,7 @@ function Page()
 
                         <div className='register-form'>
                             <div className='font-content'>
+                            <div className="create-account-title">Create account</div>
                                 <form>
                                     <input key={fullnameKey} type='text' placeholder='Full Name'/> <br/>
                                     <input key={usernameKey} type='text' placeholder='Username'/> <br/>
