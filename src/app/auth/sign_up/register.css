@@ -1,4 +1,24 @@
 
+.register-back-homepage
+{
+    background-color: transparent;
+    margin-left: 15px;
+    margin-top: 10px;
+    width: min-content;
+    height: min-content;
+    background-image: url('../../../../public/arrow-back-ios.svg');
+    alt: 'back to homepage';
+    width: 30px;
+    color: transparent;
+}
+
+.register-back-homepage:hover
+{
+    background-color: rgb(5, 41, 72);
+    border-radius: 25px;
+}
+
+
 .register-frame
 {
     height: 100%;
@@ -29,6 +49,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 500px; /* Độ cao tối đa của phần tử */
+    overflow-y: auto; 
 }
 
 .register-form-wrapper
@@ -42,13 +64,18 @@
 .register-form input
 {
     width: 309px;
-    height: 30px;
-    border-radius: 25px;
-    background: #f7f7f7;
+    height: 35px;
+    border-radius: 15px;
+    background: lightgrey;
     margin-top: 4px;
     margin-bottom: 20px;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.register-form input:hover
+{
+    background-color: #A2C3F4;
 }
 
 .register-form label
@@ -76,6 +103,10 @@
     height: 40px;
 }
 
+.register-form button:hover{
+    border: 2px solid black;
+}
+
 .register-retangle
 {
     display: flex;
@@ -83,7 +114,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 25px 0px 0px 25px;
-    background: #F1F1F1;
+    background: #f64848;
 }
 
 .register-retangle p
@@ -91,13 +122,59 @@
     color: #000;
     text-align: center;
     font-family: Arial;
-    font-size: 32px;
+    font-size: 80px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-top: 20px;
 }
 
-.register-to-login-link
+.register-retangle t
 {
-    text-decoration-line: underline;
+    color: #000;
+    text-align: center;
+    font-family: Arial;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+    margin-top: 10px;
+}
+
+.register-retangle button {
+    color: black;
+    text-align: center;
+    font-family: Arial;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 25px;
+    border: 2px solid white;
+    background: #f64848;
+    width: 309px;
+    height: 40px;
+    margin-top: 30px;
+  }
+  
+.register-retangle button:hover {
+    background-color: #f0af0a; /* Màu nền khi hover qua nút */
+  }
+
+.form-content {
+    padding: 30px; /* Khoảng cách nội dung với mép phần tử */
+}
+
+input:focus::placeholder {
+    color: transparent; /* Màu chữ cho các nhãn bên trong ô input */
+    font-size: 20px; /* Kích thước chữ cho các nhãn bên trong ô input */
+}
+
+.create-account-title {
+    font-size: 35px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    text-align: center;
+    font-family: Arial;
 }
