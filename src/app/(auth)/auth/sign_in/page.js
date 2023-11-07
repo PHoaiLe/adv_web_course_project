@@ -4,7 +4,6 @@ import './login.css'
 // import '../../../globals.css'
 // import Link from 'next/link';
 
-
 function Page()
 {
     

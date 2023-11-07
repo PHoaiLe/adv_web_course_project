@@ -13,6 +13,8 @@ function Page()
     let password = 'register_password_key'
     let confirmPassword = 'register_confirm_password_key'
     let registerButtonKey = 'register_button_key'
+    let signInButtonKey = 'login_sign_in_button_key'
+    let phoneNumber = 'register_phone_number_key'
 
     return(
         <SignUpForm />
