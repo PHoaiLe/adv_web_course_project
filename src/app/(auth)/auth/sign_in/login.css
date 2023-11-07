@@ -61,9 +61,9 @@
 .login-form input
 {
     width: 309px;
-    height: 40px;
-    border-radius: 25px;
-    background: #f7f7f7;
+    height: 60px;
+    border-radius: 15px;
+    background: lightgrey;
     margin-top: 4px;
     margin-bottom: 20px;
     padding-left: 5px;
@@ -72,10 +72,8 @@
 
 .login-form input:hover
 {
-    background-color: aliceblue;
+    background-color: #A2C3F4;
 }
-
-
 
 .login-form label
 {
@@ -102,6 +100,10 @@
     height: 40px;
 }
 
+.login-form button:hover{
+    border: 2px solid black;
+}
+
 .login-retangle
 {
     display: flex;
@@ -118,13 +120,14 @@
     color: #000;
     text-align: center;
     font-family: Arial;
-    font-size: 32px;
+    font-size: 80px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-top: 20px
 }
 
-.login-to-register
+.login-retangle ti
 {
     color: #000;
     text-align: center;
