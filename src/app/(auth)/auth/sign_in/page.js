@@ -2,6 +2,7 @@ import './login.css'
 // import '../../../globals.css'
 // import Link from 'next/link';
 
+
 function Page()
 {
     
@@ -81,9 +82,6 @@ function Page()
                                 Sign In
                             </button>
                         </div>
-                    </form>
-                    <div className="text-center">
-                        <a href="#" className="hover:text-blue-700" >Forgot password?</a>
                     </div>
                     <div className="text-center mt-12">
                         <span>
