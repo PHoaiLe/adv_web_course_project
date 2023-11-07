@@ -6,6 +6,14 @@ import './register.css'
 
 function Page()
 {
+    let registerBackButton = 'register_back_button'
+    let usernameKey = 'register_username_key'
+    let fullnameKey = 'register_fullname_key'
+    let emailKey = 'register_email_key';
+    let password = 'register_password_key'
+    let confirmPassword = 'register_confirm_password_key'
+    let registerButtonKey = 'register_button_key'
+
     return(
         <SignUpForm />
     )
