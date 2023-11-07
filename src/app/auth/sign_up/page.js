@@ -1,6 +1,7 @@
 import './register.css'
 import Link from 'next/link';
 
+
 function Page()
 {
     let registerBackButton = 'register_back_button'
@@ -10,6 +11,8 @@ function Page()
     let password = 'register_password_key'
     let confirmPassword = 'register_confirm_password_key'
     let registerButtonKey = 'register_button_key'
+    let signInButtonKey = 'login_sign_in_button_key'
+    let phoneNumber = 'register_phone_number_key'
 
     return(
         <>
@@ -20,12 +23,13 @@ function Page()
                 <div className='register-form-frame'>
                     <div className='register-form-wrapper'>
                         <div className='register-retangle'>
-                            <p>Sign up</p>
-                            <Link className='register-to-login-link' href='/auth/sign_in'>I had an account</Link>
+                            <p>Welcome Back!</p>
+                            <t>To keep connected with us, login with your personal info</t>
+                            <Link key={signInButtonKey} href='/auth/sign_in'><button>Sign In</button></Link>
                         </div>
 
                         <div className='register-form'>
-                            <div>
+                            <div className='font-content'>
                                 <form>
                                     <label>Fullname</label> <br/>
                                     <input key={fullnameKey} type='text'/> <br/>
