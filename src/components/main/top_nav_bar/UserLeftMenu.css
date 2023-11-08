@@ -1,18 +1,15 @@
 
-
 .user-menu-frame
 {
     width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 0;
     margin: 0;
     height: max-content;
 }
 
 .user-menu
 {
-    height: 530px;
-    border-bottom-right-radius: 15px;
+    height: 538px;
 }
 
 .user-menu-top-info
@@ -21,8 +18,7 @@
     padding-left: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-top-right-radius: 15px;
-    background-color: ghostwhite;
+    background-color: blue;
 }
 
 .user-menu-top-info p
@@ -42,6 +38,5 @@
 
 .user-menu-collapsed-button
 {
-    color: #000;
-    background-color: wheat;
+    
 }
