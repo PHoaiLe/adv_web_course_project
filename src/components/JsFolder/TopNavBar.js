@@ -9,7 +9,7 @@ function WebTopNavBar()
     <>
         {/* Logo */}
         <li className='top-nav-bar-frame-logo'>
-            <Link href='/'><img src='next.svg'/></Link>
+            <Link href='/'><img src="next.svg"/></Link>
         </li>
 
         <ul className='top-nav-bar-frame-functions'>
