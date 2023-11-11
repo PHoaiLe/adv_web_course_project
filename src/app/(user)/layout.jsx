@@ -1,8 +1,6 @@
 import WebTopNavBar from "@/components/main/top_nav_bar/TopNavBar"
 import UserLeftMenu from "@/components/user/menu/UserLeftMenu"
 import './layout.css'
-import GET_getUserInfo from "../api/user/account/personal_info/api";
-
 
 
 
