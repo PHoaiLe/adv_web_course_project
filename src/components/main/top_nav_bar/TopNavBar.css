@@ -35,7 +35,7 @@
 .top-nav-bar-frame-functions
 {
     float: inline-end;
-    background-color: aquamarine ;
+    /* background-color: aquamarine ; */
     width: 50%;
     border-radius: 7px;
 }
