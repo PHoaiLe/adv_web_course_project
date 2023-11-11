@@ -6,12 +6,13 @@ import {
     HistoryOutlined,
     MenuFoldOutlined,
     MenuUnfoldOutlined,
+    FileImageOutlined
    } from '@ant-design/icons';
 
 import { useState } from 'react';
 import { Menu, Button, Avatar } from 'antd';
 import Link from 'next/link';
-import '../CssFolder/UserLeftMenu.css'
+import './UserLeftMenu.css'
 
 
 function getItem(label, key, icon, children, type) {
@@ -56,6 +57,7 @@ function UserLeftMenu({initialDefaultSelectKey})
                 xl: 80,
                 xxl: 100,
                 }}
+                icon={<FileImageOutlined/>}
             />
             <p>Username</p>
         </div>

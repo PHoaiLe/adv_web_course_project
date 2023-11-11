@@ -1,5 +1,5 @@
 import Link from "next/link"
-import '../CssFolder/TopNavBar.css'
+import './TopNavBar.css'
 
 
 function WebTopNavBar()
@@ -14,17 +14,17 @@ function WebTopNavBar()
 
         <ul className='top-nav-bar-frame-functions'>
             <li className='top-nav-bar-frame-single-function'>
-                <Link href='/'>Home</Link>
+                <Link className="top-nav-bar-frame-single-function-link" href='/'>Home</Link>
             </li>
             <li className='top-nav-bar-frame-single-function'>
-                <Link href='#'>Products</Link>
+                <Link className="top-nav-bar-frame-single-function-link" href='#'>Products</Link>
             </li>
             <li className='top-nav-bar-frame-single-function'>
-                <Link href='#'>About Us</Link>
+                <Link className="top-nav-bar-frame-single-function-link" href='#'>About Us</Link>
             </li>
 
             <li className='top-nav-bar-frame-no-auth'>
-                <Link href='/auth/sign_in'>Sign in</Link>
+                <Link className="top-nav-bar-frame-single-function-link" href='/auth/sign_in'>Sign in</Link>
             </li>
         </ul>
 

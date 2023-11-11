@@ -1,0 +1,15 @@
+.user-detail-info-image-content-frame
+{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 80%;
+}
+
+.user-detail-info-image-content-container
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

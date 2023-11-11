@@ -54,6 +54,16 @@
     padding-right: 20px;
 }
 
+.top-nav-bar-frame-single-function-link
+{
+    text-decoration: none;
+    font-family: Arial;
+    font-style: normal;
+    font-size: medium;
+    font-weight: 400;
+    line-height: normal;
+    color: black;
+}
 
 .top-nav-bar-frame-no-auth
 {
