@@ -1,3 +1,4 @@
+'use server';
 
 import './page.css'
 import UserInfoTextContent from '@/components/user/account/personal/view/info/UserInfoTextContent.jsx'
