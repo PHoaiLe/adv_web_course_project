@@ -1,5 +1,5 @@
-import WebTopNavBar from "@/components/JsFolder/TopNavBar"
-import UserLeftMenu from "@/components/JsFolder/UserLeftMenu"
+import WebTopNavBar from "@/components/main/top_nav_bar/TopNavBar"
+import UserLeftMenu from "@/components/user/menu/UserLeftMenu"
 import './layout.css'
 
 
@@ -21,7 +21,9 @@ function LayoutOfUserPages({children})
                 <div className="user-main-frame">
                     <UserLeftMenu/>
                     <div className="user-detail-frame">
-                        {children}
+                        <div className="user-detail-container">
+                            {children}
+                        </div>
                     </div>
                 </div>
             </body>
