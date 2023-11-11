@@ -1,6 +1,7 @@
 
 'use server';
 
+import { ApiStatusCodes } from '@/app/api/ApiStatusCode';
 import { cookies, headers } from 'next/headers';
 
 async function GET_getUserInfo()
@@ -25,7 +26,7 @@ async function GET_getUserInfo()
     catch(err)
     {
         console.log(err)
-        return {statusCode: "500", data: null};
+        return {statusCode: ApiStatusCodes.ERROR_CONNECT_REFUSED, data: null};
     }
 
 }
