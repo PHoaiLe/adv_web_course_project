@@ -112,6 +112,7 @@
     align-items: center;
     border-radius: 0px 25px 25px 0px;
     background: #f0af0a;
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.25);
 }
 
 .login-retangle p
