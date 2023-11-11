@@ -1,3 +1,6 @@
+import WebTopNavBar from "@/components/main/top_nav_bar/TopNavBar"
+import UserLeftMenu from "@/components/user/menu/UserLeftMenu"
+import './layout.css'
 
 
 
@@ -13,7 +16,16 @@ function LayoutOfUserPages({children})
                 <title>{metadata.title}</title>
             </head>
             <body>
-                {children}
+                <WebTopNavBar/>
+                <div className="hiden-frame"></div>
+                <div className="user-main-frame">
+                    <UserLeftMenu/>
+                    <div className="user-detail-frame">
+                        <div className="user-detail-container">
+                            {children}
+                        </div>
+                    </div>
+                </div>
             </body>
         </html>
     )

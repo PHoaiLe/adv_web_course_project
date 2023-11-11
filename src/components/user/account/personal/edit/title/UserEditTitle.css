@@ -1,0 +1,45 @@
+
+.user-detail-info-title
+{
+    color: #000;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 40px;
+    height: min-content;
+    background: rgb(253, 253, 255);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding-bottom: 10px;
+}
+
+.user-detail-info-title p
+{
+    padding-top: 0;
+    margin-top: -10px;
+    color: rgb(153, 153, 153);
+    font-size: smaller;
+}
+
+.user-detail-info-title-detail
+{
+    display: inline-flex;
+    align-items: center;
+}
+
+.edit-link
+{
+    font-size: xx-large;
+    color: gray;
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+}
+
+.edit-link:hover
+{
+    color: #000;
+    background-color: wheat;
+    border-radius: 5px;
+}

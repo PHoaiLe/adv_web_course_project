@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 .register-back-homepage
 {
@@ -14,7 +18,7 @@
 
 .register-back-homepage:hover
 {
-    background-color: rgb(5, 41, 72);
+    background-color: aliceblue;
     border-radius: 25px;
 }
 
