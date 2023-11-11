@@ -8,6 +8,7 @@ function UserInfoTextContent({User_data})
 {
     // const data = await GET_getUserInfo();
     // console.log(data)
+    const seperateChar = 'T'
 
     let loadingUI = 
     <div className='loading-spin'>
@@ -28,7 +29,7 @@ function UserInfoTextContent({User_data})
                     <p>{User_data.fullname}</p>
                     <p>Unknown</p>
                     <p>{User_data.email}</p>
-                    <p>{User_data.birthday}</p>
+                    <p>{User_data.birthday.split(seperateChar)[0]}</p>
                 </div>
             </div>
         </div>
