@@ -13,29 +13,6 @@ export const metadata = {
   }
 async function LayoutOfUserPages({children})
 {
-    // const data = await GET_getUserInfo();
-    // console.log(data)
-
-
-    // return(
-    //     <html>
-    //         <head>
-    //             <title>{metadata.title}</title>
-    //         </head>
-    //         <body>
-    //             <TopNavBar/>
-    //             <div className="hiden-frame"></div>
-    //             <div className="user-main-frame">
-    //                 <UserLeftMenu/>
-    //                 <div className="user-detail-frame">
-    //                     <div className="user-detail-container">
-    //                         {children}
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </body>
-    //     </html>
-    // )
 
     return (
         <html lang='en'>
