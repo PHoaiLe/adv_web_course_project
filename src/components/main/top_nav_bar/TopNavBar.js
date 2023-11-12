@@ -1,5 +1,5 @@
-import Link from "next/link"
-import './TopNavBar.css'
+import Link from "next/link";
+import './TopNavBar.css';
 
 
 function WebTopNavBar()
@@ -39,4 +39,4 @@ function WebTopNavBar()
     )
 }
 
-export default WebTopNavBar
+export default WebTopNavBar;
