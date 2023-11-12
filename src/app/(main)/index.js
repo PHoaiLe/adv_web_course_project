@@ -1,9 +1,11 @@
-import Hero from '@/components/landingpage/Hero'
+import Dashboard from 'view/dashboard.js'
 export default function Home() {
   return (
     <>
-      <Hero/>
+      <Dashboard/>
     </>
 
   )
 }
+
+
