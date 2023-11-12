@@ -39,4 +39,4 @@ function WebTopNavBar()
     )
 }
 
-export default WebTopNavBar
+export default WebTopNavBar;
