@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import './globals.css'
+import '../globals.css'
 import WebTopNavBar from '@/components/main/top_nav_bar/TopNavBar'
 import Footer from '@/components/main/footer/Footer'
 
