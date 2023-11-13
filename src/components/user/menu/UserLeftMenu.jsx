@@ -81,4 +81,4 @@ function UserLeftMenu({initialDefaultSelectKey})
   );
 };
 
-export default UserLeftMenu
+export default UserLeftMenu;
