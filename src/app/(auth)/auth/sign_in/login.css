@@ -5,7 +5,7 @@
     margin-top: 10px;
     width: min-content;
     height: min-content;
-    background-image: url('../../../../public/arrow-back-ios.svg');
+    /* background-image: url('../../../../public/arrow-back-ios.svg'); */
     alt: 'back to homepage';
     width: 30px;
     color: transparent;
