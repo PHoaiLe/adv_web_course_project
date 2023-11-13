@@ -1,18 +1,22 @@
 'use client';
-import React, {useState} from "react";
-import { Link } from "next/link";
+import React, { useState } from "react";
+import Link from "next/link";
 
 import NotificationDropdown from "./NotificationDropdown.js";
 import UserDropdown from "./UserDropdown.js";
 
-export default function Sidebar() {
+export default function Sidebar()
+{
   const [collapseShow, setCollapseShow] = useState("hidden");
-  function showCollapse(){
+  function showCollapse()
+  {
     setCollapseShow("bg-white m-2 py-3 px-6")
   }
-  function hiddenCollapse(){
+  function hiddenCollapse()
+  {
     setCollapseShow("hidden")
   }
+
   return (
     <>
       <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
@@ -21,7 +25,7 @@ export default function Sidebar() {
           <button
             className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
             type="button"
-            onClick={showCollapse()}
+            onClick={showCollapse}
           >
             <i className="fas fa-bars"></i>
           </button>
@@ -63,7 +67,7 @@ export default function Sidebar() {
                   <button
                     type="button"
                     className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-                    onClick={hiddenCollapse()}
+                    onClick={hiddenCollapse}
                   >
                     <i className="fas fa-times"></i>
                   </button>
@@ -112,8 +116,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  href="/"
-                >
+                  href="/">
                   <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"></i> Login
                 </Link>
               </li>
@@ -149,8 +152,7 @@ export default function Sidebar() {
               <li className="inline-flex">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                  href="/"
-                >
+                  href="/">
                   <i className="fas fa-paint-brush mr-2 text-blueGray-400 text-base"></i> Styles
                 </Link>
               </li>
@@ -158,8 +160,7 @@ export default function Sidebar() {
               <li className="inline-flex">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                  href="/"
-                >
+                  href="/">
                   <i className="fab fa-css3-alt mr-2 text-blueGray-400 text-base"></i> CSS Components
                 </Link>
               </li>
@@ -167,8 +168,7 @@ export default function Sidebar() {
               <li className="inline-flex">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                  href="/"
-                >
+                  href="/">
                   <i className="fab fa-vuejs mr-2 text-blueGray-400 text-base"></i> VueJS
                 </Link>
               </li>
@@ -176,8 +176,7 @@ export default function Sidebar() {
               <li className="inline-flex">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500  text-sm block mb-4 no-underline font-semibold"
-                  href="/"
-                >
+                  href="/">
                   <i className="fab fa-react mr-2 text-blueGray-400 text-base"></i> React
                 </Link>
               </li>
@@ -185,8 +184,7 @@ export default function Sidebar() {
               <li className="inline-flex">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500  text-sm block mb-4 no-underline font-semibold"
-                  href="/"
-                >
+                  href="/">
                   <i className="fab fa-angular mr-2 text-blueGray-400 text-base"></i> Angular
                 </Link>
               </li>
@@ -194,8 +192,7 @@ export default function Sidebar() {
               <li className="inline-flex">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500  text-sm block mb-4 no-underline font-semibold"
-                  href="/"
-                >
+                  href="/">
                   <i className="fab fa-js-square mr-2 text-blueGray-400 text-base"></i> Javascript
                 </Link>
               </li>

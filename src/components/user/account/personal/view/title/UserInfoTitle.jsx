@@ -15,4 +15,4 @@ function UserInfoTitle({EditLink})
     )
 }
 
-export default UserInfoTitle
+export default UserInfoTitle;
