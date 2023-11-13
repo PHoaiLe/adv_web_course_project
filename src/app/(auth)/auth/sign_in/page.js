@@ -11,7 +11,6 @@ function Page()
         <>
             <SignInForm />
         </>
-
     )
 }
 
