@@ -3,8 +3,8 @@ import React from "react";
 export default function Dashboard() {
   return (
     <>
-      <div className="relative md:ml-64 bg-blueGray-100">
-        <div className="relative bg-pink-600 md:pt-32 pb-32 pt-12">
+      <div className="relative md:ml-64 bg-gray-100">
+        <div className="relative bg-green-600 md:pt-32 pb-32 pt-12">
           <div className="px-4 md:px-10 mx-auto w-full">
             <div>
               <div className="flex flex-wrap">
@@ -13,11 +13,11 @@ export default function Dashboard() {
                     <div className="flex-auto p-4">
                       <div className="flex flex-wrap">
                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
-                          <h5 className="text-blueGray-400 uppercase font-bold text-xs">
-                            Traffic
+                          <h5 className="text-gray-400 uppercase font-bold text-xs">
+                            Classes
                           </h5>
-                          <span className="font-semibold text-xl text-blueGray-700">
-                            350,897
+                          <span className="font-semibold text-xl text-gray-700">
+                            5,897
                           </span>
                         </div>
                         <div className="relative w-auto pl-4 flex-initial">
@@ -26,12 +26,12 @@ export default function Dashboard() {
                           </div>
                         </div>
                       </div>
-                        <p className="text-sm text-blueGray-400 mt-4">
+                        <p className="text-sm text-gray-400 mt-4">
                         <span className="text-emerald-500 mr-2">
-                          <i className="fas fa-arrow-up"></i> 3.48%
+                          <i className="fas fa-arrow-up"></i> 100%
                         </span>
                         <span className="whitespace-nowrap">
-                          Since last month
+                          Last month
                         </span>
                       </p>
                     </div>
@@ -42,11 +42,11 @@ export default function Dashboard() {
                     <div className="flex-auto p-4">
                       <div className="flex flex-wrap">
                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
-                          <h5 className="text-blueGray-400 uppercase font-bold text-xs">
+                          <h5 className="text-gray-400 uppercase font-bold text-xs">
                             New users
                           </h5>
-                          <span className="font-semibold text-xl text-blueGray-700">
-                            2,356
+                          <span className="font-semibold text-xl text-gray-700">
+                            3,000
                           </span>
                         </div>
                         <div className="relative w-auto pl-4 flex-initial">
@@ -55,12 +55,12 @@ export default function Dashboard() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-sm text-blueGray-400 mt-4">
+                      <p className="text-sm text-gray-400 mt-4">
                         <span className="text-red-500 mr-2">
-                          <i className="fas fa-arrow-down"></i> 3.48%
+                          <i className="fas fa-arrow-down"></i> 100%
                         </span>
                         <span className="whitespace-nowrap">
-                          Since last week
+                          Last week
                         </span>
                       </p>
                     </div>
@@ -71,11 +71,11 @@ export default function Dashboard() {
                     <div className="flex-auto p-4">
                       <div className="flex flex-wrap">
                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
-                          <h5 className="text-blueGray-400 uppercase font-bold text-xs">
-                            Sales
+                          <h5 className="text-gray-400 uppercase font-bold text-xs">
+                            New teachers
                           </h5>
-                          <span className="font-semibold text-xl text-blueGray-700">
-                            924
+                          <span className="font-semibold text-xl text-gray-700">
+                            650
                           </span>
                         </div>
                         <div className="relative w-auto pl-4 flex-initial">
@@ -84,12 +84,12 @@ export default function Dashboard() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-sm text-blueGray-400 mt-4">
+                      <p className="text-sm text-gray-400 mt-4">
                         <span className="text-orange-500 mr-2">
-                          <i className="fas fa-arrow-down"></i> 1.10%
+                          <i className="fas fa-arrow-down"></i> 100%
                         </span>
                         <span className="whitespace-nowrap">
-                          Since yesterday
+                          Last week
                         </span>
                       </p>
                     </div>
@@ -100,25 +100,25 @@ export default function Dashboard() {
                     <div className="flex-auto p-4">
                       <div className="flex flex-wrap">
                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
-                          <h5 className="text-blueGray-400 uppercase font-bold text-xs">
-                            Performance
+                          <h5 className="text-gray-400 uppercase font-bold text-xs">
+                            High Grades
                           </h5>
-                          <span className="font-semibold text-xl text-blueGray-700">
-                            49,65%
+                          <span className="font-semibold text-xl text-gray-700">
+                            48,85%
                           </span>
                         </div>
                         <div className="relative w-auto pl-4 flex-initial">
-                          <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-lightBlue-500">
+                          <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-blue-500">
                             <i className="fas fa-percent"></i>
                           </div>
                         </div>
                       </div>
-                      <p className="text-sm text-blueGray-400 mt-4">
+                      <p className="text-sm text-gray-400 mt-4">
                         <span className="text-emerald-500 mr-2">
-                          <i className="fas fa-arrow-up"></i> 12%
+                          <i className="fas fa-arrow-up"></i> A+
                         </span>
                         <span className="whitespace-nowrap">
-                          Since last month
+                          Yesterday
                         </span>
                       </p>
                     </div>
@@ -131,12 +131,12 @@ export default function Dashboard() {
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
           <div className="flex flex-wrap mt-4">
             <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-              <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+              <div className="relative flex flex-col min-w-0 break-words bg-amber-200 w-full mb-6 shadow-lg rounded">
                 <div className="rounded-t mb-0 px-4 py-3 border-0">
                   <div className="flex flex-wrap items-center">
                     <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-                      <h3 className="font-semibold text-base text-blueGray-700">
-                        Page visits
+                      <h3 className="font-semibold text-base text-gray-700">
+                        Online Classes
                       </h3>
                     </div>
                     <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
@@ -154,27 +154,27 @@ export default function Dashboard() {
                   <table className="items-center w-full bg-transparent border-collapse">
                     <thead>
                       <tr>
-                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Page name
+                        <th className="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Classes
                         </th>
-                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Visitors
+                        <th className="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Teacher
                         </th>
-                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Unique users
+                        <th className="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Students attend
                         </th>
-                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Bounce rate
+                        <th className="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Rate
                         </th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          /argon/
+                          Introduction to programming
                         </th>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          4,569
+                          Vu Quoc Hoang
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           340
@@ -186,10 +186,10 @@ export default function Dashboard() {
                       </tr>
                       <tr>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          /argon/index.html
+                          Web programming
                         </th>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          3,985
+                          Nguyen Huy Khanh
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           319
@@ -201,10 +201,10 @@ export default function Dashboard() {
                       </tr>
                       <tr>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          /argon/charts.html
+                          DataStructure and Algorithms
                         </th>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          3,513
+                          Le Ngoc Thanh
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           294
@@ -216,10 +216,10 @@ export default function Dashboard() {
                       </tr>
                       <tr>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          /argon/tables.html
+                          Web Advanced Programming
                         </th>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          2,050
+                          Mai Anh Tuan
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           147
@@ -231,10 +231,10 @@ export default function Dashboard() {
                       </tr>
                       <tr>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          /argon/profile.html
+                          Mobile Application Programming
                         </th>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          1,795
+                          Ho Tuan Thanh
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           190
@@ -250,12 +250,12 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="w-full xl:w-4/12 px-4">
-              <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+              <div className="relative flex flex-col min-w-0 break-words bg-indigo-300 w-full mb-6 shadow-lg rounded">
                 <div className="rounded-t mb-0 px-4 py-3 border-0">
                   <div className="flex flex-wrap items-center">
                     <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-                      <h3 className="font-semibold text-base text-blueGray-700">
-                        Social traffic
+                      <h3 className="font-semibold text-base text-gray-700">
+                        Popular Classes
                       </h3>
                     </div>
                     <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
@@ -273,33 +273,33 @@ export default function Dashboard() {
                   <table className="items-center w-full bg-transparent border-collapse">
                     <thead className="thead-light">
                       <tr>
-                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Referral
+                        <th className="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Classes
                         </th>
-                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Visitors
+                        <th className="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Attendants
                         </th>
                         <th
-                          className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                          className="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                           style={{ minWidth: "140px" }}
-                        ></th>
+                        >Hot</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          Facebook
+                          Software Architect
                         </th>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           1,480
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           <div className="flex items-center">
-                            <span className="mr-2">60%</span>
+                            <span className="mr-2">55%</span>
                             <div className="relative w-full">
                               <div className="overflow-hidden h-2 text-xs flex rounded bg-red-200">
                                 <div
-                                  style={{ width: "60%" }}
+                                  style={{ width: "55%" }}
                                   className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"
                                 ></div>
                               </div>
@@ -309,18 +309,18 @@ export default function Dashboard() {
                       </tr>
                       <tr>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          Facebook
+                          Game Development
                         </th>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          5,480
+                          2,480
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           <div className="flex items-center">
-                            <span className="mr-2">70%</span>
+                            <span className="mr-2">75%</span>
                             <div className="relative w-full">
                               <div className="overflow-hidden h-2 text-xs flex rounded bg-emerald-200">
                                 <div
-                                  style={{ width: "70%" }}
+                                  style={{ width: "75%" }}
                                   className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"
                                 ></div>
                               </div>
@@ -330,18 +330,18 @@ export default function Dashboard() {
                       </tr>
                       <tr>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          Google
+                          Software Testing
                         </th>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          4,807
+                          3,000
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           <div className="flex items-center">
-                            <span className="mr-2">80%</span>
+                            <span className="mr-2">70%</span>
                             <div className="relative w-full">
                               <div className="overflow-hidden h-2 text-xs flex rounded bg-purple-200">
                                 <div
-                                  style={{ width: "80%" }}
+                                  style={{ width: "70%" }}
                                   className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-500"
                                 ></div>
                               </div>
@@ -351,19 +351,19 @@ export default function Dashboard() {
                       </tr>
                       <tr>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          Instagram
+                          Advanced Database
                         </th>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          3,678
+                          3,578
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           <div className="flex items-center">
-                            <span className="mr-2">75%</span>
+                            <span className="mr-2">65%</span>
                             <div className="relative w-full">
-                              <div className="overflow-hidden h-2 text-xs flex rounded bg-lightBlue-200">
+                              <div className="overflow-hidden h-2 text-xs flex rounded bg-blue-200">
                                 <div
-                                  style={{ width: "75%" }}
-                                  className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-lightBlue-500"
+                                  style={{ width: "65%" }}
+                                  className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"
                                 ></div>
                               </div>
                             </div>
@@ -372,19 +372,19 @@ export default function Dashboard() {
                       </tr>
                       <tr>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          twitter
+                          Data Visualization
                         </th>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          2,645
+                          1,780
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           <div className="flex items-center">
-                            <span className="mr-2">30%</span>
+                            <span className="mr-2">65%</span>
                             <div className="relative w-full">
                               <div className="overflow-hidden h-2 text-xs flex rounded bg-orange-200">
                                 <div
-                                  style={{ width: "30%" }}
-                                  className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"
+                                  style={{ width: "65%" }}
+                                  className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-orange-500"
                                 ></div>
                               </div>
                             </div>
@@ -399,51 +399,29 @@ export default function Dashboard() {
           </div>
           <footer className="block py-4">
             <div className="container mx-auto px-4">
-              <hr className="mb-4 border-b-1 border-blueGray-200" />
+              <hr className="mb-4 border-b-1 border-gray-200" />
               <div className="flex flex-wrap items-center md:justify-between justify-center">
                 <div className="w-full md:w-4/12 px-4">
-                  <div className="text-sm text-blueGray-500 font-semibold py-1">
-                    Copyright © {new Date().getFullYear()}{" "}
-                    <a
-                      href="https://www.creative-tim.com"
-                      className="text-blueGray-500 hover:text-blueGray-700 text-sm font-semibold py-1"
-                    >
-                      Creative Tim
-                    </a>
+                  <div className="text-sm text-gray-500 font-semibold py-1">
+                    Web Advanced Programming
                   </div>
                 </div>
                 <div className="w-full md:w-8/12 px-4">
                   <ul className="flex flex-wrap list-none md:justify-end  justify-center">
                     <li>
                       <a
-                        href="https://www.creative-tim.com"
-                        className="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
-                      >
-                        Creative Tim
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.creative-tim.com/presentation"
-                        className="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
+                        href="#"
+                        className="text-gray-600 hover:text-gray-800 text-sm font-semibold block py-1 px-3"
                       >
                         About Us
                       </a>
                     </li>
                     <li>
                       <a
-                        href="http://blog.creative-tim.com"
-                        className="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
+                        href="#"
+                        className="text-gray-600 hover:text-gray-800 text-sm font-semibold block py-1 px-3"
                       >
-                        Blog
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://github.com/creativetimofficial/tailwind-starter-kit/blob/main/LICENSE.md"
-                        className="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
-                      >
-                        MIT License
+                        Github
                       </a>
                     </li>
                   </ul>
