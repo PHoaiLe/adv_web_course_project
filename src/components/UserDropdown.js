@@ -24,7 +24,7 @@ export default function UserDropdown()
     return (
       <>
         <a
-          className="text-blueGray-500 block"
+          className="text-black-500 block"
           href="#pablo"
           ref={btnDropdownRef}
           onClick={e =>
@@ -34,7 +34,7 @@ export default function UserDropdown()
           }}
         >
           <div className="items-center flex">
-            <span className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
+            <span className="w-12 h-12 text-sm text-white bg-black-200 inline-flex items-center justify-center rounded-full">
               <img
                 alt="..."
                 className="w-full rounded-full align-middle border-none shadow-lg"
@@ -54,39 +54,30 @@ export default function UserDropdown()
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black-700 hover:text-green-500"
             }
             onClick={e => e.preventDefault()}
           >
-            Action
+            Profile
           </a>
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black-700 hover:text-red-500"
             }
             onClick={e => e.preventDefault()}
           >
-            Another action
+            Edit Profile
           </a>
+          <div className="h-0 my-2 border border-solid border-black-100" />
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black-700 hover:text-blue-500"
             }
             onClick={e => e.preventDefault()}
           >
-            Something else here
-          </a>
-          <div className="h-0 my-2 border border-solid border-blueGray-100" />
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-            }
-            onClick={e => e.preventDefault()}
-          >
-            Seprated link
+            Sign Out
           </a>
         </div>
       </>

@@ -58,7 +58,7 @@ export default function Hero() {
         <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
             <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
                 <h2 class="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white">Lots of diversity in the classroom</h2>
-                <p class="mb-4">Our English class is a diverse and inclusive learning environment where students from various backgrounds come together to share their perspectives. Embrace the richness of cultural diversity as we learn and grow together in all proficiencies.</p>
+                <p class="mb-4">Our class is a diverse and inclusive learning environment where students from various backgrounds come together to share their perspectives. Embrace the richness of cultural diversity as we learn and grow together in all proficiencies.</p>
             </div>
             <div class="grid grid-cols-2 gap-4 mt-8">
                 <img class="w-full rounded-lg" src="../classroom1.jpg" />

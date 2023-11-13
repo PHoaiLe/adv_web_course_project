@@ -83,13 +83,13 @@ function Page()
                         <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Members</h2>
                         <ul className="text-gray-600 dark:text-gray-400">
                             <li>
-                                <p>Member1</p>
+                                <p>Banh Hao Toan</p>
                             </li>
                             <li>
-                                <p>Member2</p>
+                                <p>Le Hoai Phuong</p>
                             </li>
                             <li>
-                                <p>Member3</p>
+                                <p>Le Quoc Ky Anh</p>
                             </li>
                         </ul>
                     </div>
@@ -105,13 +105,13 @@ function Page()
                         <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Email</h2>
                         <ul className="text-gray-600 dark:text-gray-400">
                             <li>
-                                <p>Member1</p>
+                                <p>bhtoan20@clc.fitus.edu.vn</p>
                             </li>
                             <li>
-                                <p>Member2</p>
+                                <p>lhphuong20@clc.fitus.edu.vn</p>
                             </li>
                             <li>
-                                <p>Member3</p>
+                                <p>lqkanh20@clc.fitus.edu.vn</p>
                             </li>
                         </ul>
                     </div>
