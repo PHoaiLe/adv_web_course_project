@@ -106,8 +106,18 @@ export default function Sidebar()
               {/* <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  href="/">
-                  <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"></i> Sign In
+                  href="/"
+                >
+                  <i className="fas fa-user-circle text-blueGray-400 mr-2 text-sm"></i> Profile Page
+                </Link>
+              </li>
+
+              <li className="items-center">
+                <Link
+                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
+                  href="/"
+                >
+                  <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"></i> Login
                 </Link>
               </li>
 
@@ -141,49 +151,55 @@ export default function Sidebar()
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="inline-flex">
                 <Link
-                  className="text-black-700 hover:text-blue-500 text-sm block mb-4 no-underline font-semibold"
-                  href="/">
-                  <i className="fas fa-paint-brush mr-2 text-blue-400 text-base"></i> To Do
+                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+                  href="/"
+                >
+                  <i className="fas fa-paint-brush mr-2 text-blueGray-400 text-base"></i> Styles
                 </Link>
               </li>
 
               <li className="inline-flex">
                 <Link
-                  className="text-black-700 hover:text-blue-500 text-sm block mb-4 no-underline font-semibold"
-                  href="/">
-                  <i className="fab fa-css3-alt mr-2 text-blue-400 text-base"></i> Assignments
+                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+                  href="/"
+                >
+                  <i className="fab fa-css3-alt mr-2 text-blueGray-400 text-base"></i> CSS Components
                 </Link>
               </li>
 
               <li className="inline-flex">
                 <Link
-                  className="text-black-700 hover:text-blue-500 text-sm block mb-4 no-underline font-semibold"
-                  href="/">
-                  <i className="fab fa-vuejs mr-2 text-blue-400 text-base"></i> Calendar
+                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+                  href="/"
+                >
+                  <i className="fab fa-vuejs mr-2 text-blueGray-400 text-base"></i> VueJS
                 </Link>
               </li>
 
               <li className="inline-flex">
                 <Link
-                  className="text-black-700 hover:text-blue-500  text-sm block mb-4 no-underline font-semibold"
-                  href="/">
-                  <i className="fab fa-react mr-2 text-blue-400 text-base"></i> Online Users
+                  className="text-blueGray-700 hover:text-blueGray-500  text-sm block mb-4 no-underline font-semibold"
+                  href="/"
+                >
+                  <i className="fab fa-react mr-2 text-blueGray-400 text-base"></i> React
                 </Link>
               </li>
 
               <li className="inline-flex">
                 <Link
-                  className="text-black-700 hover:text-blue-500  text-sm block mb-4 no-underline font-semibold"
-                  href="/">
-                  <i className="fab fa-angular mr-2 text-blue-400 text-base"></i> My courses
+                  className="text-blueGray-700 hover:text-blueGray-500  text-sm block mb-4 no-underline font-semibold"
+                  href="/"
+                >
+                  <i className="fab fa-angular mr-2 text-blueGray-400 text-base"></i> Angular
                 </Link>
               </li>
 
               <li className="inline-flex">
                 <Link
-                  className="text-black-700 hover:text-blue-500  text-sm block mb-4 no-underline font-semibold"
-                  href="/">
-                  <i className="fab fa-js-square mr-2 text-blue-400 text-base"></i> Upcoming Events
+                  className="text-blueGray-700 hover:text-blueGray-500  text-sm block mb-4 no-underline font-semibold"
+                  href="/"
+                >
+                  <i className="fab fa-js-square mr-2 text-blueGray-400 text-base"></i> Javascript
                 </Link>
               </li>
             </ul>
