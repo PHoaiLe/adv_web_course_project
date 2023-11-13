@@ -1,19 +1,19 @@
 import Navbar from "@/components/Navbar.js";
-import Sidebar from "@/components/Sidebar.js";
+import Sidebar from "@/components/Sidebar";
+import '@/styles/globals.css';
 
-function DashboardRootLayout({children})
+export default function DashboardRootLayout({ children })
 {
-    return(
+    return (
         <html lang='en'>
             <body>
-            <Sidebar/>
-            <Navbar/>
+                <Sidebar />
+                <Navbar />
                 {children}
             </body>
         </html>
     )
 }
-export default DashboardRootLayout
 
 // 'use client';
 // import React from "react";
