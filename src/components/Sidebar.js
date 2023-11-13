@@ -108,11 +108,11 @@ export default function Sidebar()
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                   href="/"
                 >
-                  <i className="fas fa-user-circle text-blueGray-400 mr-2 text-sm"></i> Profile Page
+                  <i className="fas fa-newspaper text-black-400 mr-2 text-sm"></i> Landing Page
                 </Link>
               </li>
 
-              <li className="items-center">
+              {/* <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                   href="/"
