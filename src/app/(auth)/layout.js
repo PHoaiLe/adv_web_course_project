@@ -2,9 +2,6 @@ import Footer from "@/components/main/footer/Footer"
 import TopNavBar from "@/components/main/top_nav_bar_2/TopNavBar"
 
 function AuthRootLayout({children})
-
-function DashboardRootLayout({children})
-
 {
     return(
         <html lang='en'>
