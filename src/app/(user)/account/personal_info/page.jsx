@@ -18,7 +18,7 @@ async function UserInfoPage()
     const result = await GET_getUserInfo();
     console.log(result)
 
-    let TextContent = <UserInfoTextContent User_data={result.data}/>
+    let TextContent = <UserInfoTextContent User_data={result.responseBody}/>
 
     let ImageContent = <UserInfoAvatarContent />
     

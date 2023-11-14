@@ -2,6 +2,8 @@ import WebTopNavBar from "@/components/main/top_nav_bar/TopNavBar"
 import UserLeftMenu from "@/components/user/menu/UserLeftMenu"
 import './layout.css'
 import TopNavBar from "@/components/main/top_nav_bar_2/TopNavBar"
+import Sidebar from "@/components/Sidebar"
+import Navbar from "@/components/Navbar"
 
 
 
@@ -15,22 +17,41 @@ async function LayoutOfUserPages({children})
     // console.log(data)
 
 
-    return(
-        <html>
-            <head>
-                <title>{metadata.title}</title>
-            </head>
+    // return(
+    //     <html>
+    //         <head>
+    //             <title>{metadata.title}</title>
+    //         </head>
+    //         <body>
+    //             <TopNavBar/>
+    //             <div className="hiden-frame"></div>
+    //             <div className="user-main-frame">
+    //                 <UserLeftMenu/>
+    //                 <div className="user-detail-frame">
+    //                     <div className="user-detail-container">
+    //                         {children}
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         </body>
+    //     </html>
+    // )
+
+    return (
+        <html lang='en'>
             <body>
-                <TopNavBar/>
-                <div className="hiden-frame"></div>
-                <div className="user-main-frame">
-                    <UserLeftMenu/>
-                    <div className="user-detail-frame">
-                        <div className="user-detail-container">
-                            {children}
+                <Navbar />
+                    <div className="hiden-frame"></div>
+                    <div className="user-main-frame">
+                        <div>
+                            <Sidebar />
+                        </div>
+                        <div className="user-detail-frame">
+                            <div className="user-detail-container">
+                                {children}
+                            </div>
                         </div>
                     </div>
-                </div>
             </body>
         </html>
     )

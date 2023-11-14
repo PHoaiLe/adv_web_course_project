@@ -24,12 +24,19 @@ export async function POST_signUp(formData)
 
     //config and send the http request to the server
     const response = await sendSignUpRequest(requestBody)
-    const statusCode = response.status
-    const data = await response.json()
+
+    //check error
+    if(response.isError == true)
+    {
+        return {statusCode: response.response.errno, responseBody: response.response}
+    }
+
+    const statusCode = response.response.status
+    const data = await response.response.json()
 
     if(statusCode == ApiStatusCodes.SIGN_UP_SUCCESS)
     {
-        redirect("/auth/sign_in")
+        redirect("/auth/sign_in")   
     }
     else
     {
@@ -40,18 +47,27 @@ export async function POST_signUp(formData)
 
 async function sendSignUpRequest(requestBody)
 {
-    const url = "http://localhost:3000/user/signup"
+    const url = process.env.API_URL + "/user/signup"
 
-    const response = await fetch(url, {
-        method: 'POST',
-        body: requestBody,
-        credentials: "include",
-        headers: {
-            "cookie": cookies(),
-            "Content-Type": "application/json"
-        },
-        
-    })
+    try
+    {
+        const response = await fetch(url, {
+            method: 'POST',
+            body: requestBody,
+            credentials: "include",
+            headers: {
+                "cookie": cookies(),
+                "Content-Type": "application/json"
+            },
+            
+        })
+        return {isError: false, response: response}
+    }
+    catch (err)
+    {
+        return {isError: true, response: err}
+    }
 
-    return response;
+
+
 }

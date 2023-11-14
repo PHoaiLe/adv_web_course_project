@@ -8,6 +8,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    height: 100%;
     /* background-color: burlywood; */
 }
 
@@ -17,6 +18,7 @@
     grid-template-columns: 30% 70%;
     /* column-gap: 20px; */
     width: 100%;
+    height: 50%;
 }
 
 .user-detail-info-text-content-labels
@@ -27,6 +29,7 @@
     margin-right: 40px;
     text-align: right;
     color: grey;
+    /* background-color: wheat; */
 }
 
 .user-detail-info-text-content-labels p

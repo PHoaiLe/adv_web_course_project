@@ -9,7 +9,6 @@
     font-weight: 400;
     line-height: normal;
     height: 100%;
-    /* background-color: burlywood; */
 }
 
 .user-detail-edit-text-content-grid
@@ -17,8 +16,8 @@
     display: grid;
     grid-template-columns: 30% 70%;
     /* column-gap: 20px; */
-    grid-template-rows: 86% 14%;
-    row-gap: 5%;
+    /* grid-template-rows: 86% 14%;
+    row-gap: 5%; */
     width: 100%;
 }
 
@@ -94,7 +93,8 @@
 
 .save-button:hover
 {
-    background-color: rgb(247, 205, 126);
+    background-color: green;
+    color: white;
 }
 
 .cancel-button
@@ -102,10 +102,11 @@
     border-radius: 25px;
     background-color: whitesmoke;
     border-color: gainsboro;
+    width: 30%;
 }
 
 .cancel-button:hover
 {
-    background-color: ghostwhite;
+    background-color: skyblue; 
     color: black;
 }
