@@ -5,7 +5,7 @@ import UserInfoAvatarContent from '@/components/user/account/personal/view/avata
 import UserInfoTitle from '@/components/user/account/personal/view/title/UserInfoTitle.jsx'
 import GET_getUserInfo from '@/app/api/user/account/personal_info/api';
 import { notFound, redirect } from 'next/navigation'
-import ApiStatusCodes from '@/app/api/ApiStatusCode';
+import { ApiStatusCodes } from '@/app/api/ApiStatusCode';
 
 
 

@@ -1,11 +1,11 @@
-import Dashboard from 'view/dashboard.js'
-export default function Home() {
-  return (
-    <>
-      <Dashboard/>
-    </>
+// import Dashboard from 'view/dashboard.js'
+// export default function Home() {
+//   return (
+//     <>
+//       <Dashboard/>
+//     </>
 
-  )
-}
+//   )
+// }
 
 
