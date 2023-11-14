@@ -1,10 +1,17 @@
 'use client'
 
+import { ApiStatusCodes } from "@/app/api/ApiStatusCode"
 import { POST_signIn } from "@/app/api/auth/sign_in/api"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 function SignInForm()
 {
+    const router = useRouter();
+    const [error_message_status, setMessageStatus] = useState({display: "none"})
+    const [error_message, setError_Message] = useState("")
+
     async function handleSubmit(formData)
     {
         //handle some error scenarioes
@@ -12,6 +19,21 @@ function SignInForm()
 
         const result = await POST_signIn(formData)
         console.log(result)
+        if(result.statusCode == ApiStatusCodes.SIGN_IN_SUCCESS)
+        {
+            setMessageStatus({display:"none"})
+            router.push("/dashboard/")
+        }
+        else if(result.statusCode > 0) //credentials problems
+        {
+            setError_Message(result.responseBody.message)
+            setMessageStatus({display:"block", color:"red"})
+        }
+        else //statusCode < 0
+        {
+            setError_Message(result.responseBody)
+            setMessageStatus({display:"block"})
+        }
     }
 
     return(
@@ -43,6 +65,9 @@ function SignInForm()
                                 </button>
                             </div>
                         </form>
+                        <div className="text-center" style={error_message_status}>
+                            <p>{error_message}</p>
+                        </div>
                         <div className="text-center">
                             <Link href="#" className="hover:text-blue-700" >Forgot password?</Link>
                         </div>
@@ -50,7 +75,7 @@ function SignInForm()
                             <span>
                                 Not having have an account?
                             </span>
-                            <a href="/auth/sign_up" className="font-light text-md text-indigo-600 underline font-semibold hover:text-indigo-800">Sign up here</a>
+                            <Link href="/auth/sign_up" className="font-light text-md text-indigo-600 underline font-semibold hover:text-indigo-800">Sign up here</Link>
                         </div>
                     </div>
                 </div>

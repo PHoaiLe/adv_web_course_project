@@ -5,7 +5,7 @@ import { cookies, headers } from 'next/headers';
 
 async function GET_getUserInfo()
 {
-    let url = "http://localhost:3000/user/profile";
+    let url = process.env.API_URL + "/user/profile";
 
     try
     {
@@ -17,7 +17,7 @@ async function GET_getUserInfo()
         
         const statusCode = response.status
         const data = await response.json();
-        return {statusCode, data};
+        return {statusCode, responseBody: data};
     }
     catch(err)
     {

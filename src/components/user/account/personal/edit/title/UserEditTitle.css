@@ -1,24 +1,25 @@
 
 .user-detail-info-title
 {
-    color: #000;
+    color: white;
     font-family: Arial;
     font-style: normal;
-    font-weight: 400;
+    font-weight:normal;
     line-height: normal;
+    font-size: larger;
     padding-left: 40px;
-    height: min-content;
-    background: rgb(253, 253, 255);
+    height: max-content;
+    background: green;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .user-detail-info-title p
 {
-    padding-top: 0;
-    margin-top: -10px;
-    color: rgb(153, 153, 153);
+    padding-top: 5px;
+    color: white;
     font-size: smaller;
 }
 
@@ -31,7 +32,7 @@
 .edit-link
 {
     font-size: xx-large;
-    color: gray;
+    color: white;
     width: 35px;
     height: 35px;
     margin-left: 10px;
