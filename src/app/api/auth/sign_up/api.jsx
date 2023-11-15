@@ -28,7 +28,7 @@ export async function POST_signUp(formData)
     //check error
     if(response.isError == true)
     {
-        return {statusCode: response.response.errno, responseBody: response.response}
+        return {statusCode: response.response.errno, responseBody: "error connection"}
     }
 
     const statusCode = response.response.status
@@ -41,7 +41,8 @@ export async function POST_signUp(formData)
     else
     {
         console.log("sign up failed...")
-        return {statusCode, data}
+        console.log(data)
+        return {statusCode, responseBody: data}
     }
 }
 
@@ -65,6 +66,7 @@ async function sendSignUpRequest(requestBody)
     }
     catch (err)
     {
+        console.log(err)
         return {isError: true, response: err}
     }
 

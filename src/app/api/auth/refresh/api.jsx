@@ -40,7 +40,7 @@ export async function POST_refreshToken()
     }
     catch (err)
     {
-        return {isError: true, response: err}
+        return {isError: true, response: "error connection"}
     }
 
 }

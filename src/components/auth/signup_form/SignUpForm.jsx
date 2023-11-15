@@ -16,8 +16,8 @@ function SignUpForm()
 
     async function handleSubmit(formData)
     {
-        const result = await POST_signUp(formData)
-        console.log(result)
+        const {statusCode, responseBody} = await POST_signUp(formData)
+        
     }
     
     return(
@@ -81,7 +81,9 @@ function SignUpForm()
                                 </button>
                             </div>
                             <button type="submit" className="w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1">Create Account</button>
-
+                        <div>
+                            <p>{}</p>
+                        </div>
                         <div className="text-center text-sm text-grey-dark mt-4">
                             By signing up, you agree to the 
                             <a className="text-grey-dark hover:text-indigo-800" href="#"> Terms of Service </a> and 

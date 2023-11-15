@@ -1,9 +1,10 @@
 'use server'
 
-import { cookies } from "next/headers"
+import { cookies, headers } from "next/headers"
 import { ApiStatusCodes } from "../../ApiStatusCode"
 import { redirect } from "next/navigation"
 import { revalidatePath } from "next/cache"
+import { NextRequest } from "next/server"
 
 export async function POST_signIn(formData)
 {
@@ -13,15 +14,18 @@ export async function POST_signIn(formData)
         map.set(key, value)
     })
 
-    console.log(map)
+    const requestBody = JSON.stringify(Object.fromEntries(map))
+    console.log(requestBody)
 
-    const response = await sendSignInRequest(JSON.stringify(Object.fromEntries(map)))
+    const response = await sendSignInRequest(requestBody)
 
     if(response.isError == true)
     {
-        return {statusCode: response.response.errno, responseBody: response.response}
+        console.log("error")
+        return {statusCode: response.response.errno, responseBody: undefined}
     }
 
+    
     //no error
     const statusCode = response.response.status
     const responseBody = await response.response.json()
@@ -31,7 +35,7 @@ export async function POST_signIn(formData)
         console.log("SIGN_IN_SUCCESS")
         cookies().set("accessToken", responseBody.accessToken, {expires: new Date(responseBody.expiresAT)})
         cookies().set("refreshToken", responseBody.refreshToken, {expires: new Date(responseBody.expiresRT)})
-        return {statusCode, responseBody: undefined}
+        return {statusCode, responseBody: "error connection"}
     }
     else
     {
@@ -52,8 +56,9 @@ async function sendSignInRequest(requestBody)
             body: requestBody,
             credentials: "include",
             headers: {
-                "cookie": cookies(),
-                "Content-Type": "application/json"
+                "Cookie": cookies(),
+                "Content-Type": "application/json",
+                "Accept" : "application/json"
             },
             
         })
@@ -62,6 +67,7 @@ async function sendSignInRequest(requestBody)
     }
     catch (err)
     {
+        console.log(err)
         return {isError: true, response: err}
     }
 
