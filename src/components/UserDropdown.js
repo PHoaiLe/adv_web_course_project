@@ -25,9 +25,9 @@ export default function UserDropdown()
     };
     return (
       <>
-        <a
+        <Link
           className="text-black-500 block"
-          href="#pablo"
+          href="#"
           ref={btnDropdownRef}
           onClick={e =>
           {
@@ -45,7 +45,7 @@ export default function UserDropdown()
               <UserOutlined/>
             </span>
           </div>
-        </a>
+        </Link>
         <div
           ref={popoverDropdownRef}
           className={
@@ -63,12 +63,12 @@ export default function UserDropdown()
             Profile
           </Link>
           <Link
-            href="/account/personal_edit"
+            href="/account/account_info"
             className={
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black-700 hover:text-red-500"
             }
           >
-            Edit Profile
+            Account Info
           </Link>
           <div className="h-0 my-2 border border-solid border-black-100" />
           <Link
@@ -85,3 +85,4 @@ export default function UserDropdown()
   };
 }
 
+  

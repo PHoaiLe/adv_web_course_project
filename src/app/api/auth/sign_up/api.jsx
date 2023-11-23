@@ -10,15 +10,21 @@ export async function POST_signUp(formData)
 {
     let map = new Map();
     const birthday = formData.get("birthday")
+    const otpValue = formData.get('otp')
+
     formData.set("birthday", new Date(birthday).toISOString().split("T")[0])
     formData.set("role", "user")
+    
+    formData.delete('phone')
 
     formData.forEach((value, key, parent) => 
     {
         map.set(key, value)
     })
 
-    let requestBody = JSON.stringify(Object.fromEntries(map))
+    let JsObject = Object.fromEntries(map)
+    JsObject.otp = Number.parseInt(otpValue, 10)
+    requestBody = JSON.stringify(JsObject)
 
     console.log(requestBody)
 
@@ -28,7 +34,7 @@ export async function POST_signUp(formData)
     //check error
     if(response.isError == true)
     {
-        return {statusCode: response.response.errno, responseBody: "error connection"}
+        return {statusCode: response.response.errno, responseBody: "Connection error"}
     }
 
     const statusCode = response.response.status
@@ -58,7 +64,7 @@ async function sendSignUpRequest(requestBody)
             credentials: "include",
             headers: {
                 "cookie": cookies(),
-                "Content-Type": "application/json"
+                "Content-Type": 'application/json'
             },
             
         })
@@ -72,4 +78,38 @@ async function sendSignUpRequest(requestBody)
 
 
 
+}
+
+
+export async function POST_sendRegisterOTP(email)
+{
+    let map = new Map()
+    map.set("email", email)
+    console.log(map)
+    let requestBody = JSON.stringify(Object.fromEntries(map))
+
+    try
+    {
+        let url = process.env.API_URL + "/user/send_registerOtp"
+        const response = await fetch(url, {
+            method: 'POST',
+            credentials: 'include',
+            body: requestBody,
+            headers: {
+                'Cookie': cookies(),
+                'Content-Type': 'application/json'
+            }
+        })
+
+        const statusCode = response.status;
+        const responseBody = await response.json();
+
+        return {statusCode, responseBody}
+
+    }
+    catch(err)
+    {
+        console.log(err)
+        return {statusCode: err.errno, responseBody: "Connection error!"}
+    }
 }

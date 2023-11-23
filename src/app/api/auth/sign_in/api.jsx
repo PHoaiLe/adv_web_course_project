@@ -2,9 +2,10 @@
 
 import { cookies, headers } from "next/headers"
 import { ApiStatusCodes } from "../../ApiStatusCode"
-import { redirect } from "next/navigation"
+import { RedirectType, redirect } from "next/navigation"
 import { revalidatePath } from "next/cache"
-import { NextRequest } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
+import { rewrites } from "../../../../../next.config"
 
 export async function POST_signIn(formData)
 {
@@ -18,7 +19,6 @@ export async function POST_signIn(formData)
     console.log(requestBody)
 
     const response = await sendSignInRequest(requestBody)
-
     if(response.isError == true)
     {
         console.log("error")
@@ -29,6 +29,7 @@ export async function POST_signIn(formData)
     //no error
     const statusCode = response.response.status
     const responseBody = await response.response.json()
+    console.log(responseBody)
 
     if(statusCode == ApiStatusCodes.SIGN_IN_SUCCESS)
     {
@@ -71,4 +72,43 @@ async function sendSignInRequest(requestBody)
         return {isError: true, response: err}
     }
 
+}
+
+
+export async function GET_signInWithGoogle()
+{
+    const googleAuthLink = process.env.API_URL + "/auth/google/login"
+    
+    redirect(googleAuthLink, 'push')
+    // const response = await fetch(googleAuthLink, {
+    //     method: 'GET',
+    //     credentials: 'include',
+    //     headers: {
+    //         "Accept": '*/*'
+    //     },
+    // })
+
+    // const statusCode = response.status
+    // const responseBody = await response.json();
+
+    // console.log(responseBody)
+}
+
+export async function GET_signInWithFacebook()
+{
+    const googleAuthLink = process.env.API_URL + "/auth/facebook/login"
+    
+    redirect(googleAuthLink, 'push')
+    // const response = await fetch(googleAuthLink, {
+    //     method: 'GET',
+    //     credentials: 'include',
+    //     headers: {
+    //         "Accept": '*/*'
+    //     },
+    // })
+
+    // const statusCode = response.status
+    // const responseBody = await response.json();
+
+    // console.log(responseBody)
 }

@@ -6,12 +6,17 @@ import UserInfoTitle from '@/components/user/account/personal/view/title/UserInf
 import GET_getUserInfo from '@/app/api/user/account/personal_info/api';
 import { notFound, redirect } from 'next/navigation'
 import { ApiStatusCodes } from '@/app/api/ApiStatusCode';
+import { EditComponent } from '@/components/user/account/title/TitleComponents/TitleComponents';
+import DetailPageTitle from '@/components/user/account/title/DetailPageTitle';
 
 
 
 async function UserInfoPage()
 {
     const editLink = '/account/personal_edit'
+    const mainTitle = "Personal Information"
+    const description = "Here you can review or edit your account's personal information"
+    const titleComponent = <EditComponent EditLink={editLink}/>
 
 
 
@@ -26,7 +31,7 @@ async function UserInfoPage()
     {
         return(
             <>
-                <UserInfoTitle EditLink={editLink}/>
+                <DetailPageTitle MainTitle={mainTitle} Description={description} TitleComponent={titleComponent}/>
                 <div className="user-detail-info-content-frame">
                     <div className="user-detail-info-content-container">
                         {TextContent}
@@ -42,7 +47,7 @@ async function UserInfoPage()
 
     return(
         <>
-            <UserInfoTitle EditLink={editLink}/>
+            <DetailPageTitle MainTitle={mainTitle} Description={description} TitleComponent={titleComponent}/>
             <div className="user-detail-info-content-frame">
                 <div className="user-detail-info-content-container">
                     {TextContent}

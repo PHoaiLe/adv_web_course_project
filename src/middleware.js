@@ -13,6 +13,11 @@ export async function middleware(request) {
     const baseURL = request.nextUrl.origin
     const originPath = href.substring((href.indexOf(baseURL)+baseURL.length))
 
+    if(originPath == "/auth/google/callback")
+    {
+        console.log(request)
+    }
+
     if(originPath == "/auth/logout")
     {
         const nextResponse = NextResponse.redirect(baseURL, request.url)
@@ -43,8 +48,8 @@ export async function middleware(request) {
         else
         {
             const nextResponse = NextResponse.next()
-            nextResponse.cookies.set("accessToken", response.accessToken, {expires: new Date(response.expiresAT)})
-            nextResponse.cookies.set("refreshToken", response.refreshToken, {expires: new Date(response.expiresRT)})
+            nextResponse.cookies.set("accessToken", response.accessToken)
+            nextResponse.cookies.set("refreshToken", response.refreshToken)
             return nextResponse;
         }
     }
@@ -58,7 +63,8 @@ export const config = {
   matcher: [
     '/dashboard/:path*',
     '/account/:path*',
-    '/auth/logout'
+    '/auth/logout',
+    '/auth/google/callback'
   ],
 }
 
@@ -88,6 +94,7 @@ async function refreshToken(cookies)
         const response = await fetch(query_api, {
             headers: {
                 "cookie": cookies,
+                "Authorization": "Bearer " + cookies.get("refreshToken").value
             },
             method: "POST",
             credentials: "include",

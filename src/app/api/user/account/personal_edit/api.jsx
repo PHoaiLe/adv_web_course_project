@@ -40,7 +40,8 @@ async function sendEditUserProfileRequest(responseBody)
             body: responseBody,
             headers: {
                 "cookie": cookies(),
-                'Content-Type': "application/json"
+                'Content-Type': "application/json",
+                "Authorization": "Bearer " + cookies().get("accessToken").value,
             },
         })
 

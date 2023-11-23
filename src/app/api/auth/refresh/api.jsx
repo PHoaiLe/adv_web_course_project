@@ -13,6 +13,7 @@ export async function POST_refreshToken()
         const response = await fetch(query_api, {
             headers: {
                 "cookie": cookies(),
+                "Authorization": "Bearer " + cookies().get("refreshToken")
             },
             method: "POST",
             credentials: "include",
