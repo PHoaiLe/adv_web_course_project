@@ -1,0 +1,23 @@
+
+.user-detail-info-content-frame
+{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    height: 82%;
+
+    /* background-color: green; */
+}
+
+.user-detail-info-content-container
+{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    /* column-gap: 8%; */
+    width: 100%;
+    height: 80%;
+
+    /* background-color: aqua; */
+}
+

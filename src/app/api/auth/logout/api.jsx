@@ -31,6 +31,6 @@ export async function POST_Logout()
     catch(err)
     {
         console.log(err)
-        return {statusCode: err.errno, responseBody: err}
+        return {statusCode: err.errno, responseBody: "error connection"}
     }
 }

@@ -11,8 +11,11 @@ async function GET_getUserInfo()
     {
         const response = await fetch(url, {
             method: 'GET',
-            credentials: "include", //activate cookies 
-            headers: {cookie: cookies()} //use cookies in request header
+            credentials: "include", //activate cookies
+            headers: {
+                "cookie": cookies(), //use cookies in request header
+                "Authorization": "Bearer " + cookies().get("accessToken").value
+            } 
         })
         
         const statusCode = response.status

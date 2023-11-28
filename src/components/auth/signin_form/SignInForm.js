@@ -1,10 +1,11 @@
 'use client'
 
-import { ApiStatusCodes } from "@/app/api/ApiStatusCode"
-import { POST_signIn } from "@/app/api/auth/sign_in/api"
+import { GET_signInWithFacebook, GET_signInWithGoogle, POST_signIn } from "@/app/api/auth/sign_in/api"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import './SignInForm.css'
+import { HttpStatusCode } from "axios"
 
 function SignInForm()
 {
@@ -15,11 +16,11 @@ function SignInForm()
     async function handleSubmit(formData)
     {
         //handle some error scenarioes
-        //....
+        //...
 
         const result = await POST_signIn(formData)
         console.log(result)
-        if(result.statusCode == ApiStatusCodes.SIGN_IN_SUCCESS)
+        if(result.statusCode == HttpStatusCode.Ok)
         {
             setMessageStatus({display:"none"})
             router.push("/dashboard/")
@@ -33,6 +34,21 @@ function SignInForm()
         {
             setError_Message(result.responseBody)
             setMessageStatus({display:"block"})
+        }
+    }
+
+    function handleSocialAuth(type)
+    {
+        switch(type)
+        {
+            case 'google':
+                {
+                    GET_signInWithGoogle()
+                } break;
+            case 'facebook':
+                {
+                    GET_signInWithFacebook()
+                }
         }
     }
 
@@ -69,14 +85,28 @@ function SignInForm()
                             <p>{error_message}</p>
                         </div>
                         <div className="text-center">
-                            <Link href="#" className="hover:text-blue-700" >Forgot password?</Link>
+                            <Link href="/auth/forgot_password" className="hover:text-blue-700" >Forgot password?</Link>
                         </div>
-                        <div className="text-center mt-12">
-                            <span>
+                        <div className="text-center mt-4">
+                            <span className="mr-2">
                                 Not having have an account?
                             </span>
                             <Link href="/auth/sign_up" className="font-light text-md text-indigo-600 underline font-semibold hover:text-indigo-800">Sign up here</Link>
                         </div>
+                        <div className="text-center mt-6 mb-3 extend-signin-label font-semibold">
+                            Or you can sign in by
+                        </div>
+                        <div className="social-auth">
+                            <ul>
+                                <li>
+                                    <button onClick={() => handleSocialAuth('google')} className="social-item"><img className="social-item-img" src='../google.png' alt="Google" /></button>
+                                </li>
+                                <li>
+                                    <button onClick={() => handleSocialAuth('facebook')} className="social-item"><img className="social-item-img" src='../facebook.png' alt="Facebook" /></button>
+                                </li>
+                            </ul>
+                        </div>
+    
                     </div>
                 </div>
             </section>
