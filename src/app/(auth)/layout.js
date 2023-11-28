@@ -1,12 +1,12 @@
 import Footer from "@/components/main/footer/Footer"
-import TopNavBar from "@/components/main/top_nav_bar_2/TopNavBar"
+import NavBar from "@/components/main/top_nav_bar/NavBar"
 
 function AuthRootLayout({children})
 {
     return(
         <html lang='en'>
             <body>
-                <TopNavBar />
+                <NavBar />
                 {children}
                 <Footer />
             </body>
