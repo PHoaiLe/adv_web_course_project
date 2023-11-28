@@ -2,6 +2,8 @@
 
 import React from "react";
 import { createPopper } from "@popperjs/core";
+import {UserOutlined} from '@ant-design/icons'
+import Link from "next/link";
 
 export default function UserDropdown()
 {
@@ -34,12 +36,13 @@ export default function UserDropdown()
           }}
         >
           <div className="items-center flex">
-            <span className="w-12 h-12 text-sm text-white bg-black-200 inline-flex items-center justify-center rounded-full">
-              <img
+            <span className="w-12 h-12 text-sm bg-black-200 inline-flex items-center justify-center rounded-full">
+              {/* <img
                 alt="..."
                 className="w-full rounded-full align-middle border-none shadow-lg"
-                src="classroom.jpg"
-              />
+                src="
+              /> */}
+              <UserOutlined/>
             </span>
           </div>
         </a>
@@ -51,34 +54,31 @@ export default function UserDropdown()
           }
           style={{ minWidth: "12rem" }}
         >
-          <a
-            href="#pablo"
+          <Link
+            href="/account/personal_info"
             className={
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black-700 hover:text-green-500"
             }
-            onClick={e => e.preventDefault()}
           >
             Profile
-          </a>
-          <a
-            href="#pablo"
+          </Link>
+          <Link
+            href="/account/personal_edit"
             className={
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black-700 hover:text-red-500"
             }
-            onClick={e => e.preventDefault()}
           >
             Edit Profile
-          </a>
+          </Link>
           <div className="h-0 my-2 border border-solid border-black-100" />
-          <a
-            href="#pablo"
+          <Link
+            href="/auth/logout"
             className={
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black-700 hover:text-blue-500"
             }
-            onClick={e => e.preventDefault()}
           >
             Sign Out
-          </a>
+          </Link>
         </div>
       </>
     );

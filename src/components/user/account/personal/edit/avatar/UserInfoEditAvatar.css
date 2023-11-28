@@ -4,6 +4,7 @@
     justify-content: start;
     align-items: center;
     height: 80%;
+    /* background-color: green; */
 }
 
 .user-detail-info-image-content-container
@@ -12,4 +13,9 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+.user-detail-info-image-upload-container
+{
+    margin-top: 20px;
 }

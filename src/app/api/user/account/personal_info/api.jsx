@@ -1,17 +1,31 @@
-import useSWR from "swr";
 
+'use server';
 
-async function GET_getUserInfo(user_id)
+import { cookies, headers } from 'next/headers';
+
+async function GET_getUserInfo()
 {
-    let url = "";
-    const fetcher = (...args) => fetch(...args).then(res => res.json);
-    const {data, error, isLoading} = useSWR(url, fetcher)
-    return 
+    let url = process.env.API_URL + "/user/profile";
+
+    try
     {
-        data,
-        error,
-        isLoading
+        const response = await fetch(url, {
+            method: 'GET',
+            credentials: "include", //activate cookies 
+            headers: {cookie: cookies()} //use cookies in request header
+        })
+        
+        const statusCode = response.status
+        const data = await response.json();
+        return {statusCode, responseBody: data};
     }
+    catch(err)
+    {
+        console.log(err)
+        return {statusCode: "500", data: null};
+    }
+
 }
+
 
 export default GET_getUserInfo
