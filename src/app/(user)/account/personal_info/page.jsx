@@ -25,7 +25,7 @@ async function UserInfoPage()
 
     let TextContent = <UserInfoTextContent User_data={result.responseBody}/>
 
-    let ImageContent = <UserInfoAvatarContent />
+    let ImageContent = <UserInfoAvatarContent AvatarLink={result.responseBody.avatar}/>
     
     if(result.statusCode == ApiStatusCodes.GET_USER_INFO_SUCCESS)
     {

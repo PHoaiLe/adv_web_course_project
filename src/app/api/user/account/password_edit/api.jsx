@@ -24,7 +24,8 @@ export async function POST_changePassword(formData)
 
     const statusCode = response.status;
     const responseBody = await response.json();
-
+    console.log(statusCode)
+    console.log(responseBody)
     return {statusCode, responseBody}
 }
 
@@ -34,12 +35,13 @@ async function sendChangePasswordRequest(requestBody)
     try
     {
         const response = await fetch(url, {
-            method: 'POST',
+            method: 'PATCH',
             credentials: 'include',
             body: requestBody,
             headers: {
                 'cookie': cookies(),
                 'Content-Type': 'application/json',
+                'Authorization': "Bearer " + cookies().get("accessToken").value,
             }
         })
 

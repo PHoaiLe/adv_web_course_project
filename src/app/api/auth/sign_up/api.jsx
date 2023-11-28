@@ -13,7 +13,6 @@ export async function POST_signUp(formData)
     const otpValue = formData.get('otp')
 
     formData.set("birthday", new Date(birthday).toISOString().split("T")[0])
-    formData.set("role", "user")
     
     formData.delete('phone')
 
@@ -24,7 +23,7 @@ export async function POST_signUp(formData)
 
     let JsObject = Object.fromEntries(map)
     JsObject.otp = Number.parseInt(otpValue, 10)
-    requestBody = JSON.stringify(JsObject)
+    const requestBody = JSON.stringify(JsObject)
 
     console.log(requestBody)
 

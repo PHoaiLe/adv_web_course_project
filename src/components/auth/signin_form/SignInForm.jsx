@@ -1,11 +1,11 @@
 'use client'
 
-import { ApiStatusCodes } from "@/app/api/ApiStatusCode"
 import { GET_signInWithFacebook, GET_signInWithGoogle, POST_signIn } from "@/app/api/auth/sign_in/api"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import './SignInForm.css'
+import { HttpStatusCode } from "axios"
 
 function SignInForm()
 {
@@ -20,7 +20,7 @@ function SignInForm()
 
         const result = await POST_signIn(formData)
         console.log(result)
-        if(result.statusCode == ApiStatusCodes.SIGN_IN_SUCCESS)
+        if(result.statusCode == HttpStatusCode.Ok)
         {
             setMessageStatus({display:"none"})
             router.push("/dashboard/")

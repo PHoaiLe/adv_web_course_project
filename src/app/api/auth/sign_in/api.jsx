@@ -29,14 +29,13 @@ export async function POST_signIn(formData)
     //no error
     const statusCode = response.response.status
     const responseBody = await response.response.json()
-    console.log(responseBody)
 
     if(statusCode == ApiStatusCodes.SIGN_IN_SUCCESS)
     {
         console.log("SIGN_IN_SUCCESS")
-        cookies().set("accessToken", responseBody.accessToken, {expires: new Date(responseBody.expiresAT)})
-        cookies().set("refreshToken", responseBody.refreshToken, {expires: new Date(responseBody.expiresRT)})
-        return {statusCode, responseBody: "error connection"}
+        cookies().set("accessToken", responseBody.accessToken)
+        cookies().set("refreshToken", responseBody.refreshToken)
+        return {statusCode, responseBody: undefined}
     }
     else
     {
@@ -49,7 +48,7 @@ export async function POST_signIn(formData)
 async function sendSignInRequest(requestBody)
 {
     const api_base_url = process.env.API_URL
-    const url = api_base_url + "/auth/login"
+    const url = api_base_url + "/auth/local/login"
     try
     {
         const response = await fetch(url, {

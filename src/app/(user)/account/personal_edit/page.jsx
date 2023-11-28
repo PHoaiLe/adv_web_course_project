@@ -18,6 +18,8 @@ async function UserEditInfoPage()
     const titleComponent = <UndoComponent UndoLink={userInfoLink}/>
 
     const {statusCode, responseBody} = await GET_getUserInfo()
+    console.log(statusCode)
+    console.log(responseBody)
     if(statusCode != ApiStatusCodes.GET_USER_INFO_SUCCESS && statusCode > 0)
     {
         revalidatePath("/account/personal_edit")
@@ -36,7 +38,7 @@ async function UserEditInfoPage()
                         <UserInfoTextEdit UserProfile={responseBody}/>
                     </div>
                     <div className="user-detail-edit-avatar-frame">
-                        <UserInfoEditAvatar/>
+                        <UserInfoEditAvatar AvatarLink={responseBody.avatar}/>
                     </div>
                 </div>
             </div>

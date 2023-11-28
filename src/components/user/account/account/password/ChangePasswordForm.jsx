@@ -6,6 +6,7 @@ import { useState }  from "react"
 import './ChangePasswordForm.css'
 import { POST_changePassword } from '@/app/api/user/account/password_edit/api'
 import { ApiStatusCodes } from '@/app/api/ApiStatusCode'
+import { HttpStatusCode } from 'axios'
 
 
 function ChangePasswordForm()
@@ -30,7 +31,7 @@ function ChangePasswordForm()
     async function handleSubmitEditForm(formData)
     {
         const {statusCode, responseBody} = await POST_changePassword(formData)
-        if(statusCode == ApiStatusCodes.CHANGE_PASSWORD_SUCCESS)
+        if(statusCode == HttpStatusCode.Ok)
         {
             setMessage(responseBody.message)
             setMessageStyle({display: 'block', color: 'green'})

@@ -25,12 +25,14 @@ function AccountInfoTextContent({Account_data})
                     <p>Account Id</p>
                     <p>Email</p>
                     <p>Role</p>
+                    <p>Login type</p>
                     <p>Created at</p>
                 </div>
                 <div className='user-detail-info-text-content-info'>
                     <p>{Account_data.id}</p>
                     <p>{Account_data.email}</p>
                     <p>{Account_data.role}</p>
+                    <p>{Account_data.login_type}</p>
                     <p>{Account_data.createdAt}</p>
                 </div>
             </div>

@@ -1,8 +1,14 @@
+import Navbar from "@/components/Navbar.js";
+import Sidebar from "@/components/Sidebar";
+import '@/styles/globals.css';
+
 function DashboardRootLayout({children})
 {
-    return(
+    return (
         <html lang='en'>
             <body>
+                <Sidebar />
+                <Navbar />
                 {children}
             </body>
         </html>

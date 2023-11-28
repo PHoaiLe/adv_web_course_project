@@ -52,3 +52,11 @@ async function sendEditUserProfileRequest(responseBody)
         return {isError: true, response: err}
     }
 }
+
+///////////////////////////////////////////////
+//avatar
+
+export async function PATCH_uploadAvatar(formData)
+{
+    
+}

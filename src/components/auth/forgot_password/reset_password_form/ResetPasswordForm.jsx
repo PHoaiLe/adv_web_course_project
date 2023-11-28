@@ -4,6 +4,8 @@ import { ApiStatusCodes } from "@/app/api/ApiStatusCode";
 import { POST_sendResetPasswordRequest } from "@/app/api/auth/forgot_password/api";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import './ResetPasswordForm.css'
+import { HttpStatusCode } from "axios";
 
 function ResetPasswordForm({ProvidedEmail})
 {
@@ -38,18 +40,20 @@ function ResetPasswordForm({ProvidedEmail})
             setMessageStyle({display:'none', color:'red'})
             const {statusCode, responseBody} = POST_sendResetPasswordRequest(formData)
 
-            if(statusCode == ApiStatusCodes.RESET_PASSWORD_SECCESS)
+            if(statusCode == HttpStatusCode.Created)
             {
-                setEmail(undefined)
-                setOtp(undefined)
-                setPassword(undefined)
-                setConfirmPassword(undefined)
-                alert("Reset password successfully... Redirect to Sign in page now!")
-                redirect("/auth/sign_in")
+                setMessage(responseBody.message)
+                setMessageStyle({display:'block', color:'green'})
             }
-            else if(statusCode == ApiStatusCodes.ERROR_CONNECT_REFUSED)
+            else if(statusCode < 0)
             {
-                alert("Error connection...Please check your connection")
+                setMessage(responseBody.message)
+                setMessageStyle({display:'block', color:'red'})
+            }
+            else if(statusCode === undefined)
+            {
+                setMessage(responseBody.message)
+                setMessageStyle({display:'block', color:'red'})
             }
         }
     }
@@ -81,7 +85,7 @@ function ResetPasswordForm({ProvidedEmail})
 
     return(
         <>
-            <div className="container mx-auto py-8">
+            <div className="container mx-auto py-8 w-100 reset-password-frame">
                 <form className="w-full max-w-lg mx-auto bg-white p-8 rounded-md shadow-md" action={handleResetPasswordSubmition}>
                     <h1 className="text-center font-bold mb-3">RESET PASSWORD</h1>
                     <div className="flex p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50" role="alert">
@@ -127,7 +131,7 @@ function ResetPasswordForm({ProvidedEmail})
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2"  htmlFor="confirm-password">Confirm Password</label>
                         <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-                        type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required
+                        type="password" id="rewrite-password" name="rewrite_password" placeholder="Confirm password" required
                         value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
                     </div>  
                     <div className="mt-5" style={messageStyle}>{errorMessage}</div>
