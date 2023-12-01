@@ -6,7 +6,8 @@ import { ApiStatusCodes } from "../../ApiStatusCode"
 
 export async function POST_Logout()
 {
-    const url = process.env.API_URL + "/auth/logout"
+    // const url = process.env.API_URL + "/auth/logout"
+    const url = process.env.LOGOUT
 
     try
     {

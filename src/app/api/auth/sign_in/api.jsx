@@ -47,8 +47,9 @@ export async function POST_signIn(formData)
 
 async function sendSignInRequest(requestBody)
 {
-    const api_base_url = process.env.API_URL
-    const url = api_base_url + "/auth/local/login"
+    // const api_base_url = process.env.API_URL
+    // const url = api_base_url + "/auth/local/login"
+    const url = process.env.LOCAL_LOGIN_API
     try
     {
         const response = await fetch(url, {
@@ -76,8 +77,10 @@ async function sendSignInRequest(requestBody)
 
 export async function GET_signInWithGoogle()
 {
-    const googleAuthLink = process.env.API_URL + "/auth/google/login"
+    // const googleAuthLink = process.env.API_URL + "/auth/google/login"
     
+    const googleAuthLink = process.env.GOOGLE_LOGIN_API
+
     redirect(googleAuthLink, 'push')
     // const response = await fetch(googleAuthLink, {
     //     method: 'GET',
@@ -95,9 +98,10 @@ export async function GET_signInWithGoogle()
 
 export async function GET_signInWithFacebook()
 {
-    const googleAuthLink = process.env.API_URL + "/auth/facebook/login"
+    // const facebookAuthLink = process.env.API_URL + "/auth/facebook/login"
+    const facebookAuthLink = process.env.FACEBOOK_LOGIN_API
     
-    redirect(googleAuthLink, 'push')
+    redirect(facebookAuthLink, 'push')
     // const response = await fetch(googleAuthLink, {
     //     method: 'GET',
     //     credentials: 'include',

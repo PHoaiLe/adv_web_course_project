@@ -3,30 +3,13 @@ import { NextResponse } from 'next/server'
 import { POST_refreshToken } from './app/api/auth/refresh/api'
 import { ApiStatusCodes } from './app/api/ApiStatusCode'
 import { useTransition } from 'react';
-import { SimpleUserData, loadGlobalUserData } from './data/SimpleData';
 import { redirect } from 'next/dist/server/api-utils';
+import { getClonedUserData, removeClonedUserData } from './data/ClonedUserData';
 
 const AccToken_name_convention = process.env.ACCESS_TOKEN_NAME_CONVENTION
 const RefToken_name_convention = process.env.REFRESH_TOKEN_NAME_CONVENTION
 const separate_query_char = '&'
 
-class UserData
-{
-    static instance = undefined
-
-    static getInstance()
-    {
-        if(this.instance == undefined)
-        {
-            this.instance = new SimpleUserData()
-        }
-        else if(!this.instance)
-        {
-            this.instance = new SimpleUserData()
-        }
-        return this.instance
-    }
-}
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request) {
@@ -88,6 +71,7 @@ export async function middleware(request) {
         const nextResponse = NextResponse.redirect(baseURL, request.url)
         nextResponse.cookies.delete("accessToken")
         nextResponse.cookies.delete("refreshToken")
+        await removeClonedUserData()
         return nextResponse;
     }
 
@@ -119,7 +103,8 @@ export async function middleware(request) {
             return nextResponse
         }
     }
- 
+
+    
     const check = await checkUserRoleAssigned()
     //TODO: handle expirated access token in server's session whilt stored accessToken still exists in the client side
     if(check == false)
@@ -134,11 +119,11 @@ export async function middleware(request) {
 // Authenticated to access below paths
 export const config = {
   matcher: [
-    '/dashboard/:path*',
-    '/account/:path*',
-    '/auth/logout',
-    '/auth/google/callback:path*',
-    '/auth/facebook/callback:path*',
+    // '/dashboard/:path*',
+    // '/account/:path*',
+    // '/auth/logout',
+    // '/auth/google/callback:path*',
+    // '/auth/facebook/callback:path*',
   ],
 }
 
@@ -165,7 +150,7 @@ async function refreshToken(cookies)
 {
     try
     {
-        const query_api = process.env.API_URL + "/auth/refresh"
+        const query_api = process.env.REFRESH_TOKEN_API
         const response = await fetch(query_api, {
             headers: {
                 "cookie": cookies,
@@ -192,25 +177,30 @@ async function refreshToken(cookies)
 
 async function checkUserRoleAssigned()
 {
-    await UserData.getInstance().loadGlobalUserData()
 
+    const UserData = await getClonedUserData()
+
+    if(UserData === undefined)
+    {
+        return false;
+    }
+
+        
     //check user's role
     //if user's role hasnot been definded yet, redirect to Role Selection
-    if(UserData.getInstance().getUserRole() === undefined)
+    const role = UserData.role
+    if(role === undefined)
     {
-        return undefined
+        return false;
     }
-    else if(UserData.getInstance().getUserRole() == 'null')
+    else if(role == 'null')
     {
-        return false
+        return false;
     }
-    else if(UserData.getInstance().getUserRole() == null)
+    else if(role == null)
     {
-        return false
+        return false;
     }
-    else if(UserData.getInstance().getUserRole().length < 1)
-    {
-        return false
-    }
-    return true
+
+    return true;
 } 

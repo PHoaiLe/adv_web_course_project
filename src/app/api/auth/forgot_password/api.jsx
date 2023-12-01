@@ -13,7 +13,8 @@ export async function POST_sendResetPasswordOtp(email)
 
     try
     {
-        let url = process.env.API_URL + "/user/send_resetOtp"
+        // let url = process.env.API_URL + "/user/send_resetOtp"
+        let url = process.env.SEND_RESET_OTP_API;
         const response = await fetch(url, {
             method: 'POST',
             credentials: 'include',
@@ -70,7 +71,8 @@ export async function POST_sendResetPasswordRequest(formData)
 
 async function sendResetPasswordRequest(requestBody)
 {
-    const url = process.env.API_URL + "/user/reset_password"
+    // const url = process.env.API_URL + "/user/reset_password"
+    const url = process.env.SEND_RESET_PASSWORD_REQUEST_API
     try
     {
         const response = await fetch(url, {
