@@ -87,7 +87,7 @@ export default function Sidebar()
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link
-                  className="text-green-500 hover:text-blue-600 text-xs uppercase py-3 font-bold block"
+                  className="text-black-700 hover:text-blue-600 text-xs uppercase py-3 font-bold block"
                   href="/dashboard"
                 >
                   <i className="fas fa-tv opacity-75 mr-2 text-sm"></i> Dashboard

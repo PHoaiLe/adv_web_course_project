@@ -35,6 +35,7 @@ async function DashboardRootLayout({children})
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </body>
         </html>
     )

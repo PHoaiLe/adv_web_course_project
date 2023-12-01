@@ -1,4 +1,4 @@
-import WebTopNavBar from "@/components/main/top_nav_bar/TopNavBar"
+//import WebTopNavBar from "@/components/main/top_nav_bar/TopNavBar"
 import UserLeftMenu from "@/components/user/menu/UserLeftMenu"
 import './layout.css'
 import TopNavBar from "@/components/main/top_nav_bar_2/TopNavBar"
