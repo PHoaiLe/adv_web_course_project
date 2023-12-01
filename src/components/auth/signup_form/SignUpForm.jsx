@@ -4,6 +4,7 @@ import {POST_sendRegisterOTP, POST_signUp} from "@/app/api/auth/sign_up/api"
 import Link from "next/link"
 import { useState } from "react"
 import OtpModal from "../otp_modal/OtpModal"
+import { HttpStatusCode } from "axios"
 
 
 function SignUpForm()
@@ -16,15 +17,56 @@ function SignUpForm()
     const [birthday, setBirthday] = useState(undefined)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [otpValue, setOtpValue] = useState(undefined)
+    const [resultMessage, setResultMessage] = useState(undefined)
+    const [messageDisplay, setMessageDisplay] = useState({display:'none'})
 
     async function handleSubmit(formData)
     {
         console.log("inside handle Submint")
         if(otpValue === undefined)
         {
-            console.log("Haven't verified email yet")
+            setMessageDisplay({display:'block', color:'red'})
+            setResultMessage("Please verify your email by the code we have sent to your email!")
             return
         }
+        else if(fullname.length <  1)
+        {
+            setMessageDisplay({display:'block', color:'red'})
+            setResultMessage("Please provide your full name!")
+            return
+        }
+        else if(email.length < 1)
+        {
+            setMessageDisplay({display:'block', color:'red'})
+            setResultMessage("Please provide your email!")
+            return
+        }
+        else if(password.length < 1)
+        {
+            setMessageDisplay({display:'block', color:'red'})
+            setResultMessage("Please provide your password!")
+            return
+        }
+        else if(confirmPassword.length < 1)
+        {
+            setMessageDisplay({display:'block', color:'red'})
+            setResultMessage("Please confirm your password!")
+            return
+        }
+        else if(password != confirmPassword)
+        {
+            setMessageDisplay({display:'block', color:'red'})
+            setResultMessage("The password is different from value of the confirmed password!")
+            return
+        }
+        else if(birthday.length < 1)
+        {
+            setMessageDisplay({display:'block', color:'red'})
+            setResultMessage("Please provide your birthday!")
+            return
+        }
+
+
         formData.append("otp", otpValue)
         const {statusCode, responseBody} = await POST_signUp(formData)
 
@@ -46,12 +88,14 @@ function SignUpForm()
     {
         if(email == undefined)
         {
-            alert("Please provide your email first")
+            setMessageDisplay({display:'block', color:'red'})
+            setResultMessage("Please provide email!")
             return
         }
         else if(email.length == 0)
         {
-            alert("Please provide your email first")
+            setMessageDisplay({display:'block', color:'red'})
+            setResultMessage("Please provide email!")
             return
         }
         setIsModalOpen(true)
@@ -61,7 +105,7 @@ function SignUpForm()
         console.log(responseBody)
     }
     
-    let signUpButton = (otpValue == undefined) ? 
+    let signUpButton = (otpValue === undefined) ? 
     <button type="button" onClick={handleVerifyButtonOnClick} className="border-2 border-gray-100 focus:outline-none bg-blue-600 text-white font-bold tracking-wider block w-full p-2 rounded-lg focus:border-gray-700 hover:bg-green-700"
     >
         Verify
@@ -70,6 +114,17 @@ function SignUpForm()
     >
         Sign Up
     </button>
+
+    let re_verify_otp_button = (otpValue !== undefined) ?
+    <div className="py-2">
+        <p>I received incorrect CODE</p>
+        <button type="button" onClick={handleVerifyButtonOnClick} className="border-2 border-gray-100 focus:outline-none bg-blue-600 text-white font-bold tracking-wider block w-full p-2 rounded-lg focus:border-gray-700 hover:bg-green-700"
+        >
+            Send Code again
+        </button> 
+    </div>
+    :
+    <></>
 
     return(
         <>
@@ -81,21 +136,21 @@ function SignUpForm()
                                 Sign up
                             </h1>
                             <div className="py-2 text-left">
-                                <input type="text" className="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 "
+                                <input type="text" className="bg-gray-100 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 "
                                 name="fullname"
                                 placeholder="Full name" required
                                 value={fullname}
                                 onChange={(e) => {setFullname(e.target.value)}}/>
                             </div>
                             <div className="py-2 text-left">
-                                <input type="email" className="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " 
+                                <input type="email" className="bg-gray-100 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " 
                                 placeholder="Email" required
                                 name="email"
                                 value={email}
                                 onChange={(e) => {setEmail(e.target.value)}}/>
                             </div>
                             <div className="py-2 text-left">
-                                <input type="password" className="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " 
+                                <input type="password" className="bg-gray-100 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " 
                                 placeholder="Password" required
                                 name="password"
                                 value={password}
@@ -103,14 +158,14 @@ function SignUpForm()
                                 />
                             </div>
                             <div className="py-2 text-left">
-                                <input type="password" className="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " 
+                                <input type="password" className="bg-gray-100 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " 
                                 placeholder="Confirm Password" required
                                 value={confirmPassword} 
                                 onChange={(e) => {setConfirmPassword(e.target.value)}}
                                 />
                             </div>
                             <div className="py-2 text-left">
-                                <input type='number' className="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 "
+                                <input type='number' className="bg-gray-100 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 "
                                 placeholder="Phone Number" required
                                 name="phone"
                                 value={phoneNumber}
@@ -118,7 +173,7 @@ function SignUpForm()
                                 />
                             </div>
                             <div className="py-2 text-left">
-                                <input type='date' className="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 "
+                                <input type='date' className="bg-gray-100 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 "
                                 placeholder="Your birthday" required
                                 name="birthday"
                                 value={birthday}
@@ -128,8 +183,10 @@ function SignUpForm()
                             <div className="py-2">
                                 {signUpButton}
                             </div>
-                        <div>
-                            <p>{}</p>
+                            <p>{resultMessage}</p>
+                            
+                            {re_verify_otp_button}
+                        <div style={messageDisplay}>
                         </div>
                         <div className="text-center text-sm text-grey-dark mt-4">
                             By signing up, you agree to the 

@@ -53,8 +53,8 @@ export async function POST_signUp(formData)
 
 async function sendSignUpRequest(requestBody)
 {
-    const url = process.env.API_URL + "/user/signup"
-
+    // const url = process.env.API_URL + "/user/signup"
+    const url = process.env.SIGN_UP_API
     try
     {
         const response = await fetch(url, {
@@ -89,7 +89,8 @@ export async function POST_sendRegisterOTP(email)
 
     try
     {
-        let url = process.env.API_URL + "/user/send_registerOtp"
+        // let url = process.env.API_URL + "/user/send_registerOtp"
+        let url = process.env.SEND_REGISTER_OTP_API
         const response = await fetch(url, {
             method: 'POST',
             credentials: 'include',

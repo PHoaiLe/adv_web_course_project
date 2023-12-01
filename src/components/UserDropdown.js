@@ -5,7 +5,7 @@ import { createPopper } from "@popperjs/core";
 import {UserOutlined} from '@ant-design/icons'
 import Link from "next/link";
 
-export default function UserDropdown()
+export default function UserDropdown({UserAvatar, UserName})
 {
   {
     // dropdown props
@@ -25,9 +25,8 @@ export default function UserDropdown()
     };
     return (
       <>
-        <Link
-          className="text-black-500 block"
-          href="#"
+        <button
+          className="text-black-500 block w-40"
           ref={btnDropdownRef}
           onClick={e =>
           {
@@ -36,16 +35,17 @@ export default function UserDropdown()
           }}
         >
           <div className="items-center flex">
-            <span className="w-12 h-12 text-sm bg-black-200 inline-flex items-center justify-center rounded-full">
-              {/* <img
-                alt="..."
+            <span className="w-12 h-12 text-sm bg-black-200 inline-flex items-center justify-center rounded-full">          
+              <img
+                alt="user avatar"
                 className="w-full rounded-full align-middle border-none shadow-lg"
-                src="
-              /> */}
-              <UserOutlined/>
+                src={UserAvatar !== undefined ? UserAvatar : '../user.png'}/>
             </span>
+            <div className="ml-3">
+              <p className="text-white font-sans text-base">Hao Toan</p>
+            </div>
           </div>
-        </Link>
+        </button>
         <div
           ref={popoverDropdownRef}
           className={

@@ -6,7 +6,8 @@ import { cookies } from "next/headers"
 export async function POST_refreshToken()
 {
     const base_URL = process.env.API_URL;
-    const query_api = base_URL + "/auth/refresh"
+    // const query_api = base_URL + "/auth/refresh"
+    const query_api = process.env.REFRESH_TOKEN_API;
 
     try
     {

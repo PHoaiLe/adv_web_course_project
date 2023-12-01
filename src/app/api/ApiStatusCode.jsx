@@ -12,4 +12,7 @@ export const ApiStatusCodes =
     CHANGE_PASSWORD_SUCCESS: Number.parseInt(process.env.CHANGE_PASSWORD_SUCCESS, 10),
     RESET_PASSWORD_OTP: Number.parseInt(process.env.RESET_PASSWORD_OTP, 10),
     RESET_PASSWORD_SECCESS: Number.parseInt(process.env.RESET_PASSWORD_SECCESS, 10),
+    
+    TEACHER_CREATE_CLASS_SUCCESS: Number.parseInt(process.env.TEACHER_CREATE_CLASS_SUCCESS, 10),
+
 }

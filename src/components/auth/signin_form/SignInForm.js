@@ -62,14 +62,14 @@ function SignInForm()
                                 Sign in
                             </h1>
                             <div className="py-2 text-left">
-                                <input type="email" className="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " 
+                                <input type="email" className="bg-gray-100 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " 
                                 placeholder="Enter your email"
                                 name="email"
                                 required
                                 />
                             </div>
                             <div className="py-2 text-left">
-                                <input type="password" className="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " 
+                                <input type="password" className="bg-gray-100 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " 
                                 placeholder="Enter password"
                                 name="password"
                                 required

@@ -31,7 +31,8 @@ export async function PATCH_updateUserRole(formData)
 
 async function sendRequest(requestBody)
 {
-    const url = process.env.API_URL + "/user/assign-role"
+    // const url = process.env.API_URL + "/user/assign-role"
+    const url = process.env.USER_SELECT_ROLE_API
     try
     {
         const response = await fetch(url, {
