@@ -1,10 +1,8 @@
-'use server';
-
 import Navbar from "@/components/Navbar.js";
 import Sidebar from "@/components/Sidebar";
-import Footer from "@/components/main/footer/Footer";
-import { getClonedUserData } from "@/data/ClonedUserData";
 import '@/styles/globals.css';
+import { getClonedUserData } from "../api/others/cloned_user_detail/api";
+
 
 async function DashboardRootLayout({children})
 {
@@ -18,7 +16,9 @@ async function DashboardRootLayout({children})
     //         </body>
     //     </html>
     // )
+
     const userInfo = await getClonedUserData()
+    console.log("user info in dashboard layout")
     console.log(userInfo)
 
     return(

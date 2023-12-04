@@ -1,23 +1,10 @@
 'use server';
 
-const { ApiStatusCodes } = require("@/app/api/ApiStatusCode");
-const { default: GET_getUserInfo } = require("@/app/api/user/account/personal_info/api");
-const { cookies } = require("next/headers");
+import { cookies } from "next/headers";
+import GET_getUserInfo from "../../user/account/personal_info/api";
+import { ApiStatusCodes } from "../../ApiStatusCode";
 
-//structure
-// {
-//     _id: 'fasfasdfdgdsga6ga64f6safsafsad56'
-//     email: 'email@email.com,
-//     fullname: 'Mc Macle M',
-//     role: 'admin' || 'student' || 'teacher',
-//     avatar: null || "string_of_avatar_link",
-//     birthday: '2023-11-26T03:59:05.288Z',
-//     login_type: 'local' || 'google' || 'facebook',
-//     createdAt: '2023-11-26T03:59:05.292Z',
-//     id: 'fasfasdfdgdsga6ga64f6safsafsad56'
-//   }
-
-async function loadUserData()
+export async function loadUserData()
 {
     try
     {
@@ -30,13 +17,13 @@ async function loadUserData()
                 fullname: responseBody.fullname,
                 role: responseBody.role,
                 avatar: responseBody.avatar,
+                is_ban: responseBody.is_ban,
                 birthday: responseBody.birthday,
                 login_type: responseBody.login_type,
                 createdAt: responseBody.createdAt
             }
             const key = process.env.SIMPLE_USER_DATA_KEY
-            cookies().set(key, simpleUserData)
-
+            cookies().set(key, JSON.stringify(simpleUserData))
             return true;
         }
         else
@@ -51,19 +38,14 @@ async function loadUserData()
     }
 }
 
-async function removeClonedUserData()
+export async function getClonedUserData()
 {
     const key = process.env.SIMPLE_USER_DATA_KEY
-    cookies().delete(key)
-}
-
-async function getClonedUserData()
-{
-    const key = process.env.SIMPLE_USER_DATA_KEY
+    console.log("getClonedUserData")
     const UserData = cookies().get(key)
     if(UserData)
     {
-        return UserData
+        return JSON.parse(UserData.value)
     }
 
     const check = await loadUserData()
@@ -73,9 +55,11 @@ async function getClonedUserData()
     }
 
     const ReloadUserData = cookies().get(key)
-    return ReloadUserData
+    return JSON.parse(ReloadUserData.value)
 }
 
-
-
-module.exports = {getClonedUserData, removeClonedUserData}
+export async function removeClonedUserData()
+{
+    const key = process.env.SIMPLE_USER_DATA_KEY
+    cookies().delete(key)
+}

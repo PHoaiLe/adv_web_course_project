@@ -25,7 +25,7 @@ async function GET_getUserInfo()
     catch(err)
     {
         console.log(err)
-        return {statusCode: "500", data: null};
+        return {statusCode: "500", data: undefined};
     }
 
 }

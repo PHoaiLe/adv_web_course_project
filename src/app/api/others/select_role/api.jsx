@@ -2,6 +2,7 @@
 
 import { cookies } from "next/headers"
 import { ApiStatusCodes } from "../../ApiStatusCode"
+import { loadUserData } from "../cloned_user_detail/api"
 
 
 export async function PATCH_updateUserRole(formData)
@@ -24,8 +25,11 @@ export async function PATCH_updateUserRole(formData)
     }
 
     const statusCode = response.status;
-    const responseBody = response.json();
+    const responseBody = await response.json();
 
+    console.log(statusCode)
+    console.log(responseBody)
+    await loadUserData()
     return {statusCode, responseBody}
 }
 
@@ -40,7 +44,7 @@ async function sendRequest(requestBody)
             credentials: 'include',
             body: requestBody,
             headers: {
-                'cookie': cookies(),
+                'Cookie': cookies(),
                 'Content-Type': 'application/json',
                 'Authorization': "Bearer " + cookies().get("accessToken").value
             }

@@ -4,6 +4,7 @@ import './layout.css'
 import TopNavBar from "@/components/main/top_nav_bar_2/TopNavBar"
 import Sidebar from "@/components/Sidebar"
 import Navbar from "@/components/Navbar"
+import { getClonedUserData } from "../api/others/cloned_user_detail/api"
 
 
 
@@ -37,10 +38,12 @@ async function LayoutOfUserPages({children})
     //     </html>
     // )
 
+    const userInfo = await getClonedUserData()
+
     return (
         <html lang='en'>
             <body>
-                <Navbar />
+                <Navbar UserInfor={userInfo}/>
                     <div className="hiden-frame"></div>
                     <div className="user-main-frame">
                         <div>

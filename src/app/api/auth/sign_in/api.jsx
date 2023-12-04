@@ -3,9 +3,6 @@
 import { cookies, headers } from "next/headers"
 import { ApiStatusCodes } from "../../ApiStatusCode"
 import { RedirectType, redirect } from "next/navigation"
-import { revalidatePath } from "next/cache"
-import { NextRequest, NextResponse } from "next/server"
-import { rewrites } from "../../../../../next.config"
 
 export async function POST_signIn(formData)
 {
@@ -29,12 +26,14 @@ export async function POST_signIn(formData)
     //no error
     const statusCode = response.response.status
     const responseBody = await response.response.json()
+    const expiredTime = Date.now()
+
 
     if(statusCode == ApiStatusCodes.SIGN_IN_SUCCESS)
     {
         console.log("SIGN_IN_SUCCESS")
-        cookies().set("accessToken", responseBody.accessToken)
-        cookies().set("refreshToken", responseBody.refreshToken)
+        cookies().set("accessToken", responseBody.accessToken, {expires: expiredTime + 1000*60*15})
+        cookies().set("refreshToken", responseBody.refreshToken, {expires: expiredTime + 1000*60*60*24})
         return {statusCode, responseBody: undefined}
     }
     else

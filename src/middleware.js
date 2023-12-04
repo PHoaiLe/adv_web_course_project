@@ -1,10 +1,8 @@
 'use server'
 import { NextResponse } from 'next/server'
-import { POST_refreshToken } from './app/api/auth/refresh/api'
 import { ApiStatusCodes } from './app/api/ApiStatusCode'
-import { useTransition } from 'react';
-import { redirect } from 'next/dist/server/api-utils';
-import { getClonedUserData, removeClonedUserData } from './data/ClonedUserData';
+import { getClonedUserData } from './app/api/others/cloned_user_detail/api';
+import GET_getUserInfo from './app/api/user/account/personal_info/api';
 
 const AccToken_name_convention = process.env.ACCESS_TOKEN_NAME_CONVENTION
 const RefToken_name_convention = process.env.REFRESH_TOKEN_NAME_CONVENTION
@@ -38,8 +36,9 @@ export async function middleware(request) {
         const accessToken = search.substring(startIndexOfAccessToken, indexOfSeparator)
         const refreshToken = search.substring(startIndexOfRefreshToken)
         const nextResponse = NextResponse.redirect(new URL(baseURL + "/dashboard"), request.url)
-        nextResponse.cookies.set("accessToken", accessToken)
-        nextResponse.cookies.set("refreshToken", refreshToken)
+        const time = Date.now()
+        nextResponse.cookies.set("accessToken", accessToken, {expires: time + 1000*60*15})
+        nextResponse.cookies.set("refreshToken", refreshToken, {expires: time + 1000*60*60*24})
         return nextResponse;
     }
     else if(originPath == process.env.FACEBOOK_LOGIN_CALLBACK_PATH_NAME)
@@ -61,17 +60,19 @@ export async function middleware(request) {
         const accessToken = search.substring(startIndexOfAccessToken, indexOfSeparator)
         const refreshToken = search.substring(startIndexOfRefreshToken)
         const nextResponse = NextResponse.redirect(new URL(baseURL + "/dashboard"), request.url)
-        nextResponse.cookies.set("accessToken", accessToken)
-        nextResponse.cookies.set("refreshToken", refreshToken)
+        const time = Date.now()
+        nextResponse.cookies.set("accessToken", accessToken, {expires: time + 1000*60*15})
+        nextResponse.cookies.set("refreshToken", refreshToken, {expires: time + 1000*60*60*24})
         return nextResponse;
 
     }
     else if(originPath == "/auth/logout")
     {
+        const key = process.env.SIMPLE_USER_DATA_KEY
         const nextResponse = NextResponse.redirect(baseURL, request.url)
         nextResponse.cookies.delete("accessToken")
         nextResponse.cookies.delete("refreshToken")
-        await removeClonedUserData()
+        nextResponse.cookies.delete(key)
         return nextResponse;
     }
 
@@ -83,9 +84,9 @@ export async function middleware(request) {
     }
     else if(checkResult == 0)
     {
-        const {statusCode, response} = await refreshToken(request.cookies)
+        const {statusCode, responseBody} = await refreshToken(request.cookies)
         console.log(statusCode)
-        console.log(response)
+        console.log(responseBody)
         if(statusCode < 0 || statusCode === undefined) //error
         {
             return NextResponse.redirect(new URL(baseURL + "/not-found"), request.url)
@@ -98,32 +99,40 @@ export async function middleware(request) {
         {
 
             const nextResponse = NextResponse.redirect(new URL(baseURL + "/dashboard"), request.url)
-            nextResponse.cookies.set("accessToken", response.accessToken)
-            nextResponse.cookies.set("refreshToken", response.refreshToken)
+            const time = Date.now();
+            nextResponse.cookies.set("accessToken", responseBody.accessToken, {expires: time + 1000*60*15})
+            nextResponse.cookies.set("refreshToken", responseBody.refreshToken, {expires: time + 1000*60*60*24})
             return nextResponse
         }
     }
 
+    let response = NextResponse.next();
+    const key = process.env.SIMPLE_USER_DATA_KEY
     
-    const check = await checkUserRoleAssigned()
-    //TODO: handle expirated access token in server's session whilt stored accessToken still exists in the client side
+    const {check, simpleUserData} = await checkUserRoleAssigned(request.cookies)
+    if(check == undefined)//error
+    {
+        return NextResponse.redirect(new URL(baseURL + "/error_connection"), request.url)
+    }
     if(check == false)
     {
-        return NextResponse.redirect(new URL(baseURL + "/select_role"), request.url)
+        response = NextResponse.redirect(new URL(baseURL + "/select_role"), request.url)
     }
 
-    return NextResponse.next();
+    response.cookies.set(key, JSON.stringify(simpleUserData))
+
+    return response;
 }
  
 // See "Matching Paths" below to learn more (activate the middleware)
 // Authenticated to access below paths
 export const config = {
   matcher: [
-    // '/dashboard/:path*',
-    // '/account/:path*',
-    // '/auth/logout',
-    // '/auth/google/callback:path*',
-    // '/auth/facebook/callback:path*',
+    '/dashboard/:path*',
+    '/account/:path*',
+    '/auth/logout',
+    '/auth/google/callback:path*',
+    '/auth/facebook/callback:path*',
   ],
 }
 
@@ -164,43 +173,73 @@ async function refreshToken(cookies)
         const statusCode = response.status;
         const responseBody = await response.json()
 
-        return {statusCode, response: responseBody}
+        return {statusCode, responseBody}
     }
     catch(err)
     {
         const statusCode = err.errno
         const data = err
-        return {statusCode, response: data}
+        return {statusCode, responseBody: data}
     }
 }
 
-
-async function checkUserRoleAssigned()
+//user must have user detail cloned.
+async function checkUserRoleAssigned(cookies)
 {
-
-    const UserData = await getClonedUserData()
-
-    if(UserData === undefined)
+    const key = process.env.SIMPLE_USER_DATA_KEY
+    let JSON_string_object = cookies.get(key)
+    let UserData = undefined
+    if(JSON_string_object === undefined)
     {
-        return false;
+        UserData = (await GET_getUserInfo()).responseBody
+        console.log("reload")
+        console.log(UserData)
+        if(UserData === undefined)
+        {
+            return {check: undefined, simpleUserData: undefined}
+        }
+    }
+    else
+    {
+        UserData = JSON.parse(JSON_string_object.value)
     }
 
-        
+    console.log("final")
+    console.log(UserData)
+    let check = false
     //check user's role
     //if user's role hasnot been definded yet, redirect to Role Selection
     const role = UserData.role
+    console.log(role)
     if(role === undefined)
     {
-        return false;
+        check = false
     }
     else if(role == 'null')
     {
-        return false;
+        check = false
     }
     else if(role == null)
     {
-        return false;
+        check = false
+    }
+    else
+    {
+        check = true
     }
 
-    return true;
-} 
+
+    const simpleUserData = {
+        id: UserData.id,
+        email: UserData.email,
+        fullname: UserData.fullname,
+        role: UserData.role,
+        avatar: UserData.avatar,
+        is_ban: UserData.is_ban,
+        birthday: UserData.birthday,
+        login_type: UserData.login_type,
+        createdAt: UserData.createdAt
+    }
+
+    return {check, simpleUserData}
+}

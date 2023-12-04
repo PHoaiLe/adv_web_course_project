@@ -64,6 +64,7 @@ export async function POST_sendResetPasswordRequest(formData)
     const statusCode = response.status
     const responseBody = await response.json()
 
+    console.log(statusCode)
     console.log(responseBody)
     return {statusCode, responseBody}
 
