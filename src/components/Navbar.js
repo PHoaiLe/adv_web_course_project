@@ -6,11 +6,14 @@ import QuickAccessClassModal from "./classes/quick_access_class_modal/QuickAcces
 import QuickCreateClassModal from "./classes/quick_create_class/QuickCreateClassModal.jsx";
 import {PlusOutlined, BellOutlined} from '@ant-design/icons'
 import {Badge} from 'antd'
+import QuickJoinClassModal from "./classes/quick_join_class_modal/QuickJoinClassModal.jsx";
+import { useRouter } from "next/navigation.js";
 
 export default function Navbar({UserInfor}) {
 
   const [openClassModal, setOpenClassModal] = useState(false)
-  const [openCreateModal, setOpenCreateModal] = useState(false)
+  const [openAddModal, setOpenAddModal] = useState(false)
+  const router = useRouter()
 
   ////////////////////////////////////////////////////
 
@@ -26,14 +29,35 @@ export default function Navbar({UserInfor}) {
 
   ////////////////////////////////////////////////////
 
-  function handleOpenCreateClassModalClick(e)
+  function handleOpenAddModalClick(e)
   {
-    setOpenCreateModal(true)
+    setOpenAddModal(true)
   }
 
-  function handleOpenQuickCreateClassModalCallback(value)
+  function handleOpenQuickAddModalCallback(value)
   {
-    setOpenCreateModal(value)
+    setOpenAddModal(value)
+  }
+
+  function handleOpenNotificationClick()
+  {
+
+  }
+
+  let addButtonEventModal = <></>
+
+  if(UserInfor === undefined)
+  {
+  //   //for testing
+  //   addButtonEventModal = <QuickCreateClassModal OpenModal={openAddModal} handleOpenModalCallback={handleOpenQuickAddModalCallback}/>
+  }
+  else if(UserInfor.role == 'teacher')
+  {
+    addButtonEventModal = <QuickCreateClassModal OpenModal={openAddModal} handleOpenModalCallback={handleOpenQuickAddModalCallback}/>
+  }
+  else if(UserInfor.role == 'student')
+  {
+    addButtonEventModal = <QuickJoinClassModal OpendModal={openAddModal} handleOpenModalCallback={handleOpenQuickAddModalCallback}/>
   }
 
   return (
@@ -44,7 +68,7 @@ export default function Navbar({UserInfor}) {
           {/* Form */}
 
           <div className="md:flex hidden flex-row flex items-center lg:ml-auto rounded-full mr-3 hover:shadow hover:shadow-black">
-            <button className="w-20 bg-blue-300 rounded-full hover:bg-blue-400" onClick={handleOpenCreateClassModalClick}>
+            <button className="w-20 bg-blue-300 rounded-full hover:bg-blue-400" onClick={handleOpenAddModalClick}>
               <PlusOutlined style={{fontSize: 'large'}}/>
             </button>
           </div>
@@ -55,7 +79,7 @@ export default function Navbar({UserInfor}) {
           </div>
           <div className="md:flex hidden flex-row flex items-center lg:ml-3 rounded-full mr-3 hover:shadow hover:shadow-black">
             <Badge count={3}>
-              <button className="w-10 bg-white p-1 rounded-full hover:bg-blue-400 hover:text-white flex justify-center items-center" onClick={handleOpenCreateClassModalClick}>
+              <button className="w-10 bg-white p-1 rounded-full hover:bg-blue-400 hover:text-white flex justify-center items-center" onClick={handleOpenNotificationClick}>
                 <BellOutlined style={{fontSize:'xx-large'}}/>
               </button>
             </Badge>
@@ -70,13 +94,13 @@ export default function Navbar({UserInfor}) {
           </form> */}
           {/* User */}
           <ul className="flex-col md:flex-row list-none items-center lg:ml-3 hidden md:flex hover:shadow hover:shadow-black rounded-full bg-blue-900">
-              {UserInfor !== undefined ? <UserDropdown UserAvatar={UserInfor.avatar}/>: <UserDropdown UserAvatar={undefined}/>}
+              {UserInfor !== undefined ? <UserDropdown UserAvatar={UserInfor.avatar} UserName={UserInfor.fullname}/>: <UserDropdown UserAvatar={undefined} UserName={undefined}/>}
           </ul>
         </div>
       </nav>
       {/* End Navbar */}
-      <QuickAccessClassModal OpenModal={openClassModal} handleOpenModalCallback={handleOpenQuickAccessClassModalCallback}/>
-      <QuickCreateClassModal OpenModal={openCreateModal} handleOpenModalCallback={handleOpenQuickCreateClassModalCallback}/>
+      <QuickAccessClassModal UserRole={UserInfor.role} OpenModal={openClassModal} handleOpenModalCallback={handleOpenQuickAccessClassModalCallback}/>
+      {addButtonEventModal}
     </>
   );
 }

@@ -26,7 +26,7 @@ async function GET_getUserInfo()
     catch(err)
     {
         console.log(err)
-        return {statusCode: ApiStatusCodes.ERROR_CONNECT_REFUSED, data: null};
+        return {statusCode: "500", data: undefined};
     }
 
 }

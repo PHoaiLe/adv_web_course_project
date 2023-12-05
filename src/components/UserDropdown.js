@@ -39,10 +39,10 @@ export default function UserDropdown({UserAvatar, UserName})
               <img
                 alt="user avatar"
                 className="w-full rounded-full align-middle border-none shadow-lg"
-                src={UserAvatar !== undefined ? UserAvatar : '../user.png'}/>
+                src={(UserAvatar !== undefined && UserAvatar != null) ? UserAvatar : '../user.png'}/>
             </span>
             <div className="ml-3">
-              <p className="text-white font-sans text-base">Hao Toan</p>
+              <p className="text-white font-sans text-base">{UserName !== undefined ? UserName: "Hello User" }</p>
             </div>
           </div>
         </button>

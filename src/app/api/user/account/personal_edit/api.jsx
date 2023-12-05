@@ -24,6 +24,22 @@ export async function PATCH_editUserProfile(formData)
     const responseBody = await response.json()
     console.log(statusCode)
     console.log(responseBody)
+
+    const simpleUserData = {
+        id: responseBody.id,
+        email: responseBody.email,
+        fullname: responseBody.fullname,
+        role: responseBody.role,
+        avatar: responseBody.avatar,
+        is_ban: responseBody.is_ban,
+        birthday: responseBody.birthday,
+        login_type: responseBody.login_type,
+        createdAt: responseBody.createdAt
+    }
+    
+    const key = process.env.SIMPLE_USER_DATA_KEY
+    cookies().set(key, JSON.stringify(simpleUserData))
+
     revalidatePath("/account/personal_info")
     return {statusCode, responseBody}
 
