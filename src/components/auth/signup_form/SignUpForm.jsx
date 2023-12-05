@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useState } from "react"
 import OtpModal from "../otp_modal/OtpModal"
 import { HttpStatusCode } from "axios"
+import { useRouter } from "next/navigation"
 
 
 function SignUpForm()
@@ -19,6 +20,8 @@ function SignUpForm()
     const [otpValue, setOtpValue] = useState(undefined)
     const [resultMessage, setResultMessage] = useState(undefined)
     const [messageDisplay, setMessageDisplay] = useState({display:'none'})
+
+    const router = useRouter();
 
     async function handleSubmit(formData)
     {
@@ -69,8 +72,25 @@ function SignUpForm()
 
         formData.append("otp", otpValue)
         const {statusCode, responseBody} = await POST_signUp(formData)
-
-        console.log("state:otpValue: " + otpValue)
+        console.log(statusCode)
+        console.log(responseBody)
+        if(statusCode == HttpStatusCode.Created)
+        {
+            router.push("/auth/sign_in")
+        }
+        else
+        {
+            if(responseBody.message)
+            {
+                setMessageDisplay({display: 'block', color: 'red'})
+                setResultMessage(responseBody.message)
+            }
+            else
+            {
+                setMessageDisplay({display: 'block', color: 'red'})
+                setResultMessage("Sign up failed, invalid code or invalid email...")
+            }
+        }
     }
 
     function handleModalOpenCallback(val)

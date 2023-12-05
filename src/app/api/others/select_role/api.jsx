@@ -29,7 +29,8 @@ export async function PATCH_updateUserRole(formData)
 
     console.log(statusCode)
     console.log(responseBody)
-    await loadUserData()
+    const check = await loadUserData()
+    console.log(check)
     return {statusCode, responseBody}
 }
 
