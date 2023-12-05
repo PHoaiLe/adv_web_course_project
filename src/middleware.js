@@ -16,7 +16,7 @@ export async function middleware(request) {
     const href = request.nextUrl.href
     const baseURL = request.nextUrl.origin
     const originPath = request.nextUrl.pathname
-
+    console.log("path " + originPath)
     if(originPath == process.env.GOOGLE_LOGIN_CALLBACK_PATH_NAME)
     {
         const search = request.nextUrl.search
@@ -39,6 +39,7 @@ export async function middleware(request) {
         const time = Date.now()
         nextResponse.cookies.set("accessToken", accessToken, {expires: time + 1000*60*15})
         nextResponse.cookies.set("refreshToken", refreshToken, {expires: time + 1000*60*60*24})
+
         return nextResponse;
     }
     else if(originPath == process.env.FACEBOOK_LOGIN_CALLBACK_PATH_NAME)
@@ -63,6 +64,7 @@ export async function middleware(request) {
         const time = Date.now()
         nextResponse.cookies.set("accessToken", accessToken, {expires: time + 1000*60*15})
         nextResponse.cookies.set("refreshToken", refreshToken, {expires: time + 1000*60*60*24})
+
         return nextResponse;
 
     }
@@ -106,13 +108,13 @@ export async function middleware(request) {
         }
     }
 
-    let response = NextResponse.next();
+    let response = NextResponse.next(request.url);
     const key = process.env.SIMPLE_USER_DATA_KEY
     
     const {check, simpleUserData} = await checkUserRoleAssigned(request.cookies)
     if(check == undefined)//error
     {
-        return NextResponse.redirect(new URL(baseURL + "/error_connection"), request.url)
+        return NextResponse.redirect(new URL(baseURL + "/erro   r_connection"), request.url)
     }
     if(check == false)
     {
