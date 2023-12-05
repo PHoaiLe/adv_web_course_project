@@ -7,7 +7,7 @@ import GET_getUserInfo from "../api/user/account/personal_info/api";
 
 
 
-function DashboardRootLayout({children})
+async function DashboardRootLayout({children})
 {
     // return (
     //     <html lang='en'>
