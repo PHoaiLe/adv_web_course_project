@@ -30,7 +30,7 @@ async function DashboardRootLayout({children})
         <html lang='en'>
             <body>
                 <Sidebar />
-                <Navbar />
+                <Navbar UserInfor={userInfo}/>
                 {children}
             </body>
         </html>
