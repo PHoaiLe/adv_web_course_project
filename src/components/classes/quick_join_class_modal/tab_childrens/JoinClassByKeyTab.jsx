@@ -71,11 +71,11 @@ function JoinClassByKeyTab()
     }
 
     const successModalFooters = [
-        <Button type="primary" onClick={handleSuccessModalCancel}>
+        <Button key={"cancel-button"} type="primary" onClick={handleSuccessModalCancel}>
             <p className="text-black hover:text-white">No, I will stay</p>
         </Button>,
         
-        <Button type="primary" onClick={handleSuccessModalOk} className="bg-blue-300"
+        <Button key={"ok-button"} type="primary" onClick={handleSuccessModalOk} className="bg-blue-300"
             >
             <p className="text-black hover:text-white">Yes, go to the new class</p>
         </Button>

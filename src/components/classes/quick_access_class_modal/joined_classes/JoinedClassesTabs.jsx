@@ -29,7 +29,7 @@ function JoinedClassesTabs({JoinedClasses})
     {
         return (
 
-            <Link href='#' className=" mx-auto bg-white rounded-xl shadow-md overflow-hidden m-5">
+            <Link key={value.index} href='#' className=" mx-auto bg-white rounded-xl shadow-md overflow-hidden m-5">
                 <div className="p-8 hover:bg-slate-100 flex justify-between">
                     <img className="inline max-w-4 w-10" src={getRandomImage()}/>
                     <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold inline">{value.className}</div>
