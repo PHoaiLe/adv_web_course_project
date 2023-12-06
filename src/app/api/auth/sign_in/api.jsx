@@ -32,8 +32,8 @@ export async function POST_signIn(formData)
     if(statusCode == ApiStatusCodes.SIGN_IN_SUCCESS)
     {
         console.log("SIGN_IN_SUCCESS")
-        cookies().set("accessToken", responseBody.accessToken, {expires: expiredTime + 1000*60*15})
-        cookies().set("refreshToken", responseBody.refreshToken, {expires: expiredTime + 1000*60*60*24})
+        cookies().set("accessToken", responseBody.accessToken, {expires: expiredTime + 1000*60*15,})
+        cookies().set("refreshToken", responseBody.refreshToken, {expires: expiredTime + 1000*60*60*24,})
         return {statusCode, responseBody: undefined}
     }
     else
