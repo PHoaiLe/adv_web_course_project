@@ -93,9 +93,9 @@ export default function Navbar({UserInfor}) {
             </div>
           </form> */}
           {/* User */}
-          <ul className="flex-col md:flex-row list-none items-center lg:ml-3 hidden md:flex hover:shadow hover:shadow-black rounded-full bg-blue-900">
+          <div className="flex-col md:flex-row list-none items-center lg:ml-3 hidden md:flex hover:shadow hover:shadow-black rounded-full bg-blue-900">
               {UserInfor !== undefined ? <UserDropdown UserAvatar={UserInfor.avatar} UserName={UserInfor.fullname}/>: <UserDropdown UserAvatar={undefined} UserName={undefined}/>}
-          </ul>
+          </div>
         </div>
       </nav>
       {/* End Navbar */}
