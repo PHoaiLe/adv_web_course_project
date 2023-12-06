@@ -1,5 +1,6 @@
 'use server'
 
+import { loadUserData } from "@/app/api/others/cloned_user_detail/api"
 import { revalidatePath } from "next/cache"
 import { cookies } from "next/headers"
 
@@ -25,22 +26,13 @@ export async function PATCH_editUserProfile(formData)
     console.log(statusCode)
     console.log(responseBody)
 
-    const simpleUserData = {
-        id: responseBody.id,
-        email: responseBody.email,
-        fullname: responseBody.fullname,
-        role: responseBody.role,
-        avatar: responseBody.avatar,
-        is_ban: responseBody.is_ban,
-        birthday: responseBody.birthday,
-        login_type: responseBody.login_type,
-        createdAt: responseBody.createdAt
-    }
-    
+    //reset the cloned user data
     const key = process.env.SIMPLE_USER_DATA_KEY
+    const simpleUserData = JSON.parse(cookies().get(key).value)
+    simpleUserData.fullname = map.get("fullname")
+    simpleUserData.birthday = map.get("birthday")
     cookies().set(key, JSON.stringify(simpleUserData))
-
-    revalidatePath("/account/personal_info")
+    
     return {statusCode, responseBody}
 
 }

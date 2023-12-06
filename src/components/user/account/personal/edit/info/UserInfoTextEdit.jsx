@@ -8,6 +8,7 @@ import { ApiStatusCodes } from '@/app/api/ApiStatusCode';
 import { c_revalidatePath } from '@/app/api/general/revalidatePath/api';
 import { c_redirect } from '@/app/api/general/redirect/api';
 import { useRouter } from 'next/navigation';
+import { HttpStatusCode } from 'axios';
 
 function UserInfoTextEdit({UserProfile})
 {
@@ -38,8 +39,9 @@ function UserInfoTextEdit({UserProfile})
     async function handleSubmitEditForm(formData)
     {
         const {statusCode, responseBody} = await PATCH_editUserProfile(formData)
-        if(statusCode == ApiStatusCodes.EDIT_USER_PROFILE)
+        if(statusCode == HttpStatusCode.Created)
         {
+            console.log("Ok")
             router.push("/account/personal_info")
         }
     }

@@ -28,44 +28,44 @@ function SignUpForm()
         console.log("inside handle Submint")
         if(otpValue === undefined)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please verify your email by the code we have sent to your email!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(fullname.length <  1)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please provide your full name!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(email.length < 1)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please provide your email!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(password.length < 1)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please provide your password!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(confirmPassword.length < 1)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please confirm your password!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(password != confirmPassword)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("The password is different from value of the confirmed password!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(birthday.length < 1)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please provide your birthday!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
 
