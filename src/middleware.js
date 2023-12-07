@@ -37,6 +37,8 @@ export async function middleware(request) {
         const refreshToken = search.substring(startIndexOfRefreshToken)
         const nextResponse = NextResponse.redirect(new URL(baseURL + "/dashboard"), request.url)
         const time = Date.now()
+        console.log(accessToken)
+        console.log(refreshToken + " !!!!!")
         nextResponse.cookies.set("accessToken", accessToken, {expires: time + 1000*60*15})
         nextResponse.cookies.set("refreshToken", refreshToken, {expires: time + 1000*60*60*24})
 
@@ -102,6 +104,8 @@ export async function middleware(request) {
 
             const nextResponse = NextResponse.redirect(new URL(baseURL + "/dashboard"), request.url)
             const time = Date.now();
+            console.log(accessToken)
+            console.log(refreshToken + " !!!!! middle")
             nextResponse.cookies.set("accessToken", responseBody.accessToken, {expires: time + 1000*60*15})
             nextResponse.cookies.set("refreshToken", responseBody.refreshToken, {expires: time + 1000*60*60*24})
             return nextResponse
@@ -110,7 +114,6 @@ export async function middleware(request) {
 
     let response = NextResponse.next(request.url);
     const key = process.env.SIMPLE_USER_DATA_KEY
-    
     const {check, simpleUserData} = await checkUserRoleAssigned(request.cookies)
     if(check == undefined)//error
     {
@@ -122,6 +125,7 @@ export async function middleware(request) {
     }
 
     response.cookies.set(key, JSON.stringify(simpleUserData))
+    console.log(response.cookies)
 
     return response;
 }
