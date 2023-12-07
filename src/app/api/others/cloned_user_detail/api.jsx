@@ -43,6 +43,7 @@ export async function getClonedUserData()
     const key = process.env.SIMPLE_USER_DATA_KEY
     console.log("getClonedUserData")
     const UserData = cookies().get(key)
+    console.log(UserData)
     if(UserData)
     {
         return JSON.parse(UserData.value)
