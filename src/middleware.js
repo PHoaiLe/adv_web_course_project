@@ -114,7 +114,7 @@ export async function middleware(request) {
     const {check, simpleUserData} = await checkUserRoleAssigned(request.cookies)
     if(check == undefined)//error
     {
-        return NextResponse.redirect(new URL(baseURL + "/erro   r_connection"), request.url)
+        return NextResponse.redirect(new URL(baseURL + "/error_connection"), request.url)
     }
     if(check == false)
     {
