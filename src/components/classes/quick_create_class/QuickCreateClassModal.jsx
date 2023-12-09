@@ -7,8 +7,9 @@ import Link from "next/link";
 import { POST_createAClass } from "@/app/api/classes/create_class/api";
 import { HttpStatusCode } from "axios";
 import {Modal, Button} from 'antd'
+import {revalidatePath} from 'next/cache'
 
-function QuickCreateClassModal({OpenModal, handleOpenModalCallback})
+function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreatedActionCallback})
 {
     const [modalDisplay, setModalDisplay] = useState({display:'none'})
     const [resultMessage, setResultMessage] = useState(undefined)
@@ -38,9 +39,15 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback})
         if(statusCode == HttpStatusCode.Created)
         {
             setMessageDisplay({display:'none'})
+            setResultMessage(undefined)
             setClassName(undefined)
             setClassDescription(undefined)
-            setNewClass(responseBody.classes)
+            setNewClass(responseBody.class)
+
+            setSuccessCreateModal(true)
+            
+            const latestCreatedClass = responseBody.class
+            handleCreatedActionCallback(latestCreatedClass)
         }
         else if(statusCode < 0)
         {
@@ -126,12 +133,12 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback})
             <Modal
                 key={"create-class-success"}
                 open={successCreateModal}
-                title={"Join class" + newClass.class_id + " successfully"}
+                title={"Create class" + newClass.class_id + " successfully"}
                 onOk={handleSuccessModalOk}
                 onCancel={handleSuccessModalCancel}
                 footer= {successModalFooters}
                 >
-                    Do you want to visit your new class?
+                    Do you want to visit your new class {newClass.class_name}?
             </Modal>
         </>
     )

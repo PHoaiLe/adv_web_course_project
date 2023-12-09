@@ -12,6 +12,7 @@ export async function POST_createAClass(formData)
         map.set(key, value)
     })
 
+    const access_token_name_convention = process.env.ACCESS_TOKEN_NAME_CONVENTION;
     const requestBody = JSON.stringify(Object.fromEntries(map))
 
     // const url = process.env.API_URL + "/teacher/class/create"
@@ -24,13 +25,16 @@ export async function POST_createAClass(formData)
             body: requestBody,
             headers: {
                 'cookie': cookies(),
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + cookies().get(access_token_name_convention).value
             }
         });
 
         const statusCode = response.status;
-        const responseBody = response.json();
+        const responseBody = await response.json();
 
+        console.log(statusCode)
+        console.log(responseBody)
         return {statusCode, responseBody}
     }
     catch(err)

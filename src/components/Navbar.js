@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import UserDropdown from "./UserDropdown.js";
 import QuickAccessClassModal from "./classes/quick_access_class_modal/QuickAccessClassModal.jsx";
@@ -9,10 +9,12 @@ import {Badge} from 'antd'
 import QuickJoinClassModal from "./classes/quick_join_class_modal/QuickJoinClassModal.jsx";
 import { useRouter } from "next/navigation.js";
 
-export default function Navbar({UserInfor}) {
+export default function Navbar({UserInfor, ProvidedAllClasses, ProvidedJoinedClasses}) {
 
   const [openClassModal, setOpenClassModal] = useState(false)
   const [openAddModal, setOpenAddModal] = useState(false)
+  const [CreatedClasses, setCreatedClasses] = useState(ProvidedAllClasses)
+  const [JoinedClasses, setJoinedClasses] = useState(ProvidedJoinedClasses)
   const router = useRouter()
 
   ////////////////////////////////////////////////////
@@ -41,7 +43,14 @@ export default function Navbar({UserInfor}) {
 
   function handleOpenNotificationClick()
   {
+    
+  }
 
+  function handleCreatedActionCallback(newCreatedClass)
+  {
+    let ClonedOfCreatedClasses = CreatedClasses.slice()
+    ClonedOfCreatedClasses.push(newCreatedClass)
+    setCreatedClasses(ClonedOfCreatedClasses)
   }
 
   let addButtonEventModal = <></>
@@ -53,7 +62,7 @@ export default function Navbar({UserInfor}) {
   }
   else if(UserInfor.role == 'teacher')
   {
-    addButtonEventModal = <QuickCreateClassModal OpenModal={openAddModal} handleOpenModalCallback={handleOpenQuickAddModalCallback}/>
+    addButtonEventModal = <QuickCreateClassModal OpenModal={openAddModal} handleOpenModalCallback={handleOpenQuickAddModalCallback} handleCreatedActionCallback={handleCreatedActionCallback}/>
   }
   else if(UserInfor.role == 'student')
   {
