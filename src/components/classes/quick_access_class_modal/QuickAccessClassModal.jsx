@@ -8,11 +8,12 @@ import CreatedClassesTabs from "./created_classes/CreatedClassesTabs";
 import JoinedClassesTabs from "./joined_classes/JoinedClassesTabs";
 
 
-function QuickAccessClassModal({OpenModal, handleOpenModalCallback, UserRole, JoinedClasses, CreatedClasses})
+function QuickAccessClassModal({OpenModal, handleOpenModalCallback, UserRole, ProvidedJoinedClasses, ProvidedAllClasses})
 {
     
     const [modalDisplay, setModalDisplay] = useState({display: 'none'})
 
+    
     useEffect(() =>
     {
         if(OpenModal == true)
@@ -25,13 +26,16 @@ function QuickAccessClassModal({OpenModal, handleOpenModalCallback, UserRole, Jo
         }
     }, [OpenModal])
 
+    const AllClassesTab = <CreatedClassesTabs CreatedClasses={ProvidedAllClasses}/>
+    const JoinedClassesTab = <JoinedClassesTabs JoinedClasses={ProvidedJoinedClasses}/>
+
     const listOfTeacherTabs = [
-        {icon: undefined, keyOfValue: 'created-classes', description: "Created", view: <CreatedClassesTabs JoinedClasses={JoinedClasses}/>},
-        {icon: undefined, keyOfValue: 'joined-classes', description: "Joined", view: <JoinedClassesTabs CreatedClasses={CreatedClasses}/>},
+        {icon: undefined, keyOfValue: 'created-classes', description: "Created", view: AllClassesTab},
+        {icon: undefined, keyOfValue: 'joined-classes', description: "Joined", view: JoinedClassesTab},
     ]
 
     const listOfStudentTabs = [
-        {icon: undefined, keyOfValue: 'joined-classes', description: "Joined", view: <JoinedClassesTabs JoinedClasses={JoinedClasses}/>},
+        {icon: undefined, keyOfValue: 'joined-classes', description: "Joined", view: JoinedClassesTab},
     ]
 
     function getListOfTabs()

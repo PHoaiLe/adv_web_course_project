@@ -37,8 +37,7 @@ export async function middleware(request) {
         const refreshToken = search.substring(startIndexOfRefreshToken)
         const nextResponse = NextResponse.redirect(new URL(baseURL + "/dashboard"), request.url)
         const time = Date.now()
-        console.log(accessToken)
-        console.log(refreshToken + " !!!!!")
+
         nextResponse.cookies.set("accessToken", accessToken, {expires: time + 1000*60*15})
         nextResponse.cookies.set("refreshToken", refreshToken, {expires: time + 1000*60*60*24})
 
@@ -72,6 +71,7 @@ export async function middleware(request) {
     }
     else if(originPath == "/auth/logout")
     {
+        console.log("inside LOGOUT")
         const key = process.env.SIMPLE_USER_DATA_KEY
         const nextResponse = NextResponse.redirect(baseURL, request.url)
         nextResponse.cookies.delete("accessToken")

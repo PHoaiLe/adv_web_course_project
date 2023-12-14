@@ -8,6 +8,7 @@ import { POST_createAClass } from "@/app/api/classes/create_class/api";
 import { HttpStatusCode } from "axios";
 import {Modal, Button} from 'antd'
 import {revalidatePath} from 'next/cache'
+import { QuickModalTypes } from "../quick_modal_types";
 
 function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreatedActionCallback})
 {
@@ -91,7 +92,7 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreate
                                 <div className="container mx-auto md:w-4/5 h-full">
                                     <div className="flex flex-col justify-center items-center">
                                         <div className="md:w-1/2">
-                                            <button className="close-modal-button" onClick={() => handleOpenModalCallback(false)}>
+                                            <button className="close-modal-button" onClick={() => handleOpenModalCallback(QuickModalTypes.QUICK_CREATE_CLASS_MODAL, false)}>
                                                 <CloseOutlined/>
                                             </button>
                                         </div>

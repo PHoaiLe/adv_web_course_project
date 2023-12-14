@@ -5,11 +5,24 @@ import {CloseOutlined, LinkOutlined, KeyOutlined} from '@ant-design/icons'
 import {Tabs} from 'antd'
 import JoinClassByKeyTab from "./tab_childrens/JoinClassByKeyTab";
 import JoinClassByLinkTab from "./tab_childrens/JoinClassByLinkTab";
+import { JoinClassModalMode } from "./JoinClassModalMode";
+import { QuickModalTypes } from "../quick_modal_types";
 
+const samples = [
+    {icon: KeyOutlined, description: "Class key", key: JoinClassModalMode.JOIN_BY_CODE, view: <JoinClassByKeyTab key={JoinClassModalMode.JOIN_BY_CODE}/>}, 
+    {icon: LinkOutlined, description: "Link", key: JoinClassModalMode.JOIN_BY_LINK, view: <JoinClassByLinkTab key={JoinClassModalMode.JOIN_BY_LINK}/>}
+]
+const modes = new Map()
 
-function QuickJoinClassModal({OpendModal, handleOpenModalCallback})
+samples.forEach((value, index) => 
+{
+    modes.set(value.key, value)
+})
+
+function QuickJoinClassModal({OpendModal, handleOpenModalCallback, ModalModes})
 {
     const [modalDisplay, setModalDisplay] = useState({display: 'none'})
+    const [listOfTabs, setListOfTabs] = useState([])
 
     useEffect(() =>
     {
@@ -23,10 +36,23 @@ function QuickJoinClassModal({OpendModal, handleOpenModalCallback})
         }
     }, [OpendModal])
 
-    const listOfTabs = [
-        {icon: KeyOutlined, description: "Class key", key:'by_class', view: <JoinClassByKeyTab />}, 
-        {icon: LinkOutlined, description: "Link", key:'by_link', view: <JoinClassByLinkTab />}
-    ]
+    useEffect(() =>
+    {
+        const clonedListOfTabs = []
+        ModalModes.forEach((value, index) => 
+        {
+            clonedListOfTabs.push(modes.get(value))
+        })
+
+        setListOfTabs(clonedListOfTabs)
+        
+    }, [])
+
+
+    // const listOfTabs = [
+    //     {icon: KeyOutlined, description: "Class key", key:'by_class', view: <JoinClassByKeyTab />}, 
+    //     {icon: LinkOutlined, description: "Link", key:'by_link', view: <JoinClassByLinkTab />}
+    // ]
 
     return(
         <>
@@ -37,7 +63,7 @@ function QuickJoinClassModal({OpendModal, handleOpenModalCallback})
                                 <div className="container mx-auto md:w-4/5 h-full">
                                     <div className="flex flex-col justify-center items-center">
                                         <div className="md:w-1/2">
-                                            <button className="close-modal-button" onClick={() => handleOpenModalCallback(false)}>
+                                            <button className="close-modal-button" onClick={() => handleOpenModalCallback(QuickModalTypes.QUICK_JOIN_CLASS_MODAL, false)}>
                                                 <CloseOutlined/>
                                             </button>
                                         </div>

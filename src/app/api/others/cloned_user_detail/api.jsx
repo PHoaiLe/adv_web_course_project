@@ -22,19 +22,18 @@ export async function loadUserData()
                 login_type: responseBody.login_type,
                 createdAt: responseBody.createdAt
             }
-            const key = process.env.SIMPLE_USER_DATA_KEY
-            cookies().set(key, JSON.stringify(simpleUserData))
-            return true;
+
+            return simpleUserData;
         }
         else
         {
-            return false;
+            return undefined;
         }
     }
     catch(err)
     {
         console.log(err)
-        return false;
+        return undefined;
     }
 }
 
@@ -49,14 +48,18 @@ export async function getClonedUserData()
         return JSON.parse(UserData.value)
     }
 
-    const check = await loadUserData()
-    if(check == false)
+    //reload user info
+    const result = await loadUserData()
+    if(result == undefined)
     {
         return undefined
     }
 
-    const ReloadUserData = cookies().get(key)
-    return JSON.parse(ReloadUserData.value)
+    cookies().set(key, JSON.stringify(result))
+
+    // const ReloadUserData = cookies().get(key)
+    // return JSON.parse(ReloadUserData.value)
+    return result;
 }
 
 export async function removeClonedUserData()

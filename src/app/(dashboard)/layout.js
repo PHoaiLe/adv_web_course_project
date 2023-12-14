@@ -12,6 +12,7 @@ import { ApiStatusCodes } from "../api/ApiStatusCode";
 
 
 
+
 async function DashboardRootLayout({children})
 {
     // return (
@@ -25,14 +26,24 @@ async function DashboardRootLayout({children})
     //     </html>
     // )
 
-    let userInfo = await getClonedUserData()
+    let userInfo = undefined
+    let JoinedClasses = undefined
+    let AllClasses = undefined
+
+    try
+    {
+        userInfo = await getClonedUserData()
+        console.log(userInfo)
+    }
+    catch(err)
+    {
+        userInfo = undefined
+    }
+
     if(userInfo === undefined)
     {
         userInfo = (await GET_getUserInfo()).responseBody
     }
-
-    let JoinedClasses = undefined
-    let CreatedClasses = undefined
 
     if(userInfo.role == "teacher")
     {
@@ -40,16 +51,36 @@ async function DashboardRootLayout({children})
         const responseOfJoinedClasses = await GET_getJoinedClassesOfTeacher();
         if(responseOfAllClasses.statusCode == ApiStatusCodes.TEACHER_GET_ALL_CLASSES_SUCCESS)
         {
-            CreatedClasses = responseOfAllClasses.responseBody
+            if(responseOfAllClasses.responseBody.status === undefined) //a list of classes OR an empty object
+            {
+                if(responseOfAllClasses.responseBody[0] !== undefined)
+                {
+                    AllClasses = responseOfAllClasses.responseBody
+                }
+                else
+                {
+                    AllClasses = []
+                }
+            }
         }
         else
         {
-            CreatedClasses = []
+            AllClasses = []
         }
 
         if(responseOfJoinedClasses.statusCode == ApiStatusCodes.TEACHER_GET_JOINED_CLASSES_SUCCESS)
         {
-            JoinedClasses = responseOfJoinedClasses.responseBody
+            if(responseOfJoinedClasses.responseBody.status === undefined) //a list of classes OR an empty object
+            {
+                if(responseOfJoinedClasses.responseBody[0] !== undefined)
+                {
+                    JoinedClasses = responseOfJoinedClasses.responseBody
+                }
+                else
+                {
+                    JoinedClasses = []
+                }
+            }
         }
         else
         {
@@ -70,18 +101,13 @@ async function DashboardRootLayout({children})
         }
     }
 
-    if(CreatedClasses !== undefined)
-    {
-        
-    }
-
     
 
     return(
         <html lang='en'>
             <body>
                 <Sidebar />
-                <Navbar UserInfor={userInfo}/>
+                <Navbar UserInfor={userInfo} ProvidedAllClasses={AllClasses} ProvidedJoinedClasses={JoinedClasses}/>
                 {children}
             </body>
         </html>

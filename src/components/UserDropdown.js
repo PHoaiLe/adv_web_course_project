@@ -9,24 +9,11 @@ export default function UserDropdown({UserAvatar, UserName})
     const [dropdownPopoverShow, setDropdownPopoverShow] = useState(false);
     const [userDropdownDisplay, setUserDropdownDisplay] = useState({display:'none', minWidth: "12rem"})
 
-    // const btnDropdownRef = React.createRef();
-    // const popoverDropdownRef = React.createRef();
-    // const openDropdownPopover = () =>
-    // {
-    //   createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
-    //     placement: "bottom-end"
-    //   });
-    //   setDropdownPopoverShow(true);
-    // };
-    // const closeDropdownPopover = () =>
-    // {
-    //   setDropdownPopoverShow(false);
-    // };
     return (
       <>
-        <div>
+        <div key={"user-dropdown"} className="flex-col">
             <button type="button"
-              className="text-black-500 block w-40 relative" 
+              className="text-black-500 block w-40" 
               onClick={(e) => 
               {
                 const nextStatus = !dropdownPopoverShow
@@ -55,10 +42,12 @@ export default function UserDropdown({UserAvatar, UserName})
             </button>
 
             <div
-              className="bg-white text-base z-10 float-left py-2 list-none text-left rounded shadow-lg mt-1 absolute top-14"
+              className="bg-white text-base z-10 float-left py-2 list-none text-left rounded shadow-lg mt-1 absolute top-16"
               style={userDropdownDisplay}
             >
               <Link
+                prefetch={false}
+                key={"link-to-personal-info"}
                 href="/account/personal_info"
                 className={
                   "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-white text-black-700 hover:text-blue-500"
@@ -67,6 +56,8 @@ export default function UserDropdown({UserAvatar, UserName})
                 Profile
               </Link>
               <Link
+                prefetch={false}
+                key={"link-to-account-info"}
                 href="/account/account_info"
                 className={
                   "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-white text-black-700 hover:text-blue-500"
@@ -76,6 +67,8 @@ export default function UserDropdown({UserAvatar, UserName})
               </Link>
               <div className="h-0 my-2 border border-solid border-black-100" />
               <Link
+                prefetch={false}
+                key={"link-to-logout"}
                 href="/auth/logout"
                 className={
                   "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-white text-black-700 hover:text-blue-500"
