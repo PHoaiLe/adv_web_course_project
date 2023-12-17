@@ -51,8 +51,7 @@ export default function Footer(){
                 <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">University of Science</span>
                 <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                   <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">227 Nguyen Van Cu, District 5, Ho Chi Minh City</span>
-                </div>
-                <a href="https://www.flaticon.com/free-icons/training" title="training icons">Training icons created by Freepik - Flaticon</a>  
+                </div>  
             </div>
         </div>
     </footer>

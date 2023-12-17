@@ -1,3 +1,5 @@
+import MemberModal from "@/components/classes/member_modal/MemberModal"
+
 function classDetailPage({class_id})
 {
     return(
@@ -6,13 +8,13 @@ function classDetailPage({class_id})
             <div className="text-6xl text-center uppercase ">Educa - Class 1</div>
         </div>
         <section className="text-gray-600 body-font">
-            <div className="container px-4 py-24 mx-auto flex flex-wrap">
+            <div className="container px-4 py-12 flex flex-wrap">
             <div className="flex flex-auto -m-4">
             <div className="p-4 lg:w-64 md:w-full">
                 <div className="flex border-2 rounded-lg border-neutral-600 border-opacity-50 p-8 sm:flex-row flex-col">
                 <div className="flex-grow">
                     <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Danh sách điểm</h2>
-                    <button><a className="mt-3 text-indigo-500 hover:text-black hover:bg-indigo-300 inline-flex items-center ring ring-indigo-600 ring-offset-2">Xem tại đây</a></button> 
+                    <button className="mt-3 text-indigo-500 hover:text-black hover:bg-indigo-300 inline-flex items-center ring ring-indigo-600 ring-offset-2">Xem tại đây</button> 
                 </div>
                 </div>
             </div>
@@ -20,10 +22,11 @@ function classDetailPage({class_id})
                 <div className="flex border-2 rounded-lg border-neutral-600 border-opacity-50 p-8 sm:flex-row flex-col">
                 <div className="flex-grow">
                     <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Danh sách lớp</h2>
-                    <button><a className="mt-3 text-indigo-500 hover:text-black hover:bg-indigo-300 inline-flex items-center ring ring-indigo-600 ring-offset-2">Xem tại đây</a></button> 
+                    <button className="mt-3 text-indigo-500 hover:text-black hover:bg-indigo-300 inline-flex items-center ring ring-indigo-600 ring-offset-2">Xem tại đây</button> 
                 </div>
                 </div>
             </div>
+            <MemberModal/>
             </div>
             </div>  
             <div className="p-4 lg:w-5/2 md:w-full">
@@ -93,7 +96,6 @@ function classDetailPage({class_id})
             </div>
           </div>
         </section>
-   
         </>
     )
 }

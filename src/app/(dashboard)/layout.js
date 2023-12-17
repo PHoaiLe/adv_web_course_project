@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/Navbar.js";
 import Sidebar from "@/components/Sidebar";
-//import Footer from "@/components/main/footer/Footer";
+import DashboardFooter from "@/components/main/footer/DashboardFooter";
 import { getClonedUserData } from "@/data/ClonedUserData";
 import '@/styles/globals.css';
 
@@ -34,8 +34,9 @@ async function DashboardRootLayout({children})
                             </div>
                         </div>
                     </div>
+                <DashboardFooter/>
                 </div>
-                {/* <Footer/> */}
+                
             </body>
         </html>
     )

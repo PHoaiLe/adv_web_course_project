@@ -6,7 +6,7 @@ export default function Dashboard() {
   return(
     <>
       <div className="w-full h-full">
-          <div className="text-3xl text black mx-auto font-bold">My Classes</div>
+          <div className="text-3xl text black mx-auto py-6 font-bold">My Classes</div>
             <div className="px-4 md:px-10 mx-auto w-full">
               <div>
                 <div className="flex flex-wrap">
@@ -47,7 +47,7 @@ export default function Dashboard() {
             </div>
             </div>
             </div> 
-          <div className="text-3xl text black mx-auto font-bold">Courses</div>
+          <div className="text-3xl text black mx-auto py-6 font-bold">Courses</div>
           <div className="px-4 md:px-10 mx-auto w-full">
               <div>
                 <div className="flex flex-wrap">
