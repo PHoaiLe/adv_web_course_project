@@ -13,7 +13,7 @@ export async function GET_getJoinedClassesOfStudent()
     {
         return {statusCode: ApiStatusCodes.ERROR_CONNECT_REFUSED, responseBody: undefined}
     }
-
+    console.log(response)
     const statusCode = response.status;
     const responseBody = await response.json();
 

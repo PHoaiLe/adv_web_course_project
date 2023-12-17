@@ -5,7 +5,88 @@ export default function Dashboard() {
   return(
     <>
       <div className="w-full h-full">
-          hello
+          <div className="text-3xl text black mx-auto font-bold">My Classes</div>
+            <div className="px-4 md:px-10 mx-auto w-full">
+              <div>
+                <div className="flex flex-wrap">
+                 <div className="w-full lg:w-48 xl:w-96 x-4">
+                   <div className="relative flex flex-col min-w-0 break-words bg-neutral-300 rounded mb-6 xl:mb-0 shadow-lg">
+                     <div className="flex-auto p-4">
+                       <div className="flex flex-wrap">
+                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
+                           <h5 className="text-black uppercase font-bold text-xl">
+                             Introduction to NodeJS
+                           </h5>
+                           <span className="font-semibold text-xs text-black">
+                             Teacher: Toan Hao
+                           </span>
+                         </div>
+                       </div>
+                       <a href="#"><button className="w-full bg-cyan-500 text-white text-sm font-bold py-3 px-4 rounded-md hover:bg-black transition duration-300" type="button">Enter class</button></a>
+                     </div>
+                   </div>
+                 </div>
+                 <div className="w-full lg:w-48 xl:w-96 px-4">
+                   <div className="relative flex flex-col min-w-0 break-words bg-neutral-300 rounded mb-6 xl:mb-0 shadow-lg">
+                     <div className="flex-auto p-4">
+                       <div className="flex flex-wrap">
+                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
+                           <h5 className="text-black uppercase font-bold text-xl">
+                             ReactJS guide
+                           </h5>
+                           <span className="font-semibold text-xs text-black">
+                             Teacher: Phuong Le
+                           </span>
+                         </div>
+                       </div>
+                      <a href="#"><button className="w-full bg-cyan-500 text-white text-sm font-bold py-3 px-4 rounded-md hover:bg-black transition duration-300" type="button">Enter class</button></a>
+                     </div>
+                   </div>
+                 </div>
+            </div>
+            </div>
+            </div> 
+          <div className="text-3xl text black mx-auto font-bold">Courses</div>
+          <div className="px-4 md:px-10 mx-auto w-full">
+              <div>
+                <div className="flex flex-wrap">
+                 <div className="w-full lg:w-48 xl:w-96 x-4">
+                   <div className="relative flex flex-col min-w-0 break-words bg-neutral-300 rounded mb-6 xl:mb-0 shadow-lg">
+                     <div className="flex-auto p-4">
+                       <div className="flex flex-wrap">
+                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
+                           <h5 className="text-black uppercase font-bold text-xl">
+                             Tailwind
+                           </h5>
+                           <span className="font-semibold text-xs text-black">
+                             Teacher: Anh Le
+                           </span>
+                         </div>
+                       </div>
+                       <a href="#"><button className="w-full bg-cyan-500 text-white text-sm font-bold py-3 px-4 rounded-md hover:bg-black transition duration-300" type="button">Join class</button></a>
+                     </div>
+                   </div>
+                 </div>
+                 <div className="w-full lg:w-48 xl:w-96 px-4">
+                   <div className="relative flex flex-col min-w-0 break-words bg-neutral-300 rounded mb-6 xl:mb-0 shadow-lg">
+                     <div className="flex-auto p-4">
+                       <div className="flex flex-wrap">
+                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
+                           <h5 className="text-black uppercase font-bold text-xl">
+                             Create html css
+                           </h5>
+                           <span className="font-semibold text-xs text-black">
+                             Teacher: Anh Le
+                           </span>
+                         </div>
+                       </div>
+                      <a href="#"><button className="w-full bg-cyan-500 text-white text-sm font-bold py-3 px-4 rounded-md hover:bg-black transition duration-300" type="button">Join class</button></a>
+                     </div>
+                   </div>
+                 </div>
+            </div>
+            </div>
+            </div> 
       </div>
     </>
   )

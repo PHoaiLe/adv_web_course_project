@@ -32,8 +32,8 @@ function SignInForm()
         }
         else //statusCode < 0
         {
-            setError_Message(result.responseBody)
-            setMessageStatus({display:"block"})
+            setError_Message("No connection, please check the connection")
+            setMessageStatus({display:"block", color:"red"})
         }
     }
 

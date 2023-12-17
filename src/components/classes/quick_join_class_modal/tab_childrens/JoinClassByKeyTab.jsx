@@ -1,6 +1,6 @@
 'use client'
 
-import { POST_joinClassByCode } from "@/app/api/classes/join_class/api"
+import { POST_joinClassByCode, POST_joinClassByCodeOfStudent } from "@/app/api/classes/join_class/api"
 import { HttpStatusCode } from "axios"
 import { useState } from "react"
 import {Modal, Button} from 'antd'
@@ -33,7 +33,7 @@ function JoinClassByKeyTab()
         }
 
         const classKey = formData.get("classKey")
-        const {statusCode, responseBody} = await POST_joinClassByCode(classKey)
+        const {statusCode, responseBody} = await POST_joinClassByCodeOfStudent(classKey)
 
         if(statusCode == HttpStatusCode.Created)
         {
@@ -54,6 +54,12 @@ function JoinClassByKeyTab()
                 setResultMessage(responseMessage)
                 return
             }
+            else
+            {
+                setMessageDisplay({display: 'block', color:'red'})
+                setResultMessage(`Failed to join class ${classKey}`)
+                return
+            }
         }
 
     }
@@ -61,7 +67,8 @@ function JoinClassByKeyTab()
     //go to the new class
     function handleSuccessModalOk()
     {
-
+        const linkToClassDetail = `/classes/${newClass._id}`
+        router.push()
     }
 
     //close modal

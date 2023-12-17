@@ -124,7 +124,6 @@ export async function middleware(request) {
 
 
     response.cookies.set(key, JSON.stringify(simpleUserData))
-    console.log(response.cookies)
 
     return response;
 }
@@ -235,12 +234,11 @@ async function checkUserRoleAssigned(cookies)
 
 
     const simpleUserData = {
-        id: UserData.id,
+        _id: UserData._id,
         email: UserData.email,
         fullname: UserData.fullname,
         role: UserData.role,
         avatar: UserData.avatar,
-        is_ban: UserData.is_ban,
         birthday: UserData.birthday,
         login_type: UserData.login_type,
         createdAt: UserData.createdAt

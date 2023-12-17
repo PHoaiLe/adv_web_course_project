@@ -12,12 +12,11 @@ export async function loadUserData()
         if(statusCode == ApiStatusCodes.GET_USER_INFO_SUCCESS)
         {
             const simpleUserData = {
-                id: responseBody.id,
+                _id: responseBody._id,
                 email: responseBody.email,
                 fullname: responseBody.fullname,
                 role: responseBody.role,
                 avatar: responseBody.avatar,
-                is_ban: responseBody.is_ban,
                 birthday: responseBody.birthday,
                 login_type: responseBody.login_type,
                 createdAt: responseBody.createdAt
@@ -64,6 +63,7 @@ export async function getClonedUserData()
 
 export async function removeClonedUserData()
 {
+    console.log("delete cloned user's data")
     const key = process.env.SIMPLE_USER_DATA_KEY
     cookies().delete(key)
 }

@@ -5,7 +5,7 @@ import './SelectRoleForm.css'
 import { PATCH_updateUserRole } from '@/app/api/others/select_role/api';
 import { useRouter } from 'next/navigation';
 import { HttpStatusCode } from 'axios';
-import { getClonedUserData, loadUserData } from '@/app/api/others/cloned_user_detail/api';
+import { getClonedUserData, loadUserData, removeClonedUserData } from '@/app/api/others/cloned_user_detail/api';
 
 export default function SelectRoleForm()
 {
@@ -44,6 +44,8 @@ export default function SelectRoleForm()
 
         if(statusCode == HttpStatusCode.Ok)
         {
+            removeClonedUserData()
+            await getClonedUserData()
             router.push("/dashboard")
         }
         else

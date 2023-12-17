@@ -30,6 +30,7 @@ async function DashboardRootLayout({children})
     let JoinedClasses = undefined
     let AllClasses = undefined
 
+    // Dynamic server error, the below lines of code
     try
     {
         userInfo = await getClonedUserData()

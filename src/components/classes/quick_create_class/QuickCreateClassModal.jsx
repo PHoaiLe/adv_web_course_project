@@ -47,7 +47,14 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreate
 
             setSuccessCreateModal(true)
             
-            const latestCreatedClass = responseBody.class
+            const createdClass = responseBody.class
+            const latestCreatedClass = 
+            {
+                _id: createdClass.createdClass.class_id,
+                className: createdClass.class_name,
+                description: createdClass.class_description,
+                id: class_id
+            }
             handleCreatedActionCallback(latestCreatedClass)
         }
         else if(statusCode < 0)
