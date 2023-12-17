@@ -1,0 +1,85 @@
+
+.select-role-container
+{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+.select-role-title
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    font-weight: 500;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.select-role-container button
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: transform .2s;
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.05);
+}
+
+.select-role-container button:hover
+{
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.5);
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1);
+    border-width: 1px;
+}
+
+.select-role-container button img
+{
+    border-color: white;
+    border-width: 5px;
+}
+
+.select-role-container h2
+{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+
+.select-role-submit-button-container
+{
+    width: 100%;
+    background-color: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: right;
+}
+
+.select-role-submit-button-container button
+{
+    background-color: rgb(116, 116, 220);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: larger;
+    border-radius: 10px;
+    width: 120px;
+    height: 23%;
+}
+
+.select-role-submit-button-container button:hover
+{
+    background-color: rgb(10, 10, 155);
+}
