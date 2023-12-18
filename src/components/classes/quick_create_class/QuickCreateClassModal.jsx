@@ -98,7 +98,7 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreate
 
     return(
         <>
-            <div className="absolute md:ml-64 bg-gray-100 top-0 left-0 right-0 bottom-0 h-full" style={modalDisplay}>
+            <div className="fixed z-20 md:ml-64 bg-gray-100 top-0 left-0 right-0 bottom-0 h-full" style={modalDisplay}>
                 <div className="relative bg-blue-200 md:pt-32 pb-32 pt-12 h-full">
                     <div className="px-4 md:px-10 mx-auto w-full h-full">
                             <div className="py-12 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0 custom-quick-create-class-modal" id="modal">
