@@ -151,7 +151,7 @@ export default function Navbar({UserInfor, ProvidedAllClasses, ProvidedJoinedCla
   return (
     <>
       {/* Navbar */}
-      <nav className="absolute top-0 left-0 w-full bg-blue-50 md:flex-row md:flex-nowrap md:justify-start flex items-center p-4">
+      <nav className="absolute top-0 left-0 w-full bg-blue-50 md:flex-row md:flex-nowrap md:justify-start flex items-center p-4 z-10">
         <div className="w-full mx-autp items-center flex justify-end md:flex-nowrap flex-wrap md:px-10 px-4">
           {/* Form */}
 

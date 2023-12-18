@@ -154,7 +154,7 @@ function JoinedClassesTabs({JoinedClasses})
     {
         return (
             <div key={value._id} className='container flex rounded-xl shadow-sm overflow-hidden m-2 bg-white mx-auto hover:bg-slate-100'>
-                <Link href='#' className='w-full'>
+                <Link prefetch={false} href={`/classes/${value._id}`} className='w-full'>
                     <div className="p-8 flex justify-between items-center max-h-50 sm:max-h-40">
                         <img className="inline max-w-4 w-10 max-h-10" src={getRandomImage()}/>
                         <div className="uppercase tracking-wide text-sm w-40 text-wrap text-indigo-500 font-semibold inline text-left">{value.className}</div>

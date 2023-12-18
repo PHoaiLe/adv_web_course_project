@@ -109,7 +109,17 @@ async function DashboardRootLayout({children})
             <body>
                 <Sidebar />
                 <Navbar UserInfor={userInfo} ProvidedAllClasses={AllClasses} ProvidedJoinedClasses={JoinedClasses}/>
-                {children}
+                <div className="relative md:ml-64">
+                    <div className="relative md:pt-32 pb-32 pt-12">
+                        <div className="px-4 md:px-10 mx-auto w-full">
+                            <div>
+                                <div className="flex flex-wrap">
+                                    {children}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </body>
         </html>
     )

@@ -9,6 +9,7 @@ import { HttpStatusCode } from "axios";
 import {Modal, Button} from 'antd'
 import {revalidatePath} from 'next/cache'
 import { QuickModalTypes } from "../quick_modal_types";
+import { useRouter } from "next/navigation";
 
 function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreatedActionCallback})
 {
@@ -20,6 +21,8 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreate
     
     const [successCreateModal, setSuccessCreateModal] = useState(false)
     const [newClass, setNewClass] = useState({})
+
+    const router = useRouter()
 
     useEffect(() =>
     {
@@ -43,9 +46,7 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreate
             setResultMessage(undefined)
             setClassName(undefined)
             setClassDescription(undefined)
-            setNewClass(responseBody.class)
 
-            setSuccessCreateModal(true)
             
             const createdClass = responseBody.class
             const latestCreatedClass = 
@@ -55,6 +56,9 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreate
                 description: createdClass.class_description,
                 id: class_id
             }
+            setNewClass(latestCreatedClass)
+            setSuccessCreateModal(true)
+
             handleCreatedActionCallback(latestCreatedClass)
         }
         else if(statusCode < 0)
@@ -71,7 +75,9 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreate
 
     function handleSuccessModalOk()
     {
-
+        const class_id = newClass._id;
+        const url = `/classes/${class_id}`
+        router.push(url)
     }
 
     function handleSuccessModalCancel()
