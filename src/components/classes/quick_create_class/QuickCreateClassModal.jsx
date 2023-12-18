@@ -6,14 +6,23 @@ import {CloseOutlined} from '@ant-design/icons'
 import Link from "next/link";
 import { POST_createAClass } from "@/app/api/classes/create_class/api";
 import { HttpStatusCode } from "axios";
+import {Modal, Button} from 'antd'
+import {revalidatePath} from 'next/cache'
+import { QuickModalTypes } from "../quick_modal_types";
+import { useRouter } from "next/navigation";
 
-function QuickCreateClassModal({OpenModal, handleOpenModalCallback})
+function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreatedActionCallback})
 {
     const [modalDisplay, setModalDisplay] = useState({display:'none'})
     const [resultMessage, setResultMessage] = useState(undefined)
     const [messageDisplay, setMessageDisplay] = useState({display:'none'})
     const [className, setClassName] = useState(undefined)
     const [classDescription, setClassDescription] = useState(undefined)
+    
+    const [successCreateModal, setSuccessCreateModal] = useState(false)
+    const [newClass, setNewClass] = useState({})
+
+    const router = useRouter()
 
     useEffect(() =>
     {
@@ -33,10 +42,24 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback})
 
         if(statusCode == HttpStatusCode.Created)
         {
-            setMessageDisplay({display:'block', color:'green'})
+            setMessageDisplay({display:'none'})
+            setResultMessage(undefined)
             setClassName(undefined)
             setClassDescription(undefined)
-            setResultMessage("Create class successfully")
+
+            
+            const createdClass = responseBody.class
+            const latestCreatedClass = 
+            {
+                _id: createdClass.createdClass.class_id,
+                className: createdClass.class_name,
+                description: createdClass.class_description,
+                id: class_id
+            }
+            setNewClass(latestCreatedClass)
+            setSuccessCreateModal(true)
+
+            handleCreatedActionCallback(latestCreatedClass)
         }
         else if(statusCode < 0)
         {
@@ -50,16 +73,39 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback})
         }
     }
 
+    function handleSuccessModalOk()
+    {
+        const class_id = newClass._id;
+        const url = `/classes/${class_id}`
+        router.push(url)
+    }
+
+    function handleSuccessModalCancel()
+    {
+        setSuccessCreateModal(false)
+    }
+
+    const successModalFooters = [
+        <Button key={"cancel-button"} type="primary" onClick={handleSuccessModalCancel}>
+            <p className="text-black hover:text-white">No, I will stay</p>
+        </Button>,
+        
+        <Button key={"ok-button"} type="primary" onClick={handleSuccessModalOk} className="bg-blue-300"
+            >
+            <p className="text-black hover:text-white">Yes, go to the new class</p>
+        </Button>
+    ]
+
     return(
         <>
-            <div className="absolute md:ml-64 bg-gray-100 top-0 left-0 right-0 bottom-0 h-full" style={modalDisplay}>
+            <div className="fixed z-20 md:ml-64 bg-gray-100 top-0 left-0 right-0 bottom-0 h-full" style={modalDisplay}>
                 <div className="relative bg-blue-200 md:pt-32 pb-32 pt-12 h-full">
                     <div className="px-4 md:px-10 mx-auto w-full h-full">
                             <div className="py-12 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0 custom-quick-create-class-modal" id="modal">
                                 <div className="container mx-auto md:w-4/5 h-full">
                                     <div className="flex flex-col justify-center items-center">
                                         <div className="md:w-1/2">
-                                            <button className="close-modal-button" onClick={() => handleOpenModalCallback(false)}>
+                                            <button className="close-modal-button" onClick={() => handleOpenModalCallback(QuickModalTypes.QUICK_CREATE_CLASS_MODAL, false)}>
                                                 <CloseOutlined/>
                                             </button>
                                         </div>
@@ -97,6 +143,17 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback})
                     </div>
                 </div>
             </div>
+
+            <Modal
+                key={"create-class-success"}
+                open={successCreateModal}
+                title={"Create class" + newClass.class_id + " successfully"}
+                onOk={handleSuccessModalOk}
+                onCancel={handleSuccessModalCancel}
+                footer= {successModalFooters}
+                >
+                    Do you want to visit your new class {newClass.class_name}?
+            </Modal>
         </>
     )
 }

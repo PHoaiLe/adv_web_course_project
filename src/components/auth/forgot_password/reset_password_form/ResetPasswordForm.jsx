@@ -20,7 +20,7 @@ function ResetPasswordForm({ProvidedEmail})
     useEffect(() =>
     {
         setEmail(ProvidedEmail)
-    }, [])
+    }, [ProvidedEmail])
 
     async function handleResetPasswordSubmition(formData)
     {
@@ -38,7 +38,7 @@ function ResetPasswordForm({ProvidedEmail})
         {
             setMessage(undefined)
             setMessageStyle({display:'none', color:'red'})
-            const {statusCode, responseBody} = POST_sendResetPasswordRequest(formData)
+            const {statusCode, responseBody} = await POST_sendResetPasswordRequest(formData)
 
             if(statusCode == HttpStatusCode.Created)
             {
@@ -52,10 +52,23 @@ function ResetPasswordForm({ProvidedEmail})
             }
             else if(statusCode === undefined)
             {
-                setMessage(responseBody.message)
-                setMessageStyle({display:'block', color:'red'})
+                if(responseBody.message)
+                {
+                    setMessage(responseBody.message)
+                    setMessageStyle({display:'block', color:'red'})
+                }
+                else
+                {
+                    setMessage("Internal server error")
+                    setMessageStyle({display:'block', color:'red'})
+                }
             }
         }
+        setTimeout(() => 
+        {
+            setMessage(undefined)
+            setMessageStyle({display:'none'})
+        }, 3000)
     }
 
     function handleCancelButtonClick()

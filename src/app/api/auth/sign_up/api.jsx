@@ -37,18 +37,9 @@ export async function POST_signUp(formData)
     }
 
     const statusCode = response.response.status
-    const data = await response.response.json()
+    const responseBody = await response.response.json()
 
-    if(statusCode == ApiStatusCodes.SIGN_UP_SUCCESS)
-    {
-        redirect("/auth/sign_in")   
-    }
-    else
-    {
-        console.log("sign up failed...")
-        console.log(data)
-        return {statusCode, responseBody: data}
-    }
+    return {statusCode, responseBody}
 }
 
 async function sendSignUpRequest(requestBody)

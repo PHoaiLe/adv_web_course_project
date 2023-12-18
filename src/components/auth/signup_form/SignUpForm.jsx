@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useState } from "react"
 import OtpModal from "../otp_modal/OtpModal"
 import { HttpStatusCode } from "axios"
+import { useRouter } from "next/navigation"
 
 
 function SignUpForm()
@@ -20,57 +21,76 @@ function SignUpForm()
     const [resultMessage, setResultMessage] = useState(undefined)
     const [messageDisplay, setMessageDisplay] = useState({display:'none'})
 
+    const router = useRouter();
+
     async function handleSubmit(formData)
     {
         console.log("inside handle Submint")
         if(otpValue === undefined)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please verify your email by the code we have sent to your email!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(fullname.length <  1)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please provide your full name!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(email.length < 1)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please provide your email!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(password.length < 1)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please provide your password!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(confirmPassword.length < 1)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please confirm your password!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(password != confirmPassword)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("The password is different from value of the confirmed password!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
         else if(birthday.length < 1)
         {
-            setMessageDisplay({display:'block', color:'red'})
             setResultMessage("Please provide your birthday!")
+            setMessageDisplay({display:'block', color:'red'})
             return
         }
 
 
         formData.append("otp", otpValue)
         const {statusCode, responseBody} = await POST_signUp(formData)
-
-        console.log("state:otpValue: " + otpValue)
+        console.log(statusCode)
+        console.log(responseBody)
+        if(statusCode == HttpStatusCode.Created)
+        {
+            router.push("/auth/sign_in")
+        }
+        else
+        {
+            if(responseBody.message)
+            {
+                setMessageDisplay({display: 'block', color: 'red'})
+                setResultMessage(responseBody.message)
+            }
+            else
+            {
+                setMessageDisplay({display: 'block', color: 'red'})
+                setResultMessage("Sign up failed, invalid code or invalid email...")
+            }
+        }
     }
 
     function handleModalOpenCallback(val)
