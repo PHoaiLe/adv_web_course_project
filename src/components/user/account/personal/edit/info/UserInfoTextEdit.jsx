@@ -2,14 +2,12 @@
 
 import { Button, DatePicker, Input } from 'antd'
 import './UserInfoTextEdit.css'
-import "@/styles/globals.css"
 import { useEffect, useState } from 'react';
 import { PATCH_editUserProfile } from '@/app/api/user/account/personal_edit/api';
-// import { ApiStatusCodes } from '@/app/api/ApiStatusCode';
-// import { c_revalidatePath } from '@/app/api/general/revalidatePath/api';
-// import { c_redirect } from '@/app/api/general/redirect/api';
+import { ApiStatusCodes } from '@/app/api/ApiStatusCode';
+import { c_revalidatePath } from '@/app/api/general/revalidatePath/api';
+import { c_redirect } from '@/app/api/general/redirect/api';
 import { useRouter } from 'next/navigation';
-import { HttpStatusCode } from 'axios';
 
 function UserInfoTextEdit({UserProfile})
 {
@@ -40,9 +38,8 @@ function UserInfoTextEdit({UserProfile})
     async function handleSubmitEditForm(formData)
     {
         const {statusCode, responseBody} = await PATCH_editUserProfile(formData)
-        if(statusCode == HttpStatusCode.Created)
+        if(statusCode == ApiStatusCodes.EDIT_USER_PROFILE)
         {
-            console.log("Ok")
             router.push("/account/personal_info")
         }
     }
@@ -85,10 +82,10 @@ function UserInfoTextEdit({UserProfile})
                     onChange={handleDatePickerChange}
                     />
                     <Input type='date' name='birthday' style={{display:"none"}} key={birthday_key} value={birthday}/>
-                    <div className='user-detail-edit-text-content-buttons flex space-x-4 '>
-                        <Input key={saveButton_key} className="border-solid border-2 rounded-full w-1/3 text-black hover:text-white hover:bg-cyan-500" type='submit' value='Save'/>
+                    <div className='user-detail-edit-text-content-buttons'>
+                        <Input key={saveButton_key} className='save-button'type='submit' value='Save'/>
                         <Input type='button'
-                        key={cancelButton_key} className="border-solid border-2 rounded-full w-1/3 text-black hover:text-white hover:bg-cyan-500" onClick={handleCancelButtonClick} value='Cancel' />
+                        key={cancelButton_key} className='cancel-button' onClick={handleCancelButtonClick} value='Cancel' />
                     </div>
                 </form>
             </div>

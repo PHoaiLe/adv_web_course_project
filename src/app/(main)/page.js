@@ -5,6 +5,9 @@ import TopNavBar from '@/components/main/top_nav_bar_2/TopNavBar'
 
 export default async function Home() {
 
+  const userInfo = await GET_getUserInfo()
+
+
   return (
     <>
       <Hero/>
