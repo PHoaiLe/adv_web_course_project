@@ -51,7 +51,7 @@ function QuickCreateClassModal({OpenModal, handleOpenModalCallback, handleCreate
             const createdClass = responseBody.class
             const latestCreatedClass = 
             {
-                _id: createdClass.createdClass.class_id,
+                _id: createdClass.class_id,
                 className: createdClass.class_name,
                 description: createdClass.class_description,
                 id: class_id

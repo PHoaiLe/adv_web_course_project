@@ -1,5 +1,7 @@
 'use client';
 
+import {EditOutlined} from '@ant-design/icons'
+
 function ClassPostBoard()
 {
     return(
@@ -7,7 +9,7 @@ function ClassPostBoard()
             <div className="p-4 lg:w-5/2 md:w-full">
                 <div className="flex border-2 rounded-lg border-neutral-300 border-opacity-50 p-8 sm:flex-row flex-col">
                     <div className="flex-grow">
-                        <h2 className="text-gray-900 text-lg title-font font-bold mb-3">Anh Le</h2>
+                        <h2 className="text-gray-900 text-lg title-font font-bold mb-3">Anh Le <a href="#"><EditOutlined className='text-lg text-black px-4 hover:text-indigo-500'/></a></h2>
                         {/* Add your content for the new container here */}
                     <div className="border-t-4 border-neutral-400">
                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
@@ -50,7 +52,7 @@ function ClassPostBoard()
             <div className="p-4 lg:w-5/2 md:w-full">
                 <div className="flex border-2 rounded-lg border-neutral-300 border-opacity-50 p-8 sm:flex-row flex-col">
                     <div className="flex-grow">
-                    <h2 className="text-gray-900 text-lg title-font font-bold mb-3">Anh Le</h2>
+                    <h2 className="text-gray-900 text-lg title-font font-bold mb-3">Anh Le <a href="#"><EditOutlined className='text-lg text-black px-4 hover:text-indigo-500'/></a></h2>
                     {/* Add your content for the new container here */}
                     <div className="border-t-4 border-neutral-400">
                     <div className="relative w-full pr-4 max-w-full flex-grow flex-1">

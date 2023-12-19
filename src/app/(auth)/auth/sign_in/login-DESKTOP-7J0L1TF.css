@@ -64,6 +64,9 @@
     height: 60px;
     border-radius: 15px;
     background: lightgrey;
+    height: 60px;
+    border-radius: 15px;
+    background: lightgrey;
     margin-top: 4px;
     margin-bottom: 20px;
     padding-left: 5px;
@@ -98,6 +101,10 @@
     background: #A2C3F4;
     width: 309px;
     height: 40px;
+}
+
+.login-form button:hover{
+    border: 2px solid black;
 }
 
 .login-form button:hover{

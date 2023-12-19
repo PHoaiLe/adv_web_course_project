@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar.js";
 import Sidebar from "@/components/Sidebar";
 import DashboardFooter from "@/components/main/footer/DashboardFooter";
-import { getClonedUserData } from "@/data/ClonedUserData";
+import { getClonedUserData } from "../api/others/cloned_user_detail/api";
 import '@/styles/globals.css';
 import GET_getUserInfo from "../api/user/account/personal_info/api";
 import { GET_getAllClassesOfTeacher, GET_getJoinedClassesOfTeacher } from "../api/classes/get_class/teacher/api";

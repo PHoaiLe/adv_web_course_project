@@ -82,31 +82,3 @@
     justify-content:left;
 }
 
-.save-button
-{
-    background-color: wheat;
-    width: 30%;
-    margin-right: 3%;
-    border-radius: 25px;
-    border-color: transparent;
-}
-
-.save-button:hover
-{
-    background-color: green;
-    color: white;
-}
-
-.cancel-button
-{
-    border-radius: 25px;
-    background-color: whitesmoke;
-    border-color: gainsboro;
-    width: 30%;
-}
-
-.cancel-button:hover
-{
-    background-color: skyblue; 
-    color: black;
-}

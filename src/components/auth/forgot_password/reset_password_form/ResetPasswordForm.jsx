@@ -4,7 +4,8 @@ import { ApiStatusCodes } from "@/app/api/ApiStatusCode";
 import { POST_sendResetPasswordRequest } from "@/app/api/auth/forgot_password/api";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import './ResetPasswordForm.css'
+//import './ResetPasswordForm.css'
+import "@/styles/globals.css"
 import { HttpStatusCode } from "axios";
 
 function ResetPasswordForm({ProvidedEmail})
@@ -98,7 +99,7 @@ function ResetPasswordForm({ProvidedEmail})
 
     return(
         <>
-            <div className="container mx-auto py-8 w-100 reset-password-frame">
+            <div className="md:container md:mx-auto px-4 py-4 w-100 bg-violet-500 border-dashed border-2 border-black rounded-lg mb-5">
                 <form className="w-full max-w-lg mx-auto bg-white p-8 rounded-md shadow-md" action={handleResetPasswordSubmition}>
                     <h1 className="text-center font-bold mb-3">RESET PASSWORD</h1>
                     <div className="flex p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50" role="alert">

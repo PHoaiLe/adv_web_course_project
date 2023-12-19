@@ -33,12 +33,12 @@ function OtpModal({OpenModal, handleOpenModal, TargetEmail, handleReturnResult})
     {
         if(otpValue === undefined)
         {
-            setMessage("please provide the OTP code to verify your email")
+            setMessage("Please provide the OTP code to verify your email")
             setMessageStyle({display: 'block', color: 'red'})
         }
         else if(checkCorrectOTPFormat(otpValue) == false)
         {
-            setMessage("please provide the correct OTP code sent to your email")
+            setMessage("Please provide the correct OTP code sent to your email")
             setMessageStyle({display: 'block', color: 'red'})
         }
         else
