@@ -199,6 +199,17 @@ function JoinedClassesTabs({JoinedClasses})
             setInvitationLinkButtonMessage(copiedAnnouncement)
         }
     }
+
+    const ModalFooters = [
+        <Button key={"cancel-button"} type="primary" onClick={handleModalCancel} className="bg-blue-300">
+            <p className="text-black hover:text-white">Cancel</p>
+        </Button>,
+        
+        <Button key={"ok-button"} type="primary" onClick={handleModalOk} className="bg-blue-300"
+            >
+            <p className="text-black hover:text-white">OK</p>
+        </Button>
+    ]
     
     return(
         <>
@@ -211,7 +222,7 @@ function JoinedClassesTabs({JoinedClasses})
                 title={"Invitation of ".concat(modalTitle)}
                 onOk={handleModalOk}
                 onCancel={handleModalCancel}
-                footer= {undefined}
+                footer= {ModalFooters}
                 >
                     <div className='font-sans'>
                         <h1 className='text-left text-lg py-2'>Class code</h1>

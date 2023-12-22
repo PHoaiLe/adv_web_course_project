@@ -7,7 +7,7 @@ function TopNavBar({UserInfo})
 
     let signInNavigator = 
     <Link href='/auth/sign_in'>
-        <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+        <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-300 rounded text-base mt-4 md:mt-0">
             Sign In
             <svg
             fill="none"
@@ -37,23 +37,17 @@ function TopNavBar({UserInfo})
     }
 
     return(
-        <header className="text-gray-600 body-font">
+        <header className=" bg-indigo-500 text-gray-600 body-font">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
                 <Link href='/' className="flex title-font font-large items-center text-gray-900 mb-4 md:mb-0">
                     <span className="ml-50 text-xl app-name-logo">Educa</span>
                 </Link>
                 <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
                     <Link href="/dashboard/">
-                        <button className="mr-5 hover:text-gray-900">Home</button>
+                        <button className="mr-5 text-xl text-neutral-600 hover:text-black">Home</button>
                     </Link>
-                    <Link href="#">
-                        <button className="mr-5 hover:text-gray-900">About</button>
-                    </Link>
-                    <Link href="#">
-                        <button className="mr-5 hover:text-gray-900">Education</button>
-                    </Link>
-                    <Link href="#">
-                        <button className="mr-5 hover:text-gray-900">Service</button>
+                    <Link href="/about">
+                        <button className="mr-5 text-xl text-neutral-600 hover:text-black">About</button>
                     </Link>
                 </nav>
                 {userInfoDisplay}

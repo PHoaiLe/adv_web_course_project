@@ -84,10 +84,10 @@ function UserInfoTextEdit({UserProfile})
                     onChange={handleDatePickerChange}
                     />
                     <Input type='date' name='birthday' style={{display:"none"}} key={birthday_key} value={birthday}/>
-                    <div className='user-detail-edit-text-content-buttons'>
-                        <Input key={saveButton_key} className='save-button'type='submit' value='Save'/>
+                    <div className='user-detail-edit-text-content-buttons flex space-x-4'>
+                        <Input key={saveButton_key} className='border-solid border-2 rounded-full w-1/3 text-black hover:text-white hover:bg-cyan-500' type='submit' value='Save'/>
                         <Input type='button'
-                        key={cancelButton_key} className='cancel-button' onClick={handleCancelButtonClick} value='Cancel' />
+                        key={cancelButton_key} className='border-solid border-2 rounded-full w-1/3 text-black hover:text-white hover:bg-cyan-500' onClick={handleCancelButtonClick} value='Cancel' />
                     </div>
                 </form>
             </div>

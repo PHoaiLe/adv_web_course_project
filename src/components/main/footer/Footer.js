@@ -1,7 +1,7 @@
 export default function Footer(){
     return(
         <>
-        <footer className="p-4 bg-gray-50 sm:p-6 dark:bg-dark-gray-800">
+        <div className="p-4 bg-gray-100 sm:p-6 dark:bg-dark-gray-800">
         <div className="mx-auto max-w-screen-xl">
             <div className="md:flex md:justify-between">
                 <div className="mb-6 md:mb-0">
@@ -46,16 +46,15 @@ export default function Footer(){
                     </div>
                 </div>
             </div>
-            <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <hr className="my-6 border-gray-400 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <div className="sm:flex sm:items-center sm:justify-between">
                 <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">University of Science</span>
                 <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                   <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">227 Nguyen Van Cu, District 5, Ho Chi Minh City</span>
-                </div>
-                <a href="https://www.flaticon.com/free-icons/training" title="training icons">Training icons created by Freepik - Flaticon</a>  
+                </div>  
             </div>
         </div>
-    </footer>
+    </div>
         </>
     )
 }

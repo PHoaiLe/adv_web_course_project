@@ -4,6 +4,7 @@ import { Button, DatePicker, Input } from 'antd'
 import { useRouter } from "next/navigation"
 import { useState }  from "react"
 import './ChangePasswordForm.css'
+import "@/styles/globals.css"
 import { POST_changePassword } from '@/app/api/user/account/password_edit/api'
 import { ApiStatusCodes } from '@/app/api/ApiStatusCode'
 import { HttpStatusCode } from 'axios'
@@ -66,20 +67,20 @@ function ChangePasswordForm()
                     <Input type='password' key={old_password_key} value={oldPassword}
                     name='password' required
                     onChange={(e) => {setOldPassword(e.target.value)}}
-                    />
+                    placeholder="Input your password here"/>
                     <Input type='password' key={new_password_key} value={newPassword}
                     name='rewrite_password' required
                     onChange={(e) => {setNewPassword(e.target.value)}}
-                    />
+                    placeholder="Your new password!!!"/>
 
                     <div style={messageStyle}>
                         <p>{message}</p>
                     </div>
                     
-                    <div className='user-detail-edit-text-content-buttons'>
-                        <Input key={saveButton_key} className='save-button'type='submit' value='Save'/>
+                    <div className='user-detail-edit-text-content-buttons flex space-x-4'>
+                        <Input key={saveButton_key} className='border-solid border-2 rounded-full w-1/3 text-black hover:text-white hover:bg-cyan-500' type='submit' value='Save'/>
                         <Input type='button'
-                        key={cancelButton_key} className='cancel-button' onClick={handleCancelButtonClick} value='Cancel' />
+                        key={cancelButton_key} className='border-solid border-2 rounded-full w-1/3 text-black hover:text-white hover:bg-cyan-500' onClick={handleCancelButtonClick} value='Cancel' />
                     </div>
                 </form>
             </div>

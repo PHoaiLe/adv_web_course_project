@@ -1,15 +1,12 @@
 
 .user-detail-info-title
 {
-    color: white;
-    font-family: Arial;
     font-style: normal;
     font-weight:normal;
     line-height: normal;
     font-size: larger;
     padding-left: 40px;
     height: max-content;
-    background: green;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     padding-bottom: 10px;

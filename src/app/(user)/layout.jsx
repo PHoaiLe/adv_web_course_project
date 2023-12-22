@@ -1,7 +1,7 @@
-import WebTopNavBar from "@/components/main/top_nav_bar/TopNavBar"
-import UserLeftMenu from "@/components/user/menu/UserLeftMenu"
+//import WebTopNavBar from "@/components/main/top_nav_bar/TopNavBar"
+//import UserLeftMenu from "@/components/user/menu/UserLeftMenu"
 import './layout.css'
-import TopNavBar from "@/components/main/top_nav_bar_2/TopNavBar"
+//import TopNavBar from "@/components/main/top_nav_bar_2/TopNavBar"
 import Sidebar from "@/components/Sidebar"
 import Navbar from "@/components/Navbar"
 import { getClonedUserData } from "../api/others/cloned_user_detail/api"

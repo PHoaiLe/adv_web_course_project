@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
       <TopNavBar/>
         {children}
       </body>
+      <Footer/>
     </html>
   )
 }
