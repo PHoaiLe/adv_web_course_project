@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from "react";
-
+import Link from "next/link.js";
 import UserDropdown from "./UserDropdown.js";
 import QuickAccessClassModal from "./classes/quick_access_class_modal/QuickAccessClassModal.jsx";
 import QuickCreateClassModal from "./classes/quick_create_class/QuickCreateClassModal.jsx";
@@ -154,7 +154,12 @@ export default function Navbar({UserInfor, ProvidedAllClasses, ProvidedJoinedCla
       <nav className="fixed top-0 left-0 w-full bg-blue-50 md:flex-row md:flex-nowrap md:justify-start flex items-center p-4 z-10">
         <div className="w-full mx-autp items-center flex justify-end md:flex-nowrap flex-wrap md:px-10 px-4">
           {/* Form */}
-
+          <div
+            className="md:block text-left md:pb-2 text-black mr-0 inline-block whitespace-nowrap text-3xl uppercase font-bold p-4 px-0"
+          ><Link href="/">
+            Educa
+            </Link>
+        </div>
           {addButton}
 
           <div className="md:flex hidden flex-row flex-wrap items-center lg:ml-3 rounded-full mr-3 hover:shadow hover:shadow-black">
