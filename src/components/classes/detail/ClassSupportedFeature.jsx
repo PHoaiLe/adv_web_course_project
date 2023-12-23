@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import MemberModal from "../member_modal/MemberModal"
+import { usePathname, useRouter } from "next/navigation"
 
 
 
@@ -10,10 +11,18 @@ function ClassSupportedFeature({ProvideProperties})
 {
 
     const [viewMemberModalOpen, setViewMemberModalOpen] = useState(false)
+    const router = useRouter();
+    const pathOfGrade = usePathname() + "/grade";
 
     function handleViewMemberModalOpenCallback(value)
     {
         setViewMemberModalOpen(value)
+    }
+
+
+    function handleGradeRedirect(event)
+    {
+        router.push(pathOfGrade)
     }
 
     return(
@@ -25,7 +34,9 @@ function ClassSupportedFeature({ProvideProperties})
                         <div className="flex border-2 rounded-lg border-neutral-600 border-opacity-50 p-8 sm:flex-row flex-col">
                             <div className="flex-grow">
                                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Danh sách điểm</h2>
-                                <button className="mt-3 text-indigo-500 hover:text-black hover:bg-indigo-300 inline-flex items-center ring ring-indigo-600 ring-offset-2">Xem tại đây</button> 
+                                <button className="mt-3 text-indigo-500 hover:text-black hover:bg-indigo-300 inline-flex items-center ring ring-indigo-600 ring-offset-2"
+                                onClick={(e) => {handleGradeRedirect(e)}}
+                                >Xem tại đây</button> 
                             </div>
                         </div>
                     </div>
