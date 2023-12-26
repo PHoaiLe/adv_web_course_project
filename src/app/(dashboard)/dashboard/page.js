@@ -1,85 +1,112 @@
 import React from "react";
-
-
-export default function Dashboard() {
-  
+ 
+export default function Dashboard(){
   return(
     <>
-      <div className="w-full h-full">
-          <div className="text-3xl text black mx-auto py-6 font-bold">My Classes</div>
-            <div className="px-4 md:px-10 mx-auto w-full">
-              <div>
-                <div className="flex flex-wrap">
-                 <div className="w-full lg:w-48 xl:w-96 x-4">
-                   <div className="relative flex flex-col border-2 border-black min-w-0 break-words bg-neutral-300 rounded mb-6 xl:mb-0 shadow-lg">
-                     <div className="flex-auto p-4">
-                       <div className="flex flex-wrap">
-                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
-                           <h5 className="text-black uppercase font-bold text-xl">
-                             Introduction to NodeJS
-                           </h5>
-                         </div>
-                       </div>
-                       <a href="#"><button className="w-full bg-cyan-500 text-white text-sm font-bold py-3 px-4 rounded-md hover:bg-black transition duration-300" type="button">Enter class</button></a>
-                     </div>
-                   </div>
-                 </div>
-                 <div className="w-full lg:w-48 xl:w-96 px-4">
-                   <div className="relative flex flex-col border-2 border-black min-w-0 break-words bg-neutral-300 rounded mb-6 xl:mb-0 shadow-lg">
-                     <div className="flex-auto p-4">
-                       <div className="flex flex-wrap">
-                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
-                           <h5 className="text-black uppercase font-bold text-xl">
-                             ReactJS guide
-                           </h5>
-                         </div>
-                       </div>
-                      <a href="#"><button className="w-full bg-cyan-500 text-white text-sm font-bold py-3 px-4 rounded-md hover:bg-black transition duration-300" type="button">Enter class</button></a>
-                     </div>
-                   </div>
-                 </div>
+  <div className="px-4 text-black text-3xl font-bold">Classes</div>
+      <div className="flex flex-wrap mt-5">
+        <div className="p-4 max-w-sm">
+            <div className="flex rounded-lg h-full dark:bg-gray-800 bg-gray-50 p-8 flex-col">
+                <div className="flex items-center mb-3">
+                    <div
+                        className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-black flex-shrink-0">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h2 className="text-black text-lg font-medium">Advanced Mobile Programming</h2>
+                </div>
+                <div className="flex flex-col justify-between flex-grow">
+                    <a href="#" class="mt-3 text-black dark:text-white hover:text-violet-700 inline-flex items-center">Enter class
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
+        </div>
+        <div className="p-4 max-w-sm">
+            <div className="flex rounded-lg h-full dark:bg-gray-800 bg-gray-50 p-8 flex-col">
+                <div className="flex items-center mb-3">
+                    <div
+                        className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-black flex-shrink-0">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h2 className="text-black text-lg font-medium">Visual Data</h2>
+                </div>
+                <div className="flex flex-col justify-between flex-grow">
+                    <a href="#" className="mt-3 text-black dark:text-white hover:text-violet-700 inline-flex items-center">Enter class
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            </div> 
-          <div className="text-3xl text black mx-auto py-6 font-bold">Courses</div>
-          <div className="px-4 md:px-10 mx-auto w-full">
-              <div>
-                <div className="flex flex-wrap">
-                 <div className="w-full lg:w-48 xl:w-96 x-4">
-                   <div className="relative flex flex-col border-2 border-black min-w-0 break-words bg-neutral-300 rounded mb-6 xl:mb-0 shadow-lg">
-                     <div className="flex-auto p-4">
-                       <div className="flex flex-wrap">
-                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
-                           <h5 className="text-black uppercase font-bold text-xl">
-                             Tailwind
-                           </h5>
-                         </div>
-                       </div>
-                       <a href="#"><button className="w-full bg-cyan-500 text-white text-sm font-bold py-3 px-4 rounded-md hover:bg-black transition duration-300" type="button">Join class</button></a>
-                     </div>
-                   </div>
-                 </div>
-                 <div className="w-full lg:w-48 xl:w-96 px-4">
-                   <div className="relative flex flex-col border-2 border-black min-w-0 break-words bg-neutral-300 rounded mb-6 xl:mb-0 shadow-lg">
-                     <div className="flex-auto p-4">
-                       <div className="flex flex-wrap">
-                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
-                           <h5 className="text-black uppercase font-bold text-xl">
-                             Create html css
-                           </h5>
-                         </div>
-                       </div>
-                      <a href="#"><button className="w-full bg-cyan-500 text-white text-sm font-bold py-3 px-4 rounded-md hover:bg-black transition duration-300" type="button">Join class</button></a>
-                     </div>
-                   </div>
-                 </div>
+        </div>
+
+        <div className="p-4 max-w-sm">
+            <div className="flex rounded-lg h-full dark:bg-gray-800 bg-gray-50 p-8 flex-col">
+                <div className="flex items-center mb-3">
+                    <div
+                        className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-black flex-shrink-0">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" className="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h2 className="text-black text-lg font-medium">Advanced Web Programming</h2>
+                </div>
+                <div className="flex flex-col justify-between flex-grow">
+                    <a href="#" className="mt-3 text-black dark:text-white hover:text-violet-700 inline-flex items-center">Enter class
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            </div>
-            </div> 
+        </div>
       </div>
-   </>
-)
+
+      <div className="px-4 text-black text-3xl font-bold">Courses</div>
+        <div className="flex flex-col mt-20">
+            <div className="group relative cursor-pointer overflow-hidden bg-gray-50 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10">
+                <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-indigo-400 transition-all duration-300 group-hover:scale-[10]"></span>
+                <div className="relative z-10 mx-auto max-w-md">
+                    <span className="grid h-20 w-20 place-items-center rounded-full bg-indigo-500 transition-all duration-300 group-hover:bg-indigo-300">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" className="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </span>
+                    <h2 className="mt-4 text-black text-xl font-medium">Software Engineering</h2>
+                    <div className="pt-5 text-base font-semibold leading-7">
+                        <p>
+                            <a href="#" className="text-black transition-all duration-300 group-hover:text-white">Join
+                                &rarr;
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </>
+  )
 }
+
+
+      
+
 
 // return (
   //   <>

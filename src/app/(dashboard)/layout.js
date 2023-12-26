@@ -108,9 +108,9 @@ async function DashboardRootLayout({children})
     return(
         <html lang='en'>
             <body>
+                <Sidebar />
                 <Navbar UserInfor={userInfo} ProvidedAllClasses={AllClasses} ProvidedJoinedClasses={JoinedClasses}/>
                 <div className="relative md:ml-64">
-                <Sidebar />
                     <div className="relative md:pt-32 pb-32 pt-12">
                         <div className="px-4 md:px-10 mx-auto w-full">
                             <div>
@@ -122,6 +122,7 @@ async function DashboardRootLayout({children})
                     </div>
                 </div>
                 <DashboardFooter/>
+            
             </body>
         </html>
     )

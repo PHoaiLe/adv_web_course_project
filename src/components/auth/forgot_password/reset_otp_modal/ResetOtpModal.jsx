@@ -44,7 +44,7 @@ function ResetOtpModal({ModalDisplay, handleReturnResultCallback})
     return(
         <>
             <div style={ModalDisplay}
-            className="md:container md:mx-auto px-4 bg-violet-500 border-dashed border-2 border-black rounded-lg py-32 mb-5 transition duration-150 ease-in-out z-10 absolute top-16 right-0 bottom-0 left-0">
+            className="md:container md:mx-auto h-dvh px-4 bg-violet-500 rounded-lg py-32 mt-10 transition duration-150 ease-in-out z-10 absolute top-16 right-0 bottom-0 left-0">
                 <form className="w-full border-black border-2 max-w-md mx-auto bg-white p-8 rounded-md shadow-md" action={handleResetOtp}>
                 <h1 className="text-center font-bold mb-3">FORGOT PASSWORD</h1>
                 <div className="mb-4">

@@ -19,7 +19,7 @@ const CreatePostModal = () => {
   };
   return (
     <>
-      <Button type="primary" onClick={showModal} className="ml-4 mb-4 px-4 text-xl text-black bg-indigo-500 hover:text-white hover:bg-cyan-500">
+      <Button type="primary" onClick={showModal} className="mx-4 mb-4 ml-4 text-xl text-black align-middle bg-cyan-600 hover:text-white hover:bg-cyan-500">
         Create Post
       </Button>
       <Modal
